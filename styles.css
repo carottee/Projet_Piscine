@@ -1,0 +1,195 @@
+body { background-color: #a5a5a5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2
+{color : #ffffff;
+    font-size : 40px;
+    text-align : center;
+    padding : 10px;
+}
+
+h3
+{color : #2d2a2a;
+    font-size : 30px;
+    padding : 15px;
+}
+
+
+h4 {
+    font:bold 14px Verdana;
+}
+
+h5 {
+    font: bold 23px Verdana;
+    text-align: center;
+}
+
+#header {
+    width: auto;
+    margin: auto;
+}
+
+#navigation{
+    width: auto;
+    height: 50px;
+    margin: auto;
+    border-radius: 10px 10px 10px 10px;
+    padding-left: 10px;
+}
+
+#main_page{
+    width: 1300px;
+    height: 600px;
+    border-radius: 10px 10px 10px 10px;
+    margin: auto;
+    background-color: #2d2a2a;
+    color: #ffffff;
+    padding-left: 10px;
+}
+
+.recherche {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    width: 400px;
+    height: 40px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 30px 0 0 30px;
+    outline: none;
+}
+
+.search-button {
+    height: 63px;
+    padding: 0 40px;
+    border: 2px solid #ccc;
+    border-left: none;
+    border-radius: 0 30px 30px 0;
+    background-color: #eeb253;
+    color: white;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #fda316;
+}
+
+
+.RDV_venir{
+    background-color: #eeb253;
+    width:300px;
+    height: 350px;
+    border-radius: 30px 30px 30px 30px;
+    margin: 20px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.RDV_passes{
+    background-color: #cccacc;
+    margin: auto;
+    width: 1000px;
+    height: 50px;
+    border-radius: 30px 30px 30px 30px;
+    padding: 10px;
+}
+
+#votre-compte{
+    margin: auto;
+    width: 700px;
+    height: auto;
+    border-radius: 30px 30px 30px 30px;
+    background-color: #2d2a2a;
+    color: #ffffff;
+    text-align: center;
+    padding-left: 20px;
+}
+
+#footer{
+    width: auto;
+    height: auto;
+    border-radius: 10px 10px 10px 10px;
+    padding: 5px;
+    background-color: #eeb253;
+}
+
+.right{
+    float: right;
+    padding-right: 10px;
+}
+
+.error {
+    color: red;
+    display: none;
+}
+
+.t-nav {
+    table-layout: fixed;
+    width: 1000px;
+    height: 50px;
+    border-collapse: collapse;
+    border: black;
+    border: 3px;
+    margin: auto;
+}
+
+
+button { /*curseur*/
+    cursor:pointer;
+    text-transform:capitalize;
+}
+
+.bouton {
+    border-radius: 30px 30px 30px 30px;
+    background: #eeb253;
+    border: none;
+    font:bold 14px Verdana;
+    padding: 20px 5px 20px 5px;
+    border:1px solid #ccc;
+    text-align: center;
+    width: 140px;
+    height: auto;
+    color: #cccacc;
+}
+
+.bouton:hover /*onglets couleurs de fond curseur*/
+{
+    border-radius: 30px 30px 30px 30px;
+    background: #f89905;
+    border:none;
+}
+
+input[type=text], input[type=password] { /*Caractéristiques des champs de type 'text' & 'password'*/
+    width: 400px;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 30px 30px 30px 30px;
+}
+
+input[type=submit] {
+    background-color: #eeb253;
+    color: #2d2a2a;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 170px;
+    border-radius: 30px 30px 30px 30px;
+}
+input[type=submit]:hover {
+    background-color: #fda316;
+    color: #2d2a2a;
+    border: 1px solid #fda316;
+    border-radius: 30px 30px 30px 30px;
+}
+
+a{
+    color:white;
+    text-decoration: none;
+}
