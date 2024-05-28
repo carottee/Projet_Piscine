@@ -14,7 +14,7 @@ function validatePassword() {
 
 
 function redirectToSignUp() {
-    window.location.href = "sign_up.html"; // Remplacez par l'URL de votre page d'inscription
+    window.location.href = "sign_up.html";
 }
 
 function details_rdv_finis() { //fonction pour afficher le détail du rdv fini
