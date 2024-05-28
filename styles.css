@@ -12,12 +12,17 @@ h2
 h3
 {color : #2d2a2a;
     font-size : 30px;
-    padding-top : 5px;
+    padding : 15px;
 }
 
 
 h4 {
     font:bold 14px Verdana;
+}
+
+h5 {
+    font: bold 23px Verdana;
+    text-align: center;
 }
 
 #header {
@@ -73,6 +78,25 @@ h4 {
 }
 
 
+.RDV_venir{
+    background-color: #eeb253;
+    width:300px;
+    height: 350px;
+    border-radius: 30px 30px 30px 30px;
+    margin: 20px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.RDV_passes{
+    background-color: #cccacc;
+    margin: auto;
+    width: 1000px;
+    height: 50px;
+    border-radius: 30px 30px 30px 30px;
+    padding: 10px;
+}
+
 #votre-compte{
     margin: auto;
     width: 700px;
@@ -118,16 +142,16 @@ button { /*curseur*/
     text-transform:capitalize;
 }
 
-.bouton { /*onglets*/
+.bouton {
     border-radius: 30px 30px 30px 30px;
     background: #eeb253;
     border: none;
     font:bold 14px Verdana;
-    padding:6px 0 6px 0;
+    padding: 20px 5px 20px 5px;
     border:1px solid #ccc;
     text-align: center;
     width: 140px;
-    height: 60px;
+    height: auto;
     color: #cccacc;
 }
 
@@ -163,4 +187,9 @@ input[type=submit]:hover {
     color: #2d2a2a;
     border: 1px solid #fda316;
     border-radius: 30px 30px 30px 30px;
+}
+
+a{
+    color:white;
+    text-decoration: none;
 }
