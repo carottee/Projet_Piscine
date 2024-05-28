@@ -92,9 +92,14 @@ h4 {
     background-color: #eeb253;
 }
 
-#footer-right{
+.right{
     float: right;
     padding-right: 10px;
+}
+
+.error {
+    color: red;
+    display: none;
 }
 
 .t-nav {
