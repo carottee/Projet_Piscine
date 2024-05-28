@@ -1,23 +1,23 @@
-body { background-color: #a5a5a5;
+body {
+    background-color: #a5a5a5;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h2
-{color : #ffffff;
-    font-size : 40px;
-    text-align : center;
-    padding : 10px;
+h2 {
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
 }
 
-h3
-{color : #2d2a2a;
-    font-size : 30px;
-    padding : 15px;
+h3 {
+    color: #2d2a2a;
+    font-size: 30px;
+    padding: 15px;
 }
-
 
 h4 {
-    font:bold 14px Verdana;
+    font: bold 14px Verdana;
 }
 
 h5 {
@@ -30,7 +30,7 @@ h5 {
     margin: auto;
 }
 
-#navigation{
+#navigation {
     width: auto;
     height: 50px;
     margin: auto;
@@ -38,7 +38,7 @@ h5 {
     padding-left: 10px;
 }
 
-#main_page{
+#main_page {
     width: 1300px;
     height: 600px;
     border-radius: 10px 10px 10px 10px;
@@ -77,10 +77,9 @@ h5 {
     background-color: #fda316;
 }
 
-
-.RDV_venir{
+.RDV_venir {
     background-color: #eeb253;
-    width:300px;
+    width: 300px;
     height: 350px;
     border-radius: 30px 30px 30px 30px;
     margin: 20px;
@@ -88,27 +87,27 @@ h5 {
     display: inline-block;
 }
 
-.RDV_passes{
+.RDV_passes {
     background-color: #cccacc;
     margin: auto;
     width: 1000px;
     height: 50px;
-    border-radius: 30px 30px 30px 30px;
+    border-radius: 30px;
     padding: 10px;
 }
 
-#votre-compte{
+#votre-compte {
     margin: auto;
     width: 700px;
     height: auto;
-    border-radius: 30px 30px 30px 30px;
+    border-radius: 30px;
     background-color: #2d2a2a;
     color: #ffffff;
     text-align: center;
     padding-left: 20px;
 }
 
-#footer{
+#footer {
     width: auto;
     height: auto;
     border-radius: 10px 10px 10px 10px;
@@ -116,7 +115,7 @@ h5 {
     background-color: #eeb253;
 }
 
-.right{
+.right {
     float: right;
     padding-right: 10px;
 }
@@ -131,8 +130,6 @@ h5 {
     width: 1000px;
     height: 50px;
     border-collapse: collapse;
-    border: black;
-    border: 3px;
     margin: auto;
 }
 
@@ -146,12 +143,10 @@ button { /*curseur*/
     border-radius: 30px 30px 30px 30px;
     background: #eeb253;
     border: none;
-    font:bold 14px Verdana;
-    padding: 20px 5px 20px 5px;
-    border:1px solid #ccc;
+    font: bold 14px Verdana;
+    padding: 20px 5px;
     text-align: center;
     width: 140px;
-    height: auto;
     color: #cccacc;
 }
 
@@ -182,6 +177,7 @@ input[type=submit] {
     width: 170px;
     border-radius: 30px 30px 30px 30px;
 }
+
 input[type=submit]:hover {
     background-color: #fda316;
     color: #2d2a2a;
@@ -189,7 +185,74 @@ input[type=submit]:hover {
     border-radius: 30px 30px 30px 30px;
 }
 
-a{
-    color:white;
+a {
+    color: white;
     text-decoration: none;
+}
+/* Custom CSS for main and sub buttons */
+.main-buttons, .sub-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Permet de faire passer les éléments à la ligne si nécessaire */
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.main-button, .sub-button {
+    position: relative;
+    margin: 10px;
+    cursor: pointer;
+    transition: border 0.3s, box-shadow 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centrage vertical */
+}
+
+.main-button img {
+    width: 200px; /* Ajustement à 100px */
+    height: 200px; /* Ajustement à 100px */
+    opacity: 0.8;
+    filter: blur(2px); /* Ajout d'un flou */
+    transition: opacity 0.3s;
+}
+
+.sub-button img {
+    width: 100px; /* Ajustement à 100px */
+    height: 100px; /* Ajustement à 100px */
+    opacity: 0.9;
+    filter: blur(2px); /* Ajout d'un flou */
+    transition: opacity 0.3s;
+}
+
+.main-button p, .sub-button p {
+    position: absolute;
+    color: black; /* Texte en noir */
+    font-size: 18px; /* Texte plus gros */
+    font-weight: bold; /* Texte en gras */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Ajout d'un flou derrière le texte */
+    top: 50%; /* Positionne le haut du texte à 50% du conteneur parent */
+    left: 50%; /* Positionne le côté gauche du texte à 50% du conteneur parent */
+    transform: translate(-50%, -50%); /* Déplace le texte de moitié de sa propre taille vers le haut et la gauche pour le centrer */
+}
+
+.main-button:hover, .sub-button:hover {
+    border: 4px solid orange; /* Modification de la taille de la bordure */
+
+}
+
+.main-button img:hover, .sub-button img:hover {
+    opacity: 1;
+    filter: blur(0); /* Retrait du flou */
+}
+
+
+.main-button.active {
+    border: 4px solid orange;
+
+}
+
+.main-button.active img {
+    filter: none; /* Retrait du flou uniquement pour le bouton actif */
 }
