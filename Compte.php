@@ -50,13 +50,14 @@ exit();
             </td>
         </tr>
     </table>
-    <br> <br>
+    <br>
 </div>
+
+<br> <br>
+
 <div id="votre-compte">
     <!-- zone de connexion -->
-    <br><br><br><br><br>
-    <br><br><br><br><br>
-
+    <br>
 
     <?php
     $database = "projet_piscine";
@@ -71,60 +72,50 @@ exit();
         $statut = $user['statut'];
         $mail = $user['mail'];
 
-        if($statut == 0){
+        if($statut == 0){ //client
             $sql = "select * from client where Mail = '$mail'";
         }
-        else if($statut == 1){
+        else if($statut == 1){ //coach
             $sql = "select * from coach where Mail = '$mail'";
         }
-        else if($statut == 2){
+        else if($statut == 2){ //admin
             $sql = "select * from admin where Mail = '$mail'";
         }
 
         $result = mysqli_query($db_handle, $sql);
 
-        if($statut == 0){
+        if($statut == 0){ //client
             while ($data = mysqli_fetch_assoc($result)){
-                echo " <h1>ID: " . $data['Mail']. "</h1>" . "<br>";
-                echo "mot de passe: " . $data['mdp'] . "<br>";
-                echo "Nom: " . $data['Nom'] . "<br>";
-                echo "Prenom: " . $data['Prenom'] . "<br>";
-                echo "ID: " . $data['ID'] . "<br>";
-                echo "Adresse: " . $data['Adresse'] . "<br>";
-                echo "numéro de carte étudiante: " . $data['carte'] . "<br>";
-
-                echo "<br>";
-                echo "<br>";
-                echo "<br>";
+                echo " <h1> <u> Mes informations</u> : </h1>";
+                echo " <h5> ID (mail) : " . $data['Mail'] . "</h5>";
+                echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
+                echo " <h5> Nom : ". $data['Nom'] . "</h5>";
+                echo " <h5> Prénom : " . $data['Prenom'] . "</h5>";
+                echo " <h5> ID : " . $data['ID'] . "</h5>";
+                echo " <h5> Adresse : " . $data['Adresse'] . "</h5>";
+                echo " <h5> Numéro de carte étudiante : " . $data['carte'] . "</h5>";
             }
         }
-        else if($statut == 1){
+        else if($statut == 1){ //coach
             while ($data = mysqli_fetch_assoc($result)){
-                echo " <h1>ID: " . $data['Mail']. "</h1>" . "<br>";
-                echo "mot de passe: " . $data['mdp'] . "<br>";
-                echo "Nom: " . $data['Nom'] . "<br>";
-                echo "Prénom: " . $data['Prenom'] . "<br>";
-                echo "photo: " . $data['photo'] . "<br>";
-                echo "ID: " . $data['ID'] . "<br>";
-                echo "discipline: " . $data['discipline'] . "<br>";
-                echo "CV: <embed src='" . $data['CV'] . "' type='application/pdf' width='100%' height='600px'><br>";    //    <embed src="chemin/vers/votre/fichier.pdf" type="application/pdf" width="100%" height="600px" />
-                echo "numéro: " . $data['num'] . "<br>";
-
-                echo "<br>";
-                echo "<br>";
-                echo "<br>";
+                echo " <h2>Mes informations : </h2>";
+                echo " <h5> ID (mail) : " . $data['Mail'] . "</h5>" . "</h5>";
+                echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
+                echo " <h5> Nom : " . $data['Nom'] . "<br>" . "</h5>";
+                echo " <h5> Prénom : " . $data['Prenom'] . "</h5>";
+                echo " <h5> Photo : " . $data['photo'] . "</h5>";
+                echo " <h5> ID : " . $data['ID'] . "</h5>";
+                echo " <h5> Discipline : " . $data['discipline'] . "</h5>";
+                echo " <h5> CV : <embed src='" . $data['CV'] . "' type='application/pdf' width='100%' height='600px'><br>";    //    <embed src="chemin/vers/votre/fichier.pdf" type="application/pdf" width="100%" height="600px" />
+                echo " <h5> Numéro : " . $data['num'] . "</h5>";
             }
         }
-        else if($statut == 2){
+        else if($statut == 2){ //admin
             while ($data = mysqli_fetch_assoc($result)) {
-                echo " <h1>ID: " . $data['Mail']. "</h1>" . "<br>";
-                echo "mot de passe: " . $data['mdp'] . "<br>";
-                echo "Nom: " . $data['Nom'] . "<br>";
-
-
-                echo "<br>";
-                echo "<br>";
-                echo "<br>";
+                echo " <h2>Mes informations : </h2>";
+                echo " <h5>ID (mail) : " . $data['Mail'] . "</h5>";
+                echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
+                echo " <h5> Nom : " . $data['Nom'] . "</h5>";
             }
         }
 
@@ -135,11 +126,9 @@ exit();
     mysqli_close($db_handle);
     ?>
 
-
-
-    <br><br><br><br><br>
-    <button onclick="window.location.href='deconnexion.html'">se deconnecter</button>
-    <br><br><br><br><br>
+    <br><br>
+    <button class="bouton" onclick="window.location.href='deconnexion.html'">Se déconnecter</button>
+    <br><br><br>
 </div>
 
 
