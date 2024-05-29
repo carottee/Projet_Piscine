@@ -3,6 +3,13 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+h1 {
+    color: #eeb253;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+}
+
 h2 {
     color: #ffffff;
     font-size: 40px;
@@ -39,13 +46,13 @@ h5 {
 }
 
 #main_page{
-    width: 1300px;
-    height: 400px;
-    border-radius: 10px;
-    margin: auto;
+    width: auto;
+    height: auto;
+    border-radius: 30px;
+    margin-top: 30px;
     background-color: #2d2a2a;
     color: #ffffff;
-    padding-left: 10px;
+    padding: 20px;
 }
 
 .recherche {
@@ -104,20 +111,19 @@ h5 {
     background-color: #2d2a2a;
     color: #ffffff;
     text-align: center;
-    padding-left: 20px;
 }
 
 #footer {
     width: auto;
     height: auto;
-    border-radius: 10px;
+    border-radius: 30px;
     padding: 5px;
     background-color: #eeb253;
 }
 
 .right {
     float: right;
-    padding-right: 10px;
+    padding-right: 15px;
 }
 
 .error {
@@ -143,10 +149,11 @@ button {
     background: #eeb253;
     border: none;
     font: bold 14px Verdana;
-    padding: 20px 5px;
+    padding: 15px;
     text-align: center;
-    width: 140px;
-    color: #cccacc;
+    width: 170px;
+    height: 70px;
+    color: #ffffff;
 }
 
 .bouton:hover {
@@ -435,4 +442,6 @@ table {
 #valider {
     margin-top: 20px; /* Espacement entre le tableau et le bouton */
     text-align: center; /* Centrer horizontalement */
+    width: auto;
+    padding: 20px;
 }
