@@ -1,0 +1,44 @@
+Index: rdv_fini_test.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>rdv fini test</title>\r\n</head>\r\n<body>\r\n\r\nRDV avec coach Durham\r\nLe 12 avril 2024\r\nEn salle G-014.\r\n\r\n</body>\r\n</html>
+===================================================================
+diff --git a/rdv_fini_test.html b/rdv_fini_test.html
+--- a/rdv_fini_test.html	
++++ b/rdv_fini_test.html	
+@@ -1,14 +1,28 @@
+ <!DOCTYPE html>
+-<html lang="en">
++<html lang="fr">
+ <head>
+     <meta charset="UTF-8">
+-    <title>rdv fini test</title>
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Affichage du chiffre</title>
+ </head>
+ <body>
++<div id="resultat"></div>
++
++<script>
++    // Définition de la fonction qui retourne un chiffre
++    function calculerChiffre() {
++        // Ici, vous pouvez remplacer ceci par votre propre logique de calcul
++        return Math.floor(Math.random() * 100); // Retourne un nombre aléatoire entre 0 et 99
++    }
+ 
+-RDV avec coach Durham
+-Le 12 avril 2024
+-En salle G-014.
++    // Appeler la fonction et récupérer le résultat
++    var chiffre = calculerChiffre();
+ 
++    // Sélectionner l'élément où vous voulez afficher le résultat
++    var elementResultat = document.getElementById("resultat");
++
++    // Mettre à jour le contenu de l'élément avec le chiffre
++    elementResultat.textContent = "Le chiffre est : " + chiffre;
++</script>
+ </body>
+-</html>
+\ No newline at end of file
++</html>

@@ -1,0 +1,553 @@
+Index: sign_in_up.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Sign In</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\" type=\"text/javascript\"></script>\r\n</head>\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.html\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\"\r\n                                        width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <button class=\"bouton\" id=\"accueil\" type=\"button\"><a href=\"Accueil.html\"> Accueil </a></button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"parcourir\" type=\"button\"><a href=\"Parcourir.html\"> Tout parcourir </a>\r\n                </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"recherche\" type=\"button\"><a href=\"Recherche.html\"> Recherche </a></button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"rdv\" type=\"button\"><a href=\"RDV.html\"> RDV </a></button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"compte\" type=\"button\"><a href=\"Compte.html\"> Votre compte </a></button>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n<br>\r\n<div id=\"votre-compte\">\r\n    <!-- zone de connexion -->\r\n\r\n    <form action=\"Accueil.html\" method=\"POST\">\r\n        <h2>Connexion</h2>\r\n\r\n        <h4><b>Nom d'utilisateur</b></h4>\r\n        <input type=\"text\" placeholder=\"Entrer le nom d'utilisateur\" name=\"username\" required>\r\n\r\n        <br><br>\r\n\r\n        <h4><b>Mot de passe</b></h4>\r\n        <input type=\"password\" placeholder=\"Entrer le mot de passe\" name=\"password\" required>\r\n\r\n        <br><br>\r\n\r\n\r\n        <input type=\"submit\" id='submit' value='SE CONNECTER'>\r\n\r\n        <p>----------------------------------------------------------------------------------</p>\r\n\r\n    </form>\r\n\r\n    <h4>Pas encore de compte ? Inscivez-vous !</h4>\r\n    <input type=\"submit\" onclick=\"window.location.href='sign_up.html'\" value=\"S'INSCRIRE\">\r\n\r\n\r\n</div>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/sign_in_up.html b/sign_in_up.html
+--- a/sign_in_up.html	(revision 6faaa0043875d0c0c66a0cbf6b7a050988f97a08)
++++ b/sign_in_up.html	(date 1716930215257)
+@@ -18,20 +18,19 @@
+     <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
+         <tr> <!--nouvelle ligne-->
+             <td> <!--nouvelle colonne-->
+-                <button class="bouton" id="accueil" type="button"><a href="Accueil.html"> Accueil </a></button>
++                <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="parcourir" type="button"><a href="Parcourir.html"> Tout parcourir </a>
+-                </button>
++                <a href="Parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="recherche" type="button"><a href="Recherche.html"> Recherche </a></button>
++                <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="rdv" type="button"><a href="RDV.html"> RDV </a></button>
++                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="compte" type="button"><a href="Compte.html"> Votre compte </a></button>
++                <a href="Compte.html"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+             </td>
+         </tr>
+     </table>
+@@ -41,16 +40,16 @@
+ <div id="votre-compte">
+     <!-- zone de connexion -->
+ 
+-    <form action="Accueil.html" method="POST">
++    <form action="connexion.php" method="POST">
+         <h2>Connexion</h2>
+ 
+-        <h4><b>Nom d'utilisateur</b></h4>
+-        <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
++        <h4><b>email</b></h4>
++        <input type="text" placeholder="Entrer l'adresse email" name="mail" id="mail" required>
+ 
+         <br><br>
+ 
+         <h4><b>Mot de passe</b></h4>
+-        <input type="password" placeholder="Entrer le mot de passe" name="password" required>
++        <input type="password" placeholder="Entrer le mot de passe" name="password" id="password" required>
+ 
+         <br><br>
+ 
+Index: Compte.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Votre Compte</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt = \"voici le logo sportify\" height = \"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.html\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <button class=\"bouton\" id=\"accueil\" type=\"button\"> <a href=\"Accueil.html\"> Accueil </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"parcourir\" type=\"button\"> <a href=\"Parcourir.html\"> Tout parcourir </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"recherche\" type=\"button\"> <a href=\"Recherche.html\"> Recherche </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"rdv\" type=\"button\"> <a href=\"RDV.html\"> RDV </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"compte\" type=\"button\"> <a href=\"Compte.html\"> Votre compte </a> </button>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n\r\n    <br> <br>\r\n\r\n    <div id=\"votre-compte\">\r\n        <!-- zone de connexion -->\r\n\r\n        <form action=\"Accueil.html\" method=\"POST\">\r\n            <h2>Connexion</h2>\r\n\r\n            <h4><b>Nom d'utilisateur</b></h4>\r\n            <input type=\"text\" placeholder=\"Entrer le nom d'utilisateur\" name=\"username\" required>\r\n\r\n            <br><br>\r\n\r\n            <h4><b>Mot de passe</b></h4>\r\n            <input type=\"password\" placeholder=\"Entrer le mot de passe\" name=\"password\" required>\r\n\r\n            <br><br>\r\n\r\n\r\n            <input type=\"submit\" id='submit' value='LOGIN' >\r\n\r\n        </form>\r\n\r\n    </div>\r\n</div>\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Compte.html b/Compte.html
+--- a/Compte.html	(revision 6faaa0043875d0c0c66a0cbf6b7a050988f97a08)
++++ b/Compte.html	(date 1716934892284)
+@@ -19,48 +19,34 @@
+     <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
+         <tr> <!--nouvelle ligne-->
+             <td> <!--nouvelle colonne-->
+-                <button class="bouton" id="accueil" type="button"> <a href="Accueil.html"> Accueil </a> </button>
++                <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="parcourir" type="button"> <a href="Parcourir.html"> Tout parcourir </a> </button>
++                <a href="Parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="recherche" type="button"> <a href="Recherche.html"> Recherche </a> </button>
++                <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="rdv" type="button"> <a href="RDV.html"> RDV </a> </button>
++                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="compte" type="button"> <a href="Compte.html"> Votre compte </a> </button>
++                <a href="Compte.html"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+             </td>
+         </tr>
+     </table>
+-
++    <br> <br>
++</div>
+     <br> <br>
+ 
+     <div id="votre-compte">
+-        <!-- zone de connexion -->
+-
+-        <form action="Accueil.html" method="POST">
+-            <h2>Connexion</h2>
+-
+-            <h4><b>Nom d'utilisateur</b></h4>
+-            <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+-
+-            <br><br>
+ 
+-            <h4><b>Mot de passe</b></h4>
+-            <input type="password" placeholder="Entrer le mot de passe" name="password" required>
++        <div><button onclick="window.location.href = 'deconnexion.html'">deconnexion</button></div>
+ 
+-            <br><br>
+-
+-
+-            <input type="submit" id='submit' value='LOGIN' >
+-
+-        </form>
+-
+     </div>
+-</div>
+ 
++
++
++
+ </body>
+ </html>
+Index: Recherche.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <title>Recherche</title>\r\n  <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n\r\n\r\n<body>\r\n\r\n<div id=\"header\">\r\n  <img src=\"logo_sportify.png\" alt = \"voici le logo sportify\" height = \"120\" width=\"1350\">\r\n  <div class=\"right\">\r\n    <a href=\"sign_in_up.html\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n  </div>\r\n</div>\r\n\r\n<div id=\"navigation\">\r\n\r\n  <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n    <tr> <!--nouvelle ligne-->\r\n      <td> <!--nouvelle colonne-->\r\n        <button class=\"bouton\" id=\"accueil\" type=\"button\"> <a href=\"Accueil.html\"> Accueil </a> </button>\r\n      </td>\r\n      <td>\r\n        <button class=\"bouton\" id=\"parcourir\" type=\"button\"> <a href=\"Parcourir.html\"> Tout parcourir </a> </button>\r\n      </td>\r\n      <td>\r\n        <button class=\"bouton\" id=\"recherche\" type=\"button\"> <a href=\"Recherche.html\"> Recheche </a> </button>\r\n      </td>\r\n      <td>\r\n        <button class=\"bouton\" id=\"rdv\" type=\"button\"> <a href=\"RDV.html\"> RDV </a> </button>\r\n      </td>\r\n      <td>\r\n        <button class=\"bouton\" id=\"compte\" type=\"button\"> <a href=\"Compte.html\"> Votre compte </a> </button>\r\n      </td>\r\n    </tr>\r\n  </table>\r\n\r\n  <br> <br>\r\n\r\n</div>\r\n<br>\r\n<br>\r\n\r\n<div class=\"recherche\" style=\"display: flex; justify-content: center;\">\r\n  <input type=\"texte\" class=\"search-bar\" placeholder=\"Rechercher...\">\r\n  <button type=\"valider\" class=\"search-button\">\uD83D\uDD0D</button>\r\n</div>\r\n\r\n<br>\r\n<br>\r\n<div id=\"footer\" style=\"display: flex; justify-content: space-between;\">\r\n\r\n\r\n  <ul>\r\n    <h3>Nous contacter </h3>\r\n    <li> Téléphone : <u> (+33) 06 05 04 03 02 </u> </li>\r\n    <li> Email : <a href = \"mailto.sportify@gmail.com\"> sportify@gmail.com </a> </li>\r\n    <li> Sur place : <address> 43 Quai de Grenelle, 75015 Paris </address> </li>\r\n  </ul>\r\n\r\n  <div id=\"footer-right\">\r\n    <!--carte google maps insérée--> <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5250.725751806412!2d2.2838522762051072!3d48.85129037133122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e670049543178d%3A0xcda73a49149d471f!2sOMNES%20Education!5e0!3m2!1sfr!2sfr!4v1716841516349!5m2!1sfr!2sfr\" width=\"800\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" width=\"600\" height=\"350\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>\r\n  </div>\r\n\r\n</div>\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Recherche.html b/Recherche.html
+--- a/Recherche.html	(revision 6faaa0043875d0c0c66a0cbf6b7a050988f97a08)
++++ b/Recherche.html	(date 1716929774615)
+@@ -17,29 +17,26 @@
+ </div>
+ 
+ <div id="navigation">
+-
+   <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
+     <tr> <!--nouvelle ligne-->
+       <td> <!--nouvelle colonne-->
+-        <button class="bouton" id="accueil" type="button"> <a href="Accueil.html"> Accueil </a> </button>
++        <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
+       </td>
+       <td>
+-        <button class="bouton" id="parcourir" type="button"> <a href="Parcourir.html"> Tout parcourir </a> </button>
++        <a href="Parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir  </button></a>
+       </td>
+       <td>
+-        <button class="bouton" id="recherche" type="button"> <a href="Recherche.html"> Recheche </a> </button>
++        <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+       </td>
+       <td>
+-        <button class="bouton" id="rdv" type="button"> <a href="RDV.html"> RDV </a> </button>
++        <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV  </button></a>
+       </td>
+       <td>
+-        <button class="bouton" id="compte" type="button"> <a href="Compte.html"> Votre compte </a> </button>
++        <a href="Compte.html"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+       </td>
+     </tr>
+   </table>
+-
+   <br> <br>
+-
+ </div>
+ <br>
+ <br>
+Index: connexion.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/connexion.php b/connexion.php
+new file mode 100644
+--- /dev/null	(date 1716934280249)
++++ b/connexion.php	(date 1716934280249)
+@@ -0,0 +1,55 @@
++<?php
++
++$database = "projet_piscine";
++
++$db_handle = mysqli_connect('localhost', 'root', '');
++$db_found = mysqli_select_db($db_handle, $database);
++
++if ($db_found) {
++
++
++    $mail = $_POST['mail'];
++    $mdp = $_POST['password'];
++
++
++    $sql_client = "select * from client where Mail = '$mail' and mdp = '$mdp'";
++    $sql_coach = "select * from coach where Mail = '$mail' and mdp = '$mdp'";
++    $sql_admin = "select * from admin where Mail = '$mail' and mdp = '$mdp'";
++
++    $result_client = mysqli_query($db_handle, $sql_client);
++    $result_coach = mysqli_query($db_handle, $sql_coach);
++    $result_admin = mysqli_query($db_handle, $sql_admin);
++
++    // statut 0: client, 1: coach, 2: admin
++    if(mysqli_num_rows($result_client) != 0){
++        $sql = "insert into session (`statut`, `mail`) values ('0', '$mail')";
++        $result = mysqli_query($db_handle, $sql);
++        echo "<script> window.location.href = 'Accueil.html' </script>";
++
++    }else if(mysqli_num_rows($result_coach) != 0){
++        $sql = "insert into session (`statut`, `mail`) values ('1', '$mail')";
++        $result = mysqli_query($db_handle, $sql);
++        echo "<script> window.location.href = 'Accueil.html' </script>";
++
++    }else if(mysqli_num_rows($result_admin) != 0){
++        $sql = "insert into session (`statut`, `mail`) values ('2', '$mail')";
++        $result = mysqli_query($db_handle, $sql);
++        echo "<script> window.location.href = 'Accueil.html' </script>";
++
++    }else{
++        echo "  <script>alert('email ou mot de passe invalide'); window.location.href = 'sign_in_up.html'</script> ";
++
++    }
++
++
++
++
++} else {
++    echo "database not found";
++}
++
++mysqli_close($db_handle);
++
++?>
++
++
+Index: sign_up.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Sign up</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\" type=\"text/javascript\"></script>\r\n</head>\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt = \"voici le logo sportify\" height = \"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.html\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <button class=\"bouton\" id=\"accueil\" type=\"button\"> <a href=\"Accueil.html\"> Accueil </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"parcourir\" type=\"button\"> <a href=\"Parcourir.html\"> Tout parcourir </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"recherche\" type=\"button\"> <a href=\"Recherche.html\"> Recherche </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"rdv\" type=\"button\"> <a href=\"RDV.html\"> RDV </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"compte\" type=\"button\"> <a href=\"Compte.html\"> Votre compte </a> </button>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n<br>\r\n<div id=\"votre-compte\">\r\n    <!-- zone de connexion -->\r\n\r\n    <form action=\"sign_up.php\" method=\"POST\" id=\"signupForm\" onsubmit=\"return validatePassword()\">\r\n        <h2>Connexion</h2>\r\n\r\n        <label>Email :</label><br>\r\n        <input type=\"text\" placeholder=\"Entrer le nom d'utilisateur\" id=\"mail\" name=\"mail\" required>\r\n\r\n        <br><br>\r\n\r\n        <label for=\"password\">Mot de passe :</label><br>\r\n        <input type=\"password\" id=\"password\" name=\"password\" required><br><br>\r\n\r\n        <label for=\"confirm_password\">Confirmer le mot de passe :</label><br>\r\n        <input type=\"password\" id=\"confirm_password\" name=\"confirm_password\" required><br><br>\r\n\r\n\r\n        <label>Nom: </label><br>\r\n        <input type=\"text\" id=\"nom\" name=\"nom\" required><br><br>\r\n\r\n        <label>Prenom: </label><br>\r\n        <input type=\"text\" id=\"prenom\" name=\"prenom\" required><br><br>\r\n\r\n        <label>Numéro de carte étudiante: </label><br>\r\n        <input type=\"number\" id=\"num\" name=\"num\" required><br><br>\r\n\r\n        <label>Adresse: </label><br>\r\n        <input type=\"text\" id=\"adresse\" name=\"adresse\" required><br><br>\r\n\r\n        <span id=\"error_message\" class=\"error\">Les mots de passe ne correspondent pas.</span><br>\r\n\r\n        <input type=\"submit\" id='submit' value='S&apos;INSCRIRE' >\r\n\r\n\r\n\r\n    </form>\r\n\r\n</div>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/sign_up.html b/sign_up.html
+--- a/sign_up.html	(revision 6faaa0043875d0c0c66a0cbf6b7a050988f97a08)
++++ b/sign_up.html	(date 1716929741624)
+@@ -17,19 +17,19 @@
+     <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
+         <tr> <!--nouvelle ligne-->
+             <td> <!--nouvelle colonne-->
+-                <button class="bouton" id="accueil" type="button"> <a href="Accueil.html"> Accueil </a> </button>
++                <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="parcourir" type="button"> <a href="Parcourir.html"> Tout parcourir </a> </button>
++                <a href="Parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="recherche" type="button"> <a href="Recherche.html"> Recherche </a> </button>
++                <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="rdv" type="button"> <a href="RDV.html"> RDV </a> </button>
++                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="compte" type="button"> <a href="Compte.html"> Votre compte </a> </button>
++                <a href="Compte.html"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+             </td>
+         </tr>
+     </table>
+Index: deconnexion.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/deconnexion.html b/deconnexion.html
+new file mode 100644
+--- /dev/null	(date 1716934181714)
++++ b/deconnexion.html	(date 1716934181714)
+@@ -0,0 +1,69 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>Sign In</title>
++    <link href="styles.css" rel="stylesheet" type="text/css"/>
++    <script src="animations.js" type="text/javascript"></script>
++</head>
++<body>
++<div id="header">
++    <img src="logo_sportify.png" alt="voici le logo sportify" height="120" width="1350">
++    <div class="right">
++        <a href="sign_in_up.html"> <img src="account_circle_white.png" alt="voici le logo se connecter" height="60"
++                                        width="60"> </a>
++    </div>
++</div>
++<div id="navigation">
++    <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
++        <tr> <!--nouvelle ligne-->
++            <td> <!--nouvelle colonne-->
++                <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
++            </td>
++            <td>
++                <a href="Parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir  </button></a>
++            </td>
++            <td>
++                <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
++            </td>
++            <td>
++                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV  </button></a>
++            </td>
++            <td>
++                <a href="Compte.html"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
++            </td>
++        </tr>
++    </table>
++    <br> <br>
++</div>
++<br>
++<div id="votre-compte">
++    <!-- zone de connexion -->
++
++    <form action="deconnexion.php" method="POST">
++        <h2>Deconnexion</h2>
++        <h4>assurons de votre identité</h4>
++        <br><br>
++        <h4><b>email</b></h4>
++        <input type="text" placeholder="Entrer l'adresse email" name="mail" id="mail" required>
++
++        <br><br>
++
++        <h4><b>Mot de passe</b></h4>
++        <input type="password" placeholder="Entrer le mot de passe" name="password" id="password" required>
++
++        <br><br>
++
++
++        <input type="submit" id='submit' value='SE DECONNECTER'>
++
++
++
++    </form>
++
++
++
++
++</div>
++</body>
++</html>
+\ No newline at end of file
+Index: deconnexion.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/deconnexion.php b/deconnexion.php
+new file mode 100644
+--- /dev/null	(date 1716934482508)
++++ b/deconnexion.php	(date 1716934482508)
+@@ -0,0 +1,26 @@
++<?php
++
++$database = "projet_piscine";
++
++$db_handle = mysqli_connect('localhost', 'root', '');
++$db_found = mysqli_select_db($db_handle, $database);
++
++if ($db_found) {
++
++
++    $mail = $_POST['mail'];
++    $sql = "delete from session where mail = '$mail'";
++    $result = mysqli_query($db_handle, $sql);
++
++    echo " <script> window.location.href = 'sign_in_up.html' </script> ";
++
++
++} else {
++    echo "database not found";
++}
++
++mysqli_close($db_handle);
++
++?>
++
++
+Index: rdv_fini_test.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>rdv fini test</title>\r\n</head>\r\n<body>\r\n\r\nRDV avec coach Durham\r\nLe 12 avril 2024\r\nEn salle G-014.\r\n\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/rdv_fini_test.html b/rdv_fini_test.html
+--- a/rdv_fini_test.html	(revision 6faaa0043875d0c0c66a0cbf6b7a050988f97a08)
++++ b/rdv_fini_test.html	(date 1716932153631)
+@@ -1,14 +1,28 @@
+ <!DOCTYPE html>
+-<html lang="en">
++<html lang="fr">
+ <head>
+     <meta charset="UTF-8">
+-    <title>rdv fini test</title>
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Affichage du chiffre</title>
+ </head>
+ <body>
++<div id="resultat"></div>
++
++<script>
++    // Définition de la fonction qui retourne un chiffre
++    function calculerChiffre() {
++        // Ici, vous pouvez remplacer ceci par votre propre logique de calcul
++        return Math.floor(Math.random() * 100); // Retourne un nombre aléatoire entre 0 et 99
++    }
+ 
+-RDV avec coach Durham
+-Le 12 avril 2024
+-En salle G-014.
++    // Appeler la fonction et récupérer le résultat
++    var chiffre = calculerChiffre();
+ 
++    // Sélectionner l'élément où vous voulez afficher le résultat
++    var elementResultat = document.getElementById("resultat");
++
++    // Mettre à jour le contenu de l'élément avec le chiffre
++    elementResultat.textContent = "Le chiffre est : " + chiffre;
++</script>
+ </body>
+-</html>
+\ No newline at end of file
++</html>
+Index: Accueil.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\" xmlns:https=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Accueil</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\" type=\"text/javascript\"></script>\r\n</head>\r\n\r\n\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt = \"voici le logo sportify\" height = \"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.html\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <button class=\"bouton\" id=\"accueil\" type=\"button\"> <a href=\"Accueil.html\"> Accueil </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"parcourir\" type=\"button\"> <a href=\"Parcourir.html\"> Tout parcourir </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"recherche\" type=\"button\"> <a href=\"Recherche.html\"> Recherche </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"rdv\" type=\"button\"> <a href=\"RDV.html\"> RDV </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"compte\" type=\"button\"> <a href=\"Compte.html\"> Votre compte </a> </button>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n<br>\r\n<div id=\"main_page\">\r\n    <p>Carrousel évènements de la semaine</p>\r\n</div>\r\n\r\n\r\n<br>\r\n<div id=\"footer\" style=\"display: flex; justify-content: space-between;\">\r\n\r\n\r\n    <ul>\r\n        <h3>Nous contacter </h3>\r\n        <li> Téléphone : <u> (+33) 06 05 04 03 02 </u> </li>\r\n        <li> Email : <a href = \"mailto.sportify@gmail.com\"> sportify@gmail.com </a> </li>\r\n        <li> Sur place : <address> 43 Quai de Grenelle, 75015 Paris </address> </li>\r\n    </ul>\r\n\r\n    <div class=\"right\">\r\n        <!--carte google maps insérée--> <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5250.725751806412!2d2.2838522762051072!3d48.85129037133122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e670049543178d%3A0xcda73a49149d471f!2sOMNES%20Education!5e0!3m2!1sfr!2sfr!4v1716841516349!5m2!1sfr!2sfr\" width=\"800\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" width=\"600\" height=\"350\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>\r\n    </div>\r\n\r\n</div>\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Accueil.html b/Accueil.html
+--- a/Accueil.html	(revision 6faaa0043875d0c0c66a0cbf6b7a050988f97a08)
++++ b/Accueil.html	(date 1716929576715)
+@@ -21,19 +21,19 @@
+     <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
+         <tr> <!--nouvelle ligne-->
+             <td> <!--nouvelle colonne-->
+-                <button class="bouton" id="accueil" type="button"> <a href="Accueil.html"> Accueil </a> </button>
++                <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="parcourir" type="button"> <a href="Parcourir.html"> Tout parcourir </a> </button>
++                <a href="Parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="recherche" type="button"> <a href="Recherche.html"> Recherche </a> </button>
++                <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="rdv" type="button"> <a href="RDV.html"> RDV </a> </button>
++                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="compte" type="button"> <a href="Compte.html"> Votre compte </a> </button>
++                <a href="Compte.html"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+             </td>
+         </tr>
+     </table>
+Index: animations.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>function validatePassword() {\r\n    var password = document.getElementById(\"password\").value;\r\n    var confirm_password = document.getElementById(\"confirm_password\").value;\r\n    var error_message = document.getElementById(\"error_message\");\r\n\r\n    if (password !== confirm_password) {\r\n        error_message.style.display = \"block\";\r\n        return false; // Empêche l'envoi du formulaire\r\n    } else {\r\n        error_message.style.display = \"none\";\r\n        return true; // Permet l'envoi du formulaire\r\n    }\r\n}\r\n\r\n\r\nfunction redirectToSignUp() {\r\n    window.location.href = \"sign_up.html\";\r\n}\r\n\r\nfunction details_rdv_finis() { //fonction pour afficher le détail du rdv fini\r\n    var xhttp = new XMLHttpRequest();\r\n    xhttp.onreadystatechange = function() {\r\n        if (this.readyState == 4 && this.status == 200) {\r\n            document.getElementById(\"detail_rdv_fini\").innerHTML = this.responseText;\r\n        }\r\n    };\r\n    xhttp.open(\"GET\", \"rdv_fini_test.html\", true);\r\n    xhttp.send();\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/animations.js b/animations.js
+--- a/animations.js	(revision 6faaa0043875d0c0c66a0cbf6b7a050988f97a08)
++++ b/animations.js	(date 1716933010711)
+@@ -11,11 +11,11 @@
+         return true; // Permet l'envoi du formulaire
+     }
+ }
++let statut;
+ 
++var elementResultat = document.getElementById("res");
+ 
+-function redirectToSignUp() {
+-    window.location.href = "sign_up.html";
+-}
++elementResultat.textContent = "statut : " + statut;
+ 
+ function details_rdv_finis() { //fonction pour afficher le détail du rdv fini
+     var xhttp = new XMLHttpRequest();
+Index: RDV.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\" xmlns:display=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Mes RDV</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\" type=\"text/javascript\"></script>\r\n</head>\r\n\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt = \"voici le logo sportify\" height = \"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.html\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <button class=\"bouton\" id=\"accueil\" type=\"button\"> <a href=\"Accueil.html\"> Accueil </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"parcourir\" type=\"button\"> <a href=\"Parcourir.html\"> Tout parcourir </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"recherche\" type=\"button\"> <a href=\"Recherche.html\"> Recherche </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"rdv\" type=\"button\"> <a href=\"RDV.html\"> <b> RDV </b> </a> </button>\r\n            </td>\r\n            <td>\r\n                <button class=\"bouton\" id=\"compte\" type=\"button\"> <a href=\"Compte.html\"> Votre compte </a> </button>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br>\r\n</div>\r\n<br> <br> <br>\r\n\r\n<div>\r\n    <h3>RDV à venir : </h3>\r\n\r\n    <div class=\"RDV_venir\">\r\n        <h5>RDV 1</h5>\r\n        <ul>\r\n            <li>Coach</li>\r\n            <li>Date/Heure</li>\r\n            <li>Adresse</li>\r\n            <li>Documents ajoutés</li>\r\n            <li>Infos supp</li>\r\n        </ul>\r\n    </div>\r\n\r\n    <div class=\"RDV_venir\">\r\n        <h5>RDV 2</h5>\r\n        <ul>\r\n            <li>Coach</li>\r\n            <li>Date/Heure</li>\r\n            <li>Adresse</li>\r\n            <li>Documents ajoutés</li>\r\n            <li>Infos supp</li>\r\n        </ul>\r\n    </div>\r\n\r\n    <div class=\"RDV_venir\">\r\n        <h5>RDV 3</h5>\r\n        <ul>\r\n            <li>Coach</li>\r\n            <li>Date/Heure</li>\r\n            <li>Adresse</li>\r\n            <li>Documents ajoutés</li>\r\n            <li>Infos supp</li>\r\n        </ul>\r\n    </div>\r\n\r\n    <div class=\"RDV_venir\">\r\n        <h5>RDV 4</h5>\r\n        <ul>\r\n            <li>Coach</li>\r\n            <li>Date/Heure</li>\r\n            <li>Adresse</li>\r\n            <li>Documents ajoutés</li>\r\n            <li>Infos supp</li>\r\n        </ul>\r\n    </div>\r\n\r\n    <div class=\"RDV_venir\">\r\n        <h5>RDV 5</h5>\r\n        <ul>\r\n            <li>Coach</li>\r\n            <li>Date/Heure</li>\r\n            <li>Adresse</li>\r\n            <li>Documents ajoutés</li>\r\n            <li>Infos supp</li>\r\n        </ul>\r\n    </div>\r\n\r\n</div>\r\n\r\n\r\n<div>\r\n    <h3>RDV passés : </h3>\r\n\r\n    <center>\r\n\r\n    <button type=\"button\" class=\"RDV_passes\" onclick=\"details_rdv_finis()\">\r\n        RDV 1\r\n        <div id=\"detail_rdv_fini\"> Cliquez pour voir le détail </div> <br>\r\n    </button> <br> <br> <br>\r\n\r\n\r\n    <button type=\"button\" class=\"RDV_passes\" onclick=\"details_rdv_finis()\">\r\n        RDV 2\r\n        <div id=\"detail_rdv_fini2\"> Cliquez pour voir le détail </div> <br>\r\n    </button> <br> <br> <br>\r\n\r\n\r\n    <button type=\"button\" class=\"RDV_passes\" onclick=\"details_rdv_finis()\">\r\n        RDV 3\r\n        <div id=\"detail_rdv_fini3\"> Cliquez pour voir le détail </div> <br>\r\n    </button> <br> <br> <br>\r\n\r\n\r\n    <button type=\"button\" class=\"RDV_passes\" onclick=\"details_rdv_finis()\">\r\n        RDV 4\r\n        <div id=\"detail_rdv_fini4\"> Cliquez pour voir le détail </div> <br>\r\n    </button> <br> <br> <br>\r\n\r\n    </center>\r\n\r\n</div>\r\n\r\n\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RDV.html b/RDV.html
+--- a/RDV.html	(revision 6faaa0043875d0c0c66a0cbf6b7a050988f97a08)
++++ b/RDV.html	(date 1716929807780)
+@@ -20,23 +20,23 @@
+     <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
+         <tr> <!--nouvelle ligne-->
+             <td> <!--nouvelle colonne-->
+-                <button class="bouton" id="accueil" type="button"> <a href="Accueil.html"> Accueil </a> </button>
++                <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="parcourir" type="button"> <a href="Parcourir.html"> Tout parcourir </a> </button>
++                <a href="Parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="recherche" type="button"> <a href="Recherche.html"> Recherche </a> </button>
++                <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="rdv" type="button"> <a href="RDV.html"> <b> RDV </b> </a> </button>
++                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV  </button></a>
+             </td>
+             <td>
+-                <button class="bouton" id="compte" type="button"> <a href="Compte.html"> Votre compte </a> </button>
++                <a href="Compte.html"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+             </td>
+         </tr>
+     </table>
+-    <br>
++    <br> <br>
+ </div>
+ <br> <br> <br>
+ 
+Index: Parcourir.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <link href=\"Parcourir.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n</head>\r\n\r\n\r\n\r\n<body>\r\n\r\n    <div id=wrapper>\r\n        <div id=header>\r\n            <h1 class=\"logo\"> <img src=\"logo2.png\" alt=\"Sportify\" height=\"100\" width=\"820\"></h1>\r\n            \r\n        </div>\r\n\r\n        <div id=navigation>\r\n            <a href=\"Accueil.html\"><button class=b1>Accueil</button></a>\r\n            <a href=\"Parcourir.html\"><button class=b1 id=act>Tout parcourir</button></a>\r\n            <a href=\"Recherche.html\"><button class=b1>Recherche</button></a>\r\n            <a href=\"rdv_fini_test.html\"><button class=b1>Rendez-vous</button></a>\r\n            <a href=\"Compte.html\"><button class=b1>Votre compte</button></a>\r\n            \r\n        </div>\r\n\r\n        <div id=section>\r\n            <a href=\"activités sportives\"><button class=b2 type=\"button\">Activités Sportives</button></a>\r\n            <a href=\"activités sportives\"><button class=b2 type=\"button\">Sports de competitions</button></a>\r\n            <a href=\"activités sportives\"><button class=b2 type=\"button\">Salle de sport Omnes</button></a>\r\n\r\n            \r\n        </div>\r\n\r\n        <div id=rcol>\r\n            <img src=\"hal.jpg\" alt=\"Sportify\" height=\"350\" width=\"350\">\r\n\r\n        </div>\r\n\r\n      \r\n\r\n        <div class=\"footer\">\r\n            <ul> \r\n                <h3>Nous Contacter</h3>\r\n                <li> tél : (+33) 06 05 04 02 01</li>\r\n                <li>email : sportify@gmail.com</li>\r\n                <div id=fot>\r\n                <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5250.725751806412!2d2.2838522762051072!3d48.85129037133122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e670049543178d%3A0xcda73a49149d471f!2sOMNES%20Education!5e0!3m2!1sfr!2sfr!4v1716841516349!5m2!1sfr!2sfr\" width=\"300\" height=\"100\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" frameborder=\"0\" aria-hidden=\"false\" tabindex=\"0\"></iframe></div>\r\n\r\n\r\n\r\n            </ul>\r\n\r\n            \r\n        </div>\r\n\r\n\r\n\r\n    </div>\r\n   \r\n</body>\r\n\r\n\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Parcourir.html b/Parcourir.html
+--- a/Parcourir.html	(revision 6faaa0043875d0c0c66a0cbf6b7a050988f97a08)
++++ b/Parcourir.html	(date 1716935300065)
+@@ -58,6 +58,8 @@
+ 
+ 
+     </div>
++
++
+    
+ </body>
+ 
