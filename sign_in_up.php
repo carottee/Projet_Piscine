@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if (isset($_SESSION['user'])) {
+    // If user is already logged in, redirect to the home page or another appropriate page
+    echo "<script> window.location.href = 'deconnexion.html' </script>";
+exit();
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +23,7 @@
     <img src="logo_sportify.png" alt="voici le logo sportify" height="120" width="1350">
     <div class="right">
         <a href="sign_in_up.php"> <img src="account_circle_white.png" alt="voici le logo se connecter" height="60"
-                                       width="60"> </a>
+                                        width="60"> </a>
     </div>
 </div>
 <div id="navigation">
@@ -40,12 +52,11 @@
 <div id="votre-compte">
     <!-- zone de connexion -->
 
-    <form action="deconnexion.php" method="POST">
-        <h2>Déconnexion</h2>
-        <h4>Assurons nous de votre identité</h4>
-        <br>
+    <form action="connexion.php" method="POST">
+        <h2>Connexion</h2>
+
         <h4><b>Email</b></h4>
-        <input type="text" placeholder="Entrer l'adresse email" name="mail" id="mail" required>
+        <input type="text" placeholder="Entrer le nom d'utilisateur" name="mail" id="mail" required>
 
         <br><br>
 
@@ -55,13 +66,14 @@
         <br><br>
 
 
-        <input type="submit" id='submit' value='SE DECONNECTER'>
+        <input type="submit" id='submit' value='SE CONNECTER'>
 
-
+        <p>----------------------------------------------------------------------------------</p>
 
     </form>
 
-
+    <h4>Pas encore de compte ? Inscivez-vous !</h4>
+    <input type="submit" onclick="window.location.href='sign_up.html'" value="S'INSCRIRE">
 
 
 </div>
