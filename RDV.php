@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['user'])) {
+    // Redirect to login page if the user is not logged in
+    echo "<script>alert(`vous n'êtes pas connecté`); window.location.href = 'sign_in_up.php' </script>";
+    exit();
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" xmlns:display="http://www.w3.org/1999/xhtml">
 <head>
@@ -29,7 +42,7 @@
                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
             </td>
             <td>
-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
             </td>
             <td>
                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>

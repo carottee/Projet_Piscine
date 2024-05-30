@@ -26,30 +26,3 @@ function details_rdv_finis() { //fonction pour afficher le détail du rdv fini
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const cells = document.querySelectorAll('.availability-cell');
-
-    cells.forEach(cell => {
-        cell.addEventListener('click', () => {
-            if (cell.classList.contains('selected')) {
-                cell.classList.remove('selected');
-                cell.style.backgroundColor = 'white';
-            } else {
-                cell.classList.add('selected');
-                cell.style.backgroundColor = 'black';
-            }
-        });
-
-        cell.addEventListener('mouseover', () => {
-            if (!cell.classList.contains('selected')) {
-                cell.style.border = '4px solid orange';
-            }
-        });
-
-        cell.addEventListener('mouseout', () => {
-            if (!cell.classList.contains('selected')) {
-                cell.style.border = '1px solid #ccc';
-            }
-        });
-    });
-});

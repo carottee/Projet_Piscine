@@ -25,7 +25,7 @@
                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
             </td>
             <td>
-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
             </td>
             <td>
                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
@@ -58,42 +58,32 @@
         </button>
     </div>
     <div class="sub-buttons">
-        <button class="sub-button">
-            <a href="Musculation.html">
+        <form action="sport.php" method="post">
+            <button class="sub-button" type="submit" name="sport" value="musculation">
                 <img src="ACTIVITE_SPORTIVE/musculation.jpg" alt="Musculation">
                 <p>Musculation</p>
-            </a>
-        </button>
-        <button class="sub-button">
-            <a href="Fitness.html">
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="fitness">
                 <img src="ACTIVITE_SPORTIVE/fitness.jpg" alt="Fitness">
                 <p>Fitness</p>
-            </a>
-        </button>
-        <button class="sub-button">
-            <a href="Biking.html">
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="biking">
                 <img src="ACTIVITE_SPORTIVE/biking.jpeg" alt="Biking">
                 <p>Biking</p>
-            </a>
-        </button>
-        <button class="sub-button">
-            <a href="Cardio.html">
-                <img src="ACTIVITE_SPORTIVE/cardio.jpeg" alt="Cardio">
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="cardio">
+            <img src="ACTIVITE_SPORTIVE/cardio.jpeg" alt="cardio">
                 <p>Cardio</p>
-            </a>
-        </button>
-        <button class="sub-button">
-            <a href="Step.html">
-                <img src="ACTIVITE_SPORTIVE/step.jpg" alt="Step">
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="step">
+                <img src="ACTIVITE_SPORTIVE/step.jpg" alt="step">
                 <p>Step</p>
-            </a>
-        </button>
-        <button class="sub-button">
-            <a href="Cours_collectifs.html">
-                <img src="ACTIVITE_SPORTIVE/cours_collectifs.jpg" alt="Cours collectifs">
-                <p>Cours collectifs</p>
-            </a>
-        </button>
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="courscollectifs">
+                <img src="ACTIVITE_SPORTIVE/cours_collectifs.jpg" alt="cours_collectifs">
+                <p>Cours-collectifs</p>
+            </button>
+        </form>
     </div>
 </div>
 

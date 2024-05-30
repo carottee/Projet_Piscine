@@ -400,9 +400,7 @@ table {
     cursor: pointer;
 }
 
-.availability-cell:hover {
-    border: 4px solid orange;
-}
+
 
 .selected {
     background-color: black;

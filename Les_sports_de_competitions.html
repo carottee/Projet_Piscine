@@ -25,7 +25,7 @@
                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
             </td>
             <td>
-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
             </td>
             <td>
                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
@@ -58,43 +58,32 @@
         </button>
     </div>
     <div class="sub-buttons">
-        <button class="sub-button">
-            <a href="Basketball.html">
+        <form action="sport.php" method="post">
+            <button class="sub-button" type="submit" name="sport" value="basketball">
                 <img src="SDC/basketball.jpg" alt="basketball">
                 <p>Basketball</p>
-            </a>
-        </button>
-        <button class="sub-button">
-            <a href="Football.html">
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="football">
                 <img src="SDC/football.jpg" alt="football">
                 <p>Football</p>
-            </a>
-        </button>
-        <button class="sub-button">
-            <a href="Rugby.html">
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="rugby">
                 <img src="SDC/rugby.jpg" alt="rugby">
                 <p>Rugby</p>
-            </a>
-        </button>
-
-        <button class="sub-button">
-            <a href="Tennis.html">
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="tennis">
                 <img src="SDC/tennis.jpg" alt="tennis">
                 <p>Tennis</p>
-            </a>
-        </button>
-        <button class="sub-button">
-            <a href="Natation.html">
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="natation">
                 <img src="SDC/natation.jpg" alt="natation">
                 <p>Natation</p>
-            </a>
-        </button>
-        <button class="sub-button">
-            <a href="Plongeon.html">
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="plongeon">
                 <img src="SDC/plongeons.jpg" alt="plongeons">
                 <p>Plongeon</p>
-            </a>
-        </button>
+            </button>
+        </form>
     </div>
 </div>
 
