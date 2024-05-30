@@ -67,28 +67,21 @@ if ($db_found) {
     <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
         <tr> <!--nouvelle ligne-->
             <td> <!--nouvelle colonne-->
-                <a href="Accueil.html">
-                    <button class="bouton" id="accueil" type="button"> Accueil</button>
+                <a href="Accueil.html"> <button class="bouton" id="accueil" type="button"> Accueil</button> </a>
+            </td>
+            <td>
+                <a href="Tout_parcourir.html"> <button class="bouton" id="parcourir" type="button"> Tout parcourir</button> </a>
+            </td>
+            <td>
+                <a href="Recherche.html"> <button class="bouton" id="recherche" type="button"> Recherche</button>
                 </a>
             </td>
             <td>
-                <a href="Tout_parcourir.html">
-                    <button class="bouton" id="parcourir" type="button"> Tout parcourir</button>
+                <a href="RDV.php"> <button class="bouton" id="rdv" type="button"> RDV</button>
                 </a>
             </td>
             <td>
-                <a href="Recherche.html">
-                    <button class="bouton" id="recherche" type="button"> Recherche</button>
-                </a>
-            </td>
-            <td>
-                <a href="RDV.php">
-                    <button class="bouton" id="rdv" type="button"> RDV</button>
-                </a>
-            </td>
-            <td>
-                <a href="Compte.php">
-                    <button class="bouton" id="compte" type="button"> Votre compte</button>
+                <a href="Compte.php"> <button class="bouton" id="compte" type="button"> Votre compte</button>
                 </a>
             </td>
         </tr>
@@ -115,8 +108,6 @@ if ($db_found) {
 <!-- Contenu principal -->
 <div class="availability-container">
 
-
-    <!-- Availability Table -->
     <div class="availability-table">
         <h2>Disponibilité du coatch</h2>
         <form action="reservation.php" method="post">
@@ -153,18 +144,15 @@ if ($db_found) {
                 </tr>
                 </tbody>
             </table>
-            <button type="submit" name="mail_coach" value="<?php echo $mail_coach;?>">Valider réservation </button>
+            <br> <br>
+            <center>
+                <button class="bouton" type="submit" name="mail_coach" value="<?php echo $mail_coach;?>">Valider réservation</button>
+            </center>
         </form>
-
 
     </div>
 
-
 </div>
-
-
-
-
 
 
 </body>

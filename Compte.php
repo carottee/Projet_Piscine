@@ -98,6 +98,44 @@ exit();
         }
         else if($statut == 1){ //coach
             while ($data = mysqli_fetch_assoc($result)){
+
+                echo " <h2>Mon emploi du temps : </h2>";
+
+                echo '<table class="availability">';
+
+                echo "<tr>";
+                echo "<th></th> <!-- Cellule vide coin supérieur gauche -->";
+                echo "<th>Lundi</th>";
+                echo "<th>Mardi</th>";
+                echo "<th>Mercredi</th>";
+                echo "<th>Jeudi</th>";
+                echo "<th>Vendredi</th>";
+                echo "<th>Samedi</th>";
+                echo "</tr>";
+
+                echo "<tr>";
+                echo "<td>Matin</td>";
+                echo '<td class=" <?= edt($l)?> "></td>';
+                echo '<td class="<?= edt($ma)?>"></td>';
+                echo '<td class="<?= edt($me)?>"></td>';
+                echo '<td class="<?= edt($j)?>"></td>';
+                echo '<td class="<?= edt($v)?>"></td>';
+                echo '<td class="<?= edt($s)?>"></td>';
+                echo "</tr>";
+
+                echo "<tr>";
+                echo "<td>Après-midi</td>";
+                echo '<td class="<?= edt($ld)?>"></td>';
+                echo '<td class="<?= edt($mad)?>"></td>';
+                echo '<td class="<?= edt($med)?>"></td>';
+                echo '<td class="<?= edt($jd)?>"></td>';
+                echo '<td class="<?= edt($vd)?>"></td>';
+                echo '<td class="<?= edt($sd)?>"></td>';
+                echo "</tr>";
+
+                echo "</table>";
+                
+                
                 echo " <h2>Mes informations : </h2>";
                 echo " <h5> ID (mail) : " . $data['Mail'] . "</h5>" . "</h5>";
                 echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
@@ -106,8 +144,8 @@ exit();
                 echo " <h5> Photo : " . $data['photo'] . "</h5>";
                 echo " <h5> ID : " . $data['ID'] . "</h5>";
                 echo " <h5> Discipline : " . $data['discipline'] . "</h5>";
-                echo " <h5> CV : <embed src='" . $data['CV'] . "' type='application/pdf' width='100%' height='600px'><br>";    //    <embed src="chemin/vers/votre/fichier.pdf" type="application/pdf" width="100%" height="600px" />
                 echo " <h5> Numéro : " . $data['num'] . "</h5>";
+                echo " <h5> CV : <br> <br> <embed src='" . $data['CV'] . "' type='application/pdf' width='700' height='1010px'><br>";    //    <embed src="chemin/vers/votre/fichier.pdf" type="application/pdf" width="100%" height="600px" />
             }
         }
         else if($statut == 2){ //admin
@@ -128,7 +166,7 @@ exit();
 
     <br><br>
     <button class="bouton" onclick="window.location.href='deconnexion.html'">Se déconnecter</button>
-    <br><br><br>
+    <br>
 </div>
 
 

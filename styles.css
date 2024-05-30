@@ -98,13 +98,13 @@ h5 {
 
 #votre-compte {
     margin: auto;
-    width: 700px;
+    width: 1000px;
     height: auto;
     border-radius: 30px;
     background-color: #2d2a2a;
     color: #ffffff;
     text-align: center;
-    padding-left: 20px;
+    padding: 20px;
 }
 
 #footer {
@@ -149,12 +149,12 @@ button {
 .bouton {
     border-radius: 30px;
     background: #eeb253;
-    border: none;
+    border: 4px solid #eeb253;
     font: bold 14px Verdana;
     padding: 20px 5px;
     text-align: center;
     width: 140px;
-    color: #cccacc;
+    color: #ffffff;
 }
 
 .bouton-actuel{
@@ -190,7 +190,7 @@ input[type=submit] {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 170px;
+    width: auto;
     border-radius: 30px;
 }
 
@@ -364,21 +364,21 @@ a {
 
 .availability-table {
     margin-top: 20px;
-    width: 100%; /* Le tableau occupera toute la largeur du conteneur */
+    width: 100%;
 
 
 }
 
 .availability-container {
-    background-color: #333; /* Gris foncé */
+    background-color: #333;
     padding: 20px;
-    border-radius: 30px; /* Pour arrondir les coins */
-    color: white; /* Couleur du texte */
-    margin-top: 20px; /* Espace au-dessus */
-    width: 1000px; /* Largeur maximale */
-    height: 400px;
-    margin-left: auto; /* Centrage horizontal */
-    margin-right: auto; /* Centrage horizontal */
+    border-radius: 30px;
+    color: white;
+    margin-top: 20px;
+    width: 1400px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     justify-content: center; /* Centrer horizontalement */
     align-items: center; /* Centrer verticalement */
@@ -391,6 +391,7 @@ table {
 }
 
 .availability th, .availability td {
+    width: 65px;
     padding: 10px;
     border: 1px solid #ccc;
     text-align: center;
