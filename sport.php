@@ -167,13 +167,20 @@ if  ($db_found){
 
     <!-- Boutons -->
     <div class="button-container">
-        <form action="prendre_RDV.php" method="post">
-        <button class="bouton" type="submit" name="mail_coach" value="<?php echo "$mail_coach";?>">  Prendre RDV</button>
-    </form>
-        <a href="Accueil.html"><button class="bouton"> Chatroom </button></a>
-        <a href="SDC/coatch-basket.jpg" target="_blank">
-            <button class="bouton">CV</button>
-        </a>
+        <table class="t-RDV">
+            <tr>
+                <td>
+                    <form action="prendre_RDV.php" method="post"> <button class="bouton" type="submit" name="mail_coach" value="<?php echo "$mail_coach";?>">Prendre RDV</button></form>
+
+                </td>
+                <td>
+                    <a href="Accueil.html"> <button class="bouton"> Chatroom </button> </a>
+                </td>
+                <td>
+                    <a href="SDC/coatch-basket.jpg" target="_blank"> <button class="bouton">CV</button> </a>
+                </td>
+            </tr>
+        </table>
     </div>
 
 </div>
