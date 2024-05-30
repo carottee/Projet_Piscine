@@ -4,61 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="inscription blindée, + bdd">
-      <change afterPath="$PROJECT_DIR$/Prendre_RDV_basket.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coatch-basket.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coatch-biking.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coatch-cardio.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coatch-courscollectifs.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coatch-fitness.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coatch-football.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coatch-musculation.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coatch-natation.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coatch-plongeon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coatch-rugby.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coatch-step.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coatch-tennis.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prendre_RDV.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reservation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sport.php" afterDir="false" />
+    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="nouvelle branche, pareil que le main, sans les sous fichiers. Les balises des bouttons sont dans le bon sens">
+      <change afterPath="$PROJECT_DIR$/backEdition.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontEdition.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/Accueil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Activites_sportives.html" beforeDir="false" afterPath="$PROJECT_DIR$/Activites_sportives.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Basketball.html" beforeDir="false" afterPath="$PROJECT_DIR$/Basketball.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biking.html" beforeDir="false" afterPath="$PROJECT_DIR$/Biking.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cardio.html" beforeDir="false" afterPath="$PROJECT_DIR$/Cardio.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compte.php" beforeDir="false" afterPath="$PROJECT_DIR$/Compte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cours_collectifs.html" beforeDir="false" afterPath="$PROJECT_DIR$/Cours_collectifs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fitness.html" beforeDir="false" afterPath="$PROJECT_DIR$/Fitness.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Football.html" beforeDir="false" afterPath="$PROJECT_DIR$/Football.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Les_salles_de_sport_OMNES.html" beforeDir="false" afterPath="$PROJECT_DIR$/Les_salles_de_sport_OMNES.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Les_sports_de_competitions.html" beforeDir="false" afterPath="$PROJECT_DIR$/Les_sports_de_competitions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Musculation.html" beforeDir="false" afterPath="$PROJECT_DIR$/Musculation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Natation.html" beforeDir="false" afterPath="$PROJECT_DIR$/Natation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plongeon.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plongeon.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Biking.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Biking.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Cardio.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Cardio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Cours_collectifs.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Cours_collectifs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Fitness.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Fitness.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Football.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Football.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Musculation.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Musculation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Natation.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Natation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Plongeon.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Plongeon.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Rugby.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Rugby.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Step.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Step.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Tennis.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Tennis.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prendre_RDV_basket.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RDV.html" beforeDir="false" afterPath="$PROJECT_DIR$/RDV.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recherche.html" beforeDir="false" afterPath="$PROJECT_DIR$/Recherche.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rugby.html" beforeDir="false" afterPath="$PROJECT_DIR$/Rugby.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Step.html" beforeDir="false" afterPath="$PROJECT_DIR$/Step.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tennis.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tennis.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tout_parcourir.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tout_parcourir.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/animations.js" beforeDir="false" afterPath="$PROJECT_DIR$/animations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deconnexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/deconnexion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign_in_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/sign_in_up.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/sign_up.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/sign_up.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RDV.php" beforeDir="false" afterPath="$PROJECT_DIR$/RDV.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prendre_RDV.php" beforeDir="false" afterPath="$PROJECT_DIR$/prendre_RDV.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/reservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sport.php" beforeDir="false" afterPath="$PROJECT_DIR$/sport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,23 +49,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "masterBis",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/wamp64/www/Projet_Piscine/Projet_Piscine",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;masterBis&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/Projet_Piscine/Projet_Piscine&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\Projet_Piscine\Projet_Piscine" />

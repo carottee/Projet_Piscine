@@ -34,42 +34,47 @@ if ($db_found) {
 
             $escaped_value = mysqli_real_escape_string($db_handle, ${$var_name});
 
-            $sql = "SELECT $var_name FROM edt WHERE id_coach = '$id' AND $var_name = '1'";
+            $sql = "SELECT $var_name FROM edt WHERE id_coach = '$id' AND $var_name = '1' or $var_name = '2'";
             $result = mysqli_query($db_handle, $sql);
 
             // Vérifier si la requête a renvoyé des résultats. si c est le cas, le créneau est pris
             if (mysqli_num_rows($result) > 0) {
 
-                echo " <script> alert('ce créneau est invalide'); window.location.href='Prendre_RDV_basket.php'</script>  ";
+                echo " <script> alert('ce créneau est invalide'); window.location.href='Tout_parcourir.html'</script>  ";
                 exit();
-            }
+            } else{
 
-            else{
-
-                $sql = "UPDATE edt SET $var_name = 1 WHERE id_coach = '$id';";
-                $result = mysqli_query($db_handle, $sql);
-
-                $sql = "INSERT INTO rdv (mail_coach, mail_client, passe, creneau) VALUES ('$mail_coach', '$mail', '0', '$var_name')";
-                $result=mysqli_query($db_handle, $sql);
-
-                echo " <script> alert('rendez vous fixé'); window.location.href='RDV.php'</script> ";
-                exit();
+                $sql_verif = "select creneau from rdv where mail_client = '$mail'";
+                $result_verif = mysqli_query($db_handle, $sql_verif);
+                $flag =0;
+                if(mysqli_num_rows($result_verif)>0) {
 
 
+                    while ($data = mysqli_fetch_assoc($result_verif)) {
+                        if ($data['creneau'] == $var_name) {
+                            $flag = 1;
+                        }
+                    }
+
+                }
+
+                if($flag == 0){
+                    $sql = "UPDATE edt SET $var_name = 1 WHERE id_coach = '$id';";
+                    $result = mysqli_query($db_handle, $sql);
+
+                    $sql = "INSERT INTO rdv (mail_coach, mail_client, passe, creneau) VALUES ('$mail_coach', '$mail', '0', '$var_name')";
+                    $result=mysqli_query($db_handle, $sql);
+
+                    echo " <script> alert('rendez vous fixé'); window.location.href='RDV.php'</script> ";
+                    exit();
+                }
+                else{
+                    echo " <script> alert('vous avez deja un rendez vous sur ce creneau') </script> ";
+                }
 
             }
         }
     }
-
-    echo " <script> alert('stop fucking around please'); window.location.href='Tout_parcourir.html'</script> ";
-    exit();
-
-
-
-
-
-
-
 
 
 } else {
@@ -77,4 +82,5 @@ if ($db_found) {
 }
 
 mysqli_close($db_handle);
+exit();
 ?>
