@@ -8,7 +8,71 @@ if (!isset($_SESSION['user'])) {
 exit();
 }
 
+
+$database = "projet_piscine";
+$db_handle = mysqli_connect('localhost', 'root', '');
+$db_found = mysqli_select_db($db_handle, $database);
+
+
+
+if  ($db_found){
+
+    $user = $_SESSION['user'];
+
+    // Accédez aux propriétés spécifiques de l'utilisateur
+    $statut = $user['statut'];
+    $mail = $user['mail'];
+
+
+if ($statut == 1) {
+
+    $sql = "select * from coach where Mail = '$mail'";
+    $result = mysqli_query($db_handle, $sql);
+    $data = mysqli_fetch_assoc($result);
+    $id = $data['ID'];
+
+
+    $sql = "select * from edt where id_coach = '$id'";
+    $result = mysqli_query($db_handle, $sql);
+
+    $data = mysqli_fetch_assoc($result);
+    $l = $data['l'];
+    $ld = $data['ld'];
+    $ma = $data['ma'];
+    $mad = $data['mad'];
+    $me = $data['me'];
+    $med = $data['med'];
+    $j = $data['j'];
+    $jd = $data['jd'];
+    $v = $data['v'];
+    $vd = $data['vd'];
+    $s = $data['s'];
+    $sd = $data['sd'];
+
+
+    function edt($variable)
+    {
+
+        if ($variable == '0') {
+            return "white";
+        } else if ($variable == '1') {
+            return "orange";
+        } else if ($variable == '2') {
+            return "rouge";
+        }
+    }
+}
+
+
+}else {
+    echo "Database not found";
+}
+
 ?>
+
+
+
+
 
 
 
@@ -60,17 +124,10 @@ exit();
     <br>
 
     <?php
-    $database = "projet_piscine";
-    $db_handle = mysqli_connect('localhost', 'root', '');
-    $db_found = mysqli_select_db($db_handle, $database);
+
 
     if ($db_found) {
 
-        $user = $_SESSION['user'];
-
-        // Accédez aux propriétés spécifiques de l'utilisateur
-        $statut = $user['statut'];
-        $mail = $user['mail'];
 
         if($statut == 0){ //client
             $sql = "select * from client where Mail = '$mail'";
@@ -91,7 +148,6 @@ exit();
                 echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
                 echo " <h5> Nom : ". $data['Nom'] . "</h5>";
                 echo " <h5> Prénom : " . $data['Prenom'] . "</h5>";
-                echo " <h5> ID : " . $data['ID'] . "</h5>";
                 echo " <h5> Adresse : " . $data['Adresse'] . "</h5>";
                 echo " <h5> Numéro de carte étudiante : " . $data['carte'] . "</h5>";
             }
@@ -147,6 +203,42 @@ exit();
                 echo " <h5> Numéro : " . $data['num'] . "</h5>";
                 echo " <h5> CV : <br> <br> <embed src='" . $data['CV'] . "' type='application/pdf' width='700' height='1010px'><br>";    //    <embed src="chemin/vers/votre/fichier.pdf" type="application/pdf" width="100%" height="600px" />
             }
+
+            echo "<h5>Mon planning:</h5>";
+            echo "<div class='availability-table'>
+        <table class='availability'>
+            <tr>
+                <th></th> <!-- Cellule vide pour l'alignement -->
+                <th>Lundi</th>
+                <th>Mardi</th>
+                <th>Mercredi</th>
+                <th>Jeudi</th>
+                <th>Vendredi</th>
+                <th>Samedi</th>
+            </tr>
+            <tr>
+                <td>Matin</td>
+                <td class='". edt($l). " '></td>
+                <td class='".edt($ma)."'></td>
+                <td class='".edt($me)."'></td>
+                <td class='". edt($j)."'></td>
+                <td class='".edt($v)."'></td>
+                <td class='". edt($s)."'></td>
+            </tr>
+            <tr>
+                <td>Après-midi</td>
+                <td class='". edt($ld)."'></td>
+                <td class='". edt($mad)."'></td>
+                <td class='". edt($med)."'></td>
+                <td class='". edt($jd)."'></td>
+                <td class='". edt($vd)."'></td>
+                <td class='". edt($sd)."'></td>
+            </tr>
+            </table>
+        </div>";
+
+            echo "<button class='bouton' onclick='window.location.href=`frontEdition.php`'>Editer mon planning</button>";
+
         }
         else if($statut == 2){ //admin
             while ($data = mysqli_fetch_assoc($result)) {

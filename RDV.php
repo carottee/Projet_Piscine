@@ -7,6 +7,14 @@ if (!isset($_SESSION['user'])) {
     echo "<script>alert(`vous n'êtes pas connecté`); window.location.href = 'sign_in_up.php' </script>";
     exit();
 }
+$database = "projet_piscine";
+
+$db_handle = mysqli_connect('localhost', 'root', '');
+$db_found = mysqli_select_db($db_handle, $database);
+
+$user = $_SESSION['user'];
+$mail = $user['mail'];
+$statut = $user['statut'];
 
 ?>
 
@@ -56,93 +64,317 @@ if (!isset($_SESSION['user'])) {
 <div>
     <h3>RDV à venir : </h3>
 
-    <div class="RDV_venir">
-        <h5>RDV 1</h5>
-        <ul>
-            <li>Coach</li>
-            <li>Date/Heure</li>
-            <li>Adresse</li>
-            <li>Documents ajoutés</li>
-            <li>Infos supp</li>
-        </ul>
-    </div>
+    <?php
 
-    <div class="RDV_venir">
-        <h5>RDV 2</h5>
-        <ul>
-            <li>Coach</li>
-            <li>Date/Heure</li>
-            <li>Adresse</li>
-            <li>Documents ajoutés</li>
-            <li>Infos supp</li>
-        </ul>
-    </div>
 
-    <div class="RDV_venir">
-        <h5>RDV 3</h5>
-        <ul>
-            <li>Coach</li>
-            <li>Date/Heure</li>
-            <li>Adresse</li>
-            <li>Documents ajoutés</li>
-            <li>Infos supp</li>
-        </ul>
-    </div>
 
-    <div class="RDV_venir">
-        <h5>RDV 4</h5>
-        <ul>
-            <li>Coach</li>
-            <li>Date/Heure</li>
-            <li>Adresse</li>
-            <li>Documents ajoutés</li>
-            <li>Infos supp</li>
-        </ul>
-    </div>
+    if($db_found){
 
-    <div class="RDV_venir">
-        <h5>RDV 5</h5>
-        <ul>
-            <li>Coach</li>
-            <li>Date/Heure</li>
-            <li>Adresse</li>
-            <li>Documents ajoutés</li>
-            <li>Infos supp</li>
-        </ul>
-    </div>
+
+
+        if($statut == 0){
+            $sql = "select * from rdv where mail_client = '$mail'";
+            $result_rdv_client = mysqli_query($db_handle, $sql);
+            $cpt = 1;
+            if(mysqli_num_rows($result_rdv_client) > 0) {
+                while ($data = mysqli_fetch_assoc($result_rdv_client)){
+                    $mail_coach = $data['mail_coach'];
+                    $creneau = $data['creneau'];
+                    $passe = $data['passe'];
+
+
+                    // Détermine le jour et l'horaire selon le créneau
+                    if($creneau == 'l') {$jour='lundi'; $horraire='matin';}
+                    if($creneau == 'ld') {$jour='lundi'; $horraire='après midi';}
+                    if($creneau == 'ma') {$jour='mardi'; $horraire='matin';}
+                    if($creneau == 'mad') {$jour='mardi'; $horraire='après midi';}
+                    if($creneau == 'me') {$jour='mercredi'; $horraire='matin';}
+                    if($creneau == 'med') {$jour='mercredi'; $horraire='après midi';}
+                    if($creneau == 'j') {$jour='jeudi'; $horraire='matin';}
+                    if($creneau == 'jd') {$jour='jeudi'; $horraire='après midi';}
+                    if($creneau == 'v') {$jour='vendredi'; $horraire='matin';}
+                    if($creneau == 'vd') {$jour='vendredi'; $horraire='après midi';}
+                    if($creneau == 's') {$jour='samedi'; $horraire='matin';}
+                    if($creneau == 'sd') {$jour='samedi'; $horraire='après midi';}
+
+                    // Requête pour obtenir le prénom et le nom du client
+                    $sql_prenom_coach = "select Prenom, Nom from coach where Mail = '$mail_coach'";
+                    $result_prenom_coach = mysqli_query($db_handle, $sql_prenom_coach);
+                    if ($result_prenom_coach) {
+                        // Vérifie s'il y a une ligne de résultat
+                        if (mysqli_num_rows($result_prenom_coach) > 0) {
+                            // Récupère la ligne de résultat
+                            $row = mysqli_fetch_assoc($result_prenom_coach);
+                            $prenom_coach = $row['Prenom'];
+                            $nom_coach = $row['Nom'];
+                        }
+                    }
+
+                    // Requête pour obtenir le prénom du coach
+                    $sql_prenom = "select Prenom from client where Mail = '$mail'";
+                    $result_prenom = mysqli_query($db_handle, $sql_prenom);
+                    if ($result_prenom) {
+                        // Vérifie s'il y a une ligne de résultat
+                        if (mysqli_num_rows($result_prenom) > 0) {
+                            // Récupère la ligne de résultat
+                            $row = mysqli_fetch_assoc($result_prenom);
+                            $prenom = $row['Prenom'];
+                        }
+                    }
+
+                    if ($passe == 0) {
+                        echo "<div class='RDV_venir'>";
+                        echo "<h5>RDV $cpt</h5>";
+                        echo "<ul>";
+                        echo "<li>" . $prenom_coach . " " . $nom_coach . "</li>";
+                        echo "<li>" . $jour . " " . $horraire . "</li>";
+                        echo "</ul>";
+                        echo "</div>";
+                        $cpt++;
+                    }
+
+                }
+            } else {
+                echo "vous n'avez pas encore de rendez-vous";
+            }
+
+        }
+        else if($statut == 1){
+            $sql = "select * from rdv where mail_coach = '$mail'";
+            $result_rdv_coach = mysqli_query($db_handle, $sql);
+            $cpt = 1;
+            if(mysqli_num_rows($result_rdv_coach) > 0) {
+                while ($data = mysqli_fetch_assoc($result_rdv_coach)){
+                    $mail_client = $data['mail_client'];
+                    $creneau = $data['creneau'];
+                    $passe = $data['passe'];
+
+
+                    // Détermine le jour et l'horaire selon le créneau
+                    if($creneau == 'l') {$jour='lundi'; $horraire='matin';}
+                    if($creneau == 'ld') {$jour='lundi'; $horraire='après midi';}
+                    if($creneau == 'ma') {$jour='mardi'; $horraire='matin';}
+                    if($creneau == 'mad') {$jour='mardi'; $horraire='après midi';}
+                    if($creneau == 'me') {$jour='mercredi'; $horraire='matin';}
+                    if($creneau == 'med') {$jour='mercredi'; $horraire='après midi';}
+                    if($creneau == 'j') {$jour='jeudi'; $horraire='matin';}
+                    if($creneau == 'jd') {$jour='jeudi'; $horraire='après midi';}
+                    if($creneau == 'v') {$jour='vendredi'; $horraire='matin';}
+                    if($creneau == 'vd') {$jour='vendredi'; $horraire='après midi';}
+                    if($creneau == 's') {$jour='samedi'; $horraire='matin';}
+                    if($creneau == 'sd') {$jour='samedi'; $horraire='après midi';}
+
+                    // Requête pour obtenir le prénom et le nom du client
+                    $sql_prenom_client = "select Prenom, Nom from client where Mail = '$mail_client'";
+                    $result_prenom_client = mysqli_query($db_handle, $sql_prenom_client);
+                    if ($result_prenom_client) {
+                        // Vérifie s'il y a une ligne de résultat
+                        if (mysqli_num_rows($result_prenom_client) > 0) {
+                            // Récupère la ligne de résultat
+                            $row = mysqli_fetch_assoc($result_prenom_client);
+                            $prenom_client = $row['Prenom'];
+                            $nom_client = $row['Nom'];
+                        }
+                    }
+
+                    // Requête pour obtenir le prénom du coach
+                    $sql_prenom = "select Prenom from coach where Mail = '$mail'";
+                    $result_prenom = mysqli_query($db_handle, $sql_prenom);
+                    if ($result_prenom) {
+                        // Vérifie s'il y a une ligne de résultat
+                        if (mysqli_num_rows($result_prenom) > 0) {
+                            // Récupère la ligne de résultat
+                            $row = mysqli_fetch_assoc($result_prenom);
+                            $prenom = $row['Prenom'];
+                        }
+                    }
+
+                    if ($passe == 0) {
+                        echo "<div class='RDV_venir'>";
+                        echo "<h5>RDV $cpt</h5>";
+                        echo "<ul>";
+                        echo "<li>" . $prenom_client . " " . $nom_client . "</li>";
+                        echo "<li>" . $jour . " " . $horraire . "</li>";
+                        echo "</ul>";
+                        echo "</div>";
+                        $cpt++;
+                    }
+
+                }
+            } else {
+                echo "vous n'avez pas encore de rendez-vous";
+            }
+        }
+
+
+
+
+    }
+    ?>
+
 
 </div>
+
+
+
+
+
 
 
 <div>
     <h3>RDV passés : </h3>
 
-    <center>
+        <?php
 
-    <button type="button" class="RDV_passes" onclick="details_rdv_finis()">
-        RDV 1
-        <div id="detail_rdv_fini"> Cliquez pour voir le détail </div> <br>
-    </button> <br> <br> <br>
+        if($db_found){
 
 
-    <button type="button" class="RDV_passes" onclick="details_rdv_finis()">
-        RDV 2
-        <div id="detail_rdv_fini2"> Cliquez pour voir le détail </div> <br>
-    </button> <br> <br> <br>
 
 
-    <button type="button" class="RDV_passes" onclick="details_rdv_finis()">
-        RDV 3
-        <div id="detail_rdv_fini3"> Cliquez pour voir le détail </div> <br>
-    </button> <br> <br> <br>
+
+            if($statut == 0){
+                $sql = "select * from rdv where mail_client = '$mail'";
+                $result_rdv_client = mysqli_query($db_handle, $sql);
+                $cpt = 1;
+                if(mysqli_num_rows($result_rdv_client) > 0) {
+                    while ($data = mysqli_fetch_assoc($result_rdv_client)){
+                        $mail_coach = $data['mail_coach'];
+                        $creneau = $data['creneau'];
+                        $passe = $data['passe'];
 
 
-    <button type="button" class="RDV_passes" onclick="details_rdv_finis()">
+                        // Détermine le jour et l'horaire selon le créneau
+                        if($creneau == 'l') {$jour='lundi'; $horraire='matin';}
+                        if($creneau == 'ld') {$jour='lundi'; $horraire='après midi';}
+                        if($creneau == 'ma') {$jour='mardi'; $horraire='matin';}
+                        if($creneau == 'mad') {$jour='mardi'; $horraire='après midi';}
+                        if($creneau == 'me') {$jour='mercredi'; $horraire='matin';}
+                        if($creneau == 'med') {$jour='mercredi'; $horraire='après midi';}
+                        if($creneau == 'j') {$jour='jeudi'; $horraire='matin';}
+                        if($creneau == 'jd') {$jour='jeudi'; $horraire='après midi';}
+                        if($creneau == 'v') {$jour='vendredi'; $horraire='matin';}
+                        if($creneau == 'vd') {$jour='vendredi'; $horraire='après midi';}
+                        if($creneau == 's') {$jour='samedi'; $horraire='matin';}
+                        if($creneau == 'sd') {$jour='samedi'; $horraire='après midi';}
+
+                        // Requête pour obtenir le prénom et le nom du client
+                        $sql_prenom_coach = "select Prenom, Nom from coach where Mail = '$mail_coach'";
+                        $result_prenom_coach = mysqli_query($db_handle, $sql_prenom_coach);
+                        if ($result_prenom_coach) {
+                            // Vérifie s'il y a une ligne de résultat
+                            if (mysqli_num_rows($result_prenom_coach) > 0) {
+                                // Récupère la ligne de résultat
+                                $row = mysqli_fetch_assoc($result_prenom_coach);
+                                $prenom_coach = $row['Prenom'];
+                                $nom_coach = $row['Nom'];
+                            }
+                        }
+
+                        // Requête pour obtenir le prénom du coach
+                        $sql_prenom = "select Prenom from client where Mail = '$mail'";
+                        $result_prenom = mysqli_query($db_handle, $sql_prenom);
+                        if ($result_prenom) {
+                            // Vérifie s'il y a une ligne de résultat
+                            if (mysqli_num_rows($result_prenom) > 0) {
+                                // Récupère la ligne de résultat
+                                $row = mysqli_fetch_assoc($result_prenom);
+                                $prenom = $row['Prenom'];
+                            }
+                        }
+
+                        if ($passe == 1) {
+                            echo "<div type='button' class='RDV_passes''>";
+                            echo "<h5>RDV passé $cpt</h5>";
+                            echo "<ul>";
+                            echo "<li>" . $prenom_coach . " " . $nom_coach . "</li>";
+                            echo "<li>" . $jour . " " . $horraire . "</li>";
+                            echo "</ul>";
+                            echo "</div> <br> <br> <br>";
+                            $cpt++;
+                        }
+
+                    }
+                } else {
+                    echo "vous n'avez pas encore de rendez-vous";
+                }
+
+            }
+            else if($statut == 1){
+                $sql = "select * from rdv where mail_coach = '$mail'";
+                $result_rdv_coach = mysqli_query($db_handle, $sql);
+                $cpt = 1;
+                if(mysqli_num_rows($result_rdv_coach) > 0) {
+                    while ($data = mysqli_fetch_assoc($result_rdv_coach)){
+                        $mail_client = $data['mail_client'];
+                        $creneau = $data['creneau'];
+                        $passe = $data['passe'];
+
+
+                        // Détermine le jour et l'horaire selon le créneau
+                        if($creneau == 'l') {$jour='lundi'; $horraire='matin';}
+                        if($creneau == 'ld') {$jour='lundi'; $horraire='après midi';}
+                        if($creneau == 'ma') {$jour='mardi'; $horraire='matin';}
+                        if($creneau == 'mad') {$jour='mardi'; $horraire='après midi';}
+                        if($creneau == 'me') {$jour='mercredi'; $horraire='matin';}
+                        if($creneau == 'med') {$jour='mercredi'; $horraire='après midi';}
+                        if($creneau == 'j') {$jour='jeudi'; $horraire='matin';}
+                        if($creneau == 'jd') {$jour='jeudi'; $horraire='après midi';}
+                        if($creneau == 'v') {$jour='vendredi'; $horraire='matin';}
+                        if($creneau == 'vd') {$jour='vendredi'; $horraire='après midi';}
+                        if($creneau == 's') {$jour='samedi'; $horraire='matin';}
+                        if($creneau == 'sd') {$jour='samedi'; $horraire='après midi';}
+
+                        // Requête pour obtenir le prénom et le nom du client
+                        $sql_prenom_client = "select Prenom, Nom from client where Mail = '$mail_client'";
+                        $result_prenom_client = mysqli_query($db_handle, $sql_prenom_client);
+                        if ($result_prenom_client) {
+                            // Vérifie s'il y a une ligne de résultat
+                            if (mysqli_num_rows($result_prenom_client) > 0) {
+                                // Récupère la ligne de résultat
+                                $row = mysqli_fetch_assoc($result_prenom_client);
+                                $prenom_client = $row['Prenom'];
+                                $nom_client = $row['Nom'];
+                            }
+                        }
+
+                        // Requête pour obtenir le prénom du coach
+                        $sql_prenom = "select Prenom from coach where Mail = '$mail'";
+                        $result_prenom = mysqli_query($db_handle, $sql_prenom);
+                        if ($result_prenom) {
+                            // Vérifie s'il y a une ligne de résultat
+                            if (mysqli_num_rows($result_prenom) > 0) {
+                                // Récupère la ligne de résultat
+                                $row = mysqli_fetch_assoc($result_prenom);
+                                $prenom = $row['Prenom'];
+                            }
+                        }
+
+                        if ($passe == 1) {
+                            echo "<div type='button' class='RDV_passes''>";
+                            echo "<h5>RDV passé $cpt</h5>";
+                            echo "<li>" . $prenom_client . " " . $nom_client . "</li>";
+                            echo "<li>" . $jour . " " . $horraire . "</li>";
+                            echo "</ul>";
+                            echo "</div> <br> <br> <br>";
+                            $cpt++;
+                        }
+
+                    }
+                } else {
+                    echo "vous n'avez pas encore de rendez-vous";
+                }
+            }
+
+        }
+        ?>
+
+
+
+   <!-- <button type="button" class="RDV_passes" onclick="details_rdv_finis()">
         RDV 4
         <div id="detail_rdv_fini4"> Cliquez pour voir le détail </div> <br>
-    </button> <br> <br> <br>
+    </button> <br> <br> <br>-->
 
-    </center>
 
 </div>
 

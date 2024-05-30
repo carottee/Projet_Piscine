@@ -45,8 +45,10 @@ if  ($db_found){
 
         if($variable == '0'){
             return "white";
-        }else {
+        }else if($variable == '1') {
             return "orange";
+        }else{
+            return "rouge";
         }
     }
 

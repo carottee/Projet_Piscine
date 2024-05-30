@@ -4,20 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0afcfc1-5aad-46d5-aec9-f69399a3f9cf" name="Changes" comment="changement de fichier">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_00_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_00_29__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_39__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_39__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_39__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_52__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_52__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_52__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_11_01__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_11_01__Changes_.xml" afterDir="false" />
+    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="nouvelle branche, pareil que le main, sans les sous fichiers. Les balises des bouttons sont dans le bon sens">
+      <change afterPath="$PROJECT_DIR$/backEdition.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontEdition.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/Accueil.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compte.php" beforeDir="false" afterPath="$PROJECT_DIR$/Compte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recherche.html" beforeDir="false" afterPath="$PROJECT_DIR$/Recherche.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deconnexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/deconnexion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/sign_up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RDV.php" beforeDir="false" afterPath="$PROJECT_DIR$/RDV.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prendre_RDV.php" beforeDir="false" afterPath="$PROJECT_DIR$/prendre_RDV.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/reservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sport.php" beforeDir="false" afterPath="$PROJECT_DIR$/sport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,129 +30,86 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
+  &quot;associatedIndex&quot;: 8
 }</component>
-  <component name="ProjectId" id="2h5dD2QVK7uHVWtSN7E4NaLo3Jk" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2h3SGM1I7dcT8GDKfUrkL4GGGKk" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.Accueil.html.executor": "Run",
-    "JavaScript Debug.Activites_sportives.html.executor": "Run",
-    "JavaScript Debug.Parcourir.html.executor": "Run",
-    "JavaScript Debug.RDV.html.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "masterBis",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/wamp64/www/Projet_Piscine",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;masterBis&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/Projet_Piscine/Projet_Piscine&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\thais\IdeaProjects\Projet_Piscine" />
+      <recent name="C:\wamp64\www\Projet_Piscine\Projet_Piscine" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f0afcfc1-5aad-46d5-aec9-f69399a3f9cf" name="Changes" comment="" />
-      <created>1716887749075</created>
+      <changelist id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="" />
+      <created>1716821170500</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1716887749075</updated>
-      <workItem from="1716887751645" duration="10357000" />
-      <workItem from="1716918530142" duration="1287000" />
-      <workItem from="1716971619983" duration="4882000" />
-      <workItem from="1716992269832" duration="5564000" />
-      <workItem from="1717005714839" duration="7178000" />
+      <updated>1716821170500</updated>
+      <workItem from="1716821171583" duration="676000" />
+      <workItem from="1716848580575" duration="4000" />
+      <workItem from="1716848594457" duration="5266000" />
+      <workItem from="1716899470164" duration="1391000" />
+      <workItem from="1716905136093" duration="14349000" />
+      <workItem from="1716971936530" duration="3085000" />
     </task>
-    <task id="LOCAL-00001" summary="accueil et css ajoutés">
+    <task id="LOCAL-00001" summary="commit and push test">
       <option name="closed" value="true" />
-      <created>1716887921695</created>
+      <created>1716848699257</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1716887921695</updated>
+      <updated>1716848699257</updated>
     </task>
-    <task id="LOCAL-00002" summary="compte et recherche ajoutés + img sportify">
+    <task id="LOCAL-00002" summary="inscription blindée, + bdd">
       <option name="closed" value="true" />
-      <created>1716889977345</created>
+      <created>1716928696201</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1716889977345</updated>
+      <updated>1716928696203</updated>
     </task>
-    <task id="LOCAL-00003" summary="Création des pages de connexion et d'incription">
-      <option name="closed" value="true" />
-      <created>1716901453804</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1716901453804</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Création de la page RDV à venir et passés">
-      <option name="closed" value="true" />
-      <created>1716907219829</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1716907219829</updated>
-    </task>
-    <task id="LOCAL-00005" summary="modification minueure">
-      <option name="closed" value="true" />
-      <created>1716933269956</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1716933269957</updated>
-    </task>
-    <task id="LOCAL-00006" summary="suppression d'un fichier">
-      <option name="closed" value="true" />
-      <created>1716972720286</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1716972720286</updated>
-    </task>
-    <task id="LOCAL-00007" summary="changement de fichier">
-      <option name="closed" value="true" />
-      <created>1716973208377</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1716973208377</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,13 +127,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="accueil et css ajoutés" />
-    <MESSAGE value="compte et recherche ajoutés + img sportify" />
-    <MESSAGE value="Création des pages de connexion et d'incription" />
-    <MESSAGE value="Création de la page RDV à venir et passés" />
-    <MESSAGE value="modification minueure" />
-    <MESSAGE value="suppression d'un fichier" />
-    <MESSAGE value="changement de fichier" />
-    <option name="LAST_COMMIT_MESSAGE" value="changement de fichier" />
+    <MESSAGE value="commit and push test" />
+    <MESSAGE value="inscription blindée, + bdd" />
+    <option name="LAST_COMMIT_MESSAGE" value="inscription blindée, + bdd" />
   </component>
 </project>

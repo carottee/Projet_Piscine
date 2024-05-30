@@ -15,20 +15,18 @@ $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, $database);
 
 if ($db_found) {
-    $mail_coach = $_POST['mail_coach'];
 
-    $sql = "select discipline from coach where Mail = '$mail_coach'";
+    $user = $_SESSION['user'];
+    $mail = $user['mail'];
+
+    $sql = "select ID from coach where Mail = '$mail'";
     $result = mysqli_query($db_handle, $sql);
-
-    if ($result) {
-        // Vérifie si y a une ligne de resultat
-        if (mysqli_num_rows($result) > 0) {
-            // Récupère la ligne de résultat
-            $row = mysqli_fetch_assoc($result);
-            $sport = $row['discipline'];
-
-        }
+    if (mysqli_num_rows($result)>0){
+        $data = mysqli_fetch_assoc($result);
+        $id = $data['ID'];
     }
+
+
 }
 
 
@@ -67,21 +65,28 @@ if ($db_found) {
     <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
         <tr> <!--nouvelle ligne-->
             <td> <!--nouvelle colonne-->
-                <a href="Accueil.html"> <button class="bouton" id="accueil" type="button"> Accueil</button> </a>
-            </td>
-            <td>
-                <a href="Tout_parcourir.html"> <button class="bouton" id="parcourir" type="button"> Tout parcourir</button> </a>
-            </td>
-            <td>
-                <a href="Recherche.html"> <button class="bouton" id="recherche" type="button"> Recherche</button>
+                <a href="Accueil.html">
+                    <button class="bouton" id="accueil" type="button"> Accueil</button>
                 </a>
             </td>
             <td>
-                <a href="RDV.php"> <button class="bouton" id="rdv" type="button"> RDV</button>
+                <a href="Tout_parcourir.html">
+                    <button class="bouton" id="parcourir" type="button"> Tout parcourir</button>
                 </a>
             </td>
             <td>
-                <a href="Compte.php"> <button class="bouton" id="compte" type="button"> Votre compte</button>
+                <a href="Recherche.html">
+                    <button class="bouton" id="recherche" type="button"> Recherche</button>
+                </a>
+            </td>
+            <td>
+                <a href="RDV.php">
+                    <button class="bouton" id="rdv" type="button"> RDV</button>
+                </a>
+            </td>
+            <td>
+                <a href="Compte.php">
+                    <button class="bouton" id="compte" type="button"> Votre compte</button>
                 </a>
             </td>
         </tr>
@@ -90,27 +95,17 @@ if ($db_found) {
 </div>
 
 <br>
-<div class="breadcrumb">
-    <a href="<?php
 
-    if ($sport == 'musculation' || $sport == 'step' || $sport == 'cardio' || $sport == 'courscollectifs' || $sport == 'biking' || $sport == 'fitness'){
-        echo "activites_sportives.html";
-    }else{echo "Les_sports_de_competitions.html";}
-    ?>
-"><?php
-
-        if ($sport == 'musculation' || $sport == 'step' || $sport == 'cardio' || $sport == 'courscollectifs' || $sport == 'biking' || $sport == 'fitness'){
-            echo "activites sportives";
-        }else{echo "Les sports de competition";}
-        ?></a> >  <?php echo "$sport" ?> > Prendre RDV
-</div>
 
 <!-- Contenu principal -->
 <div class="availability-container">
 
+
+    <!-- Availability Table -->
     <div class="availability-table">
-        <h2>Disponibilité du coatch</h2>
-        <form action="reservation.php" method="post">
+        <h2>Mon planning</h2>
+        <p>selectionner les créneau sur lesquels vous n'étes pas libre</p>
+        <form action="backEdition.php" method="post">
             <table class="availability">
                 <thead>
                 <tr>
@@ -144,15 +139,18 @@ if ($db_found) {
                 </tr>
                 </tbody>
             </table>
-            <br> <br>
-            <center>
-                <button class="bouton" type="submit" name="mail_coach" value="<?php echo $mail_coach;?>">Valider réservation</button>
-            </center>
+            <button class="bouton" type="submit">Valider modification</button>
         </form>
+
 
     </div>
 
+
 </div>
+
+
+
+
 
 
 </body>
