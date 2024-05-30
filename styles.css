@@ -418,6 +418,19 @@ table {
 
 .breadcrumb a:hover {
     color: orange;
+
+
+}
+
+.bouton-actuel{
+    border-radius: 30px;
+    background: #f89905;
+    border: 4px solid orange; /* Modification de la taille de la bordure */
+    font: bold 14px Verdana;
+    padding: 20px 5px;
+    text-align: center;
+    width: 140px;
+    color: #cccacc;
 }
 
 #valider {
@@ -539,9 +552,102 @@ table {
 
 :focus:not(:active) {
   box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
-}
-}
+}}
+
 
 .controls{
 margin: 20px;
+}
+
+#fond_gris{
+
+
+background-color: #545454;
+width: 1000px;
+height:500px;
+border-radius: 10px;
+display: flex;
+justify-content: center; 
+align-items: center;
+background-position: center;
+position: relative;
+overflow: hidden; 
+margin-top: 20px;
+text-align: center;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+}
+
+#per{
+    border-radius: 10px;
+    margin-left: -450px;
+    position: absolute;
+}
+
+#tper{
+    font: bold 23px Verdana;
+    margin-right: -500px;
+    margin-bottom: 450px;
+    color : #fff;
+    position: absolute;
+}
+
+#pere{
+    text-align: justify;
+    margin-left: 550px;
+    font: 16px Verdana;
+    color : #d9d9d9;
+    margin-right: 15px;
+    margin-top: 50px;}
+
+#thor{
+    font: bold 23px Verdana;
+    text-align: center;
+    margin-right: -5px;
+    margin-bottom: 450px;
+    color : #ffbd59;
+    position: absolute;
+
+}
+
+#fond_gris2{
+
+
+background-color: #545454;
+width: 1000px;
+height:500px;
+border-radius: 30px;
+display: flex;
+justify-content: center; 
+align-items: center;
+background-position: center;
+position: relative;
+overflow: hidden; 
+margin-top: 20px;
+text-align: center;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+border: 9px solid #ffbd59;
+ 
+}
+
+.tho{
+    font: 20px Verdana;
+    color : #fff;
+    margin-top:60px;
+}
+
+.col{
+color:#ffbd59;
+}
+
+#tnv{
+    font: 20px Verdana;
+    color : #fff;
+    margin-top:60px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
 }
