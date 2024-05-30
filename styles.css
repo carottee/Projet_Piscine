@@ -133,6 +133,14 @@ h5 {
     margin: auto;
 }
 
+.t-RDV {
+    table-layout: fixed;
+    width: 500px;
+    height: 50px;
+    border-collapse: collapse;
+    margin: auto;
+}
+
 button {
     cursor: pointer;
     text-transform: capitalize;
