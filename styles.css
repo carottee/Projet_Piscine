@@ -83,7 +83,7 @@ h5 {
     height: 200px;
     border-radius: 15%;
     margin: 20px;
-    padding: 10px;
+    padding: 20px;
     display: inline-block;
 }
 .RDV_passes {
@@ -92,7 +92,7 @@ h5 {
     height: 200px;
     border-radius: 15%;
     margin: 20px;
-    padding: 10px;
+    padding: 20px;
     display: inline-block;
 }
 
@@ -436,7 +436,17 @@ table {
 #valider {
     margin-top: 20px; /* Espacement entre le tableau et le bouton */
     text-align: center; /* Centrer horizontalement */
+    width: auto;
+    padding: 20px;
+}
 
+#annuler {
+    margin-top: 20px; /* Espacement entre le tableau et le bouton */
+    text-align: center; /* Centrer horizontalement */
+    width: auto;
+    padding: 20px;
+    color: black;
+    border: 4px #2d2a2a;
 }
 
 #carrousel {
@@ -450,7 +460,7 @@ table {
     margin-bottom: 10px; 
     background-color: #3b382e;
     border-radius: 30px;
-    width: 800px;
+    width: 900px;
     text-align: center;
     margin-left: auto; /* Centrage horizontal */
     margin-right: auto;
