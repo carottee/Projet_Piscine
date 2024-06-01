@@ -130,7 +130,7 @@ $statut = $user['statut'];
                         echo "<li>" . $prenom_coach . " " . $nom_coach . "</li>";
                         echo "<li>" . $jour . " " . $horraire . "</li>";
                         echo "</ul>";
-                        echo " <form action='annulation.php' method='post'>  <button name='ID_rdv' value='$ID_rdv'>Annuler</button></form>";
+                        echo " <center><form action='annulation.php' method='post'>  <button class='bouton' id='annuler' name='ID_rdv' value='$ID_rdv'>Annuler</button></form></center>";
                         echo "</div>";
                         $cpt++;
                     }
@@ -199,7 +199,7 @@ $statut = $user['statut'];
                         echo "<li>" . $prenom_client . " " . $nom_client . "</li>";
                         echo "<li>" . $jour . " " . $horraire . "</li>";
                         echo "</ul>";
-                        echo " <form action='annulation.php' method='post'>  <button name='ID_rdv' value='$ID_rdv'>Annuler</button></form>";
+                        echo " <center><form action='annulation.php' method='post'>  <button class='bouton' id='annuler' name='ID_rdv' value='$ID_rdv'>Annuler</button></form></center>";
                         echo "</div>";
                         $cpt++;
                     }
