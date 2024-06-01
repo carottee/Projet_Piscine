@@ -70,6 +70,11 @@ if ($db_found) {
 ?>
 
 
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,14 +112,10 @@ if ($db_found) {
                 </a>
             </td>
             <td>
-                <a href="RDV.php">
-                    <button class="bouton" id="rdv" type="button"> RDV</button>
-                </a>
+                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
             </td>
             <td>
-                <a href="Compte.php">
-                    <button class="bouton" id="compte" type="button"> Votre compte</button>
-                </a>
+                <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
             </td>
         </tr>
     </table>
@@ -155,10 +156,10 @@ if ($db_found) {
         } else if ($statut == 1) { //coach
             while ($data = mysqli_fetch_assoc($result)) {
 
-                echo " <h2>Mon emploi du temps : </h2>";
+            echo "<h5>Mon planning :</h5>";
 
-                echo "<div class='availability-table'>
-            <table class='availability'>
+            echo "<div class='availability-table'>
+        <table class='availability'>
             <tr>
                 <th></th> <!-- Cellule vide pour l'alignement -->
                 <th>Lundi</th>

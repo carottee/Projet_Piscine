@@ -77,8 +77,7 @@ if ($db_found) {
   </table>
   <br> <br>
 </div>
-<br>
-<br>
+<br> <br> <br>
 
 
 <form action="" method="get" name="fo">
