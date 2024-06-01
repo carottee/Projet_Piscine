@@ -11,18 +11,3 @@ function validatePassword() {
         return true; // Permet l'envoi du formulaire
     }
 }
-
-
-function details_rdv_finis() { //fonction pour afficher le détail du rdv fini
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("detail_rdv_fini").innerHTML = this.responseText;
-        }
-    };
-    xhttp.open("GET", "rdv_fini_test.html", true);
-    xhttp.send();
-}
-
-
-

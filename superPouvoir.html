@@ -49,8 +49,7 @@
     <br>
 </div>
 
-<br> <br>
-
+<br> <br> <br>
 
 
 <div id="votre-compte">
@@ -59,10 +58,9 @@
     <form action="superPouvoir.php" method="post">
         <label for="sup_coach">ID du coach à supprimer :</label>
         <input type="text" id="sup_coach" name="sup_coach" >
-        <button type="submit">Supprimer ce coach</button>
+        <button class="bouton" id="admin" type="submit">Supp ce coach</button>
 
-        <br>
-        <button type="submit" name="sup_all_coach" value="1">Supprimer tt les coach</button>
+        <button class="bouton" id="admin" type="submit" name="sup_all_coach" value="1">Supp all coachs</button>
 
 
 
@@ -70,26 +68,24 @@
         <br>
 
     <!-- reset un ou tt les emplois du temps -->
-        <label for="sup_coach">id du coach dont on reset l'edt  :</label>
+        <label for="sup_coach">ID du coach dont on reset l'edt  :</label>
         <input type="text" id="rst_edt" name="rst_edt" >
-        <button type="submit">rst son edt</button>
+        <button class="bouton" id="admin" type="submit">rst son edt</button>
 
-        <br>
-        <button type="submit" name="rst_all_edt">rst all edt</button>
+        <button class="bouton" id="admin" type="submit" name="rst_all_edt">rst all edt</button>
 
 
         <br>
     <!-- reset un ou tt les rendez vous -->
-        <label for="sup_coach">id du coach dont on reset les rdv  :</label>
+        <label for="sup_coach">ID du coach dont on reset les rdv  :</label>
         <input type="text" id="rst_rdv" name="rst_rdv" >
-        <button type="submit">rst ses rdv</button>
+        <button class="bouton" id="admin" type="submit">rst ses rdv</button>
 
-        <br>
-        <button type="submit" name="rst_all_rdv">rst all rdv</button>
+        <button class="bouton" id="admin" type="submit" name="rst_all_rdv">rst all rdv</button>
     </form>
 
     <br>
-    <button onclick="window.location.href='creaCoach.html'">Creer un coach</button>
+    <button class="bouton" id="valider" onclick="window.location.href='creaCoach.html'">Créer un coach</button>
 
 
 

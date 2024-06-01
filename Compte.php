@@ -122,10 +122,9 @@ if ($db_found) {
     <br>
 </div>
 
-<br> <br>
+<br> <br> <br>
 
 <div id="votre-compte">
-    <br>
 
     <?php
 
@@ -145,7 +144,7 @@ if ($db_found) {
 
         if ($statut == 0) { //client
             while ($data = mysqli_fetch_assoc($result)) {
-                echo " <h1> <u> Mes informations</u> : </h1>";
+                echo " <h2> <u> Mes informations</u> : </h2>";
                 echo " <h5> ID (mail) : " . $data['Mail'] . "</h5>";
                 echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
                 echo " <h5> Nom : " . $data['Nom'] . "</h5>";
@@ -156,7 +155,7 @@ if ($db_found) {
         } else if ($statut == 1) { //coach
             while ($data = mysqli_fetch_assoc($result)) {
 
-            echo "<h5>Mon planning :</h5>";
+            echo "<h2>Mon planning :</h2>";
 
             echo "<div class='availability-table'>
         <table class='availability'>
@@ -190,7 +189,7 @@ if ($db_found) {
             </table>
             </div>";
                 echo " <br><br><br> ";
-                echo "<button class='bouton' onclick='window.location.href=`frontEdition.php`'>Editer mon planning</button>";
+                echo "<button class='bouton' id='valider' onclick='window.location.href=`frontEdition.php`'>Editer mon planning</button>";
 
 
                 echo " <h2>Mes informations : </h2>";
@@ -212,7 +211,7 @@ if ($db_found) {
             echo " <h5>ID (mail) : " . $data['Mail'] . "</h5>";
             echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
             echo " <h5> Nom : " . $data['Nom'] . "</h5>";
-            echo "<button onclick='window.location.href= `superPouvoir.html` '> super pouvoir d'admin </button>";
+            echo "<button class='bouton' id='valider' onclick='window.location.href= `superPouvoir.html` '> super pouvoir d'admin </button>";
 
 
         }
@@ -224,7 +223,7 @@ if ($db_found) {
     mysqli_close($db_handle);
     ?>
     <br><br>
-    <button class="bouton" onclick="window.location.href='deconnexion.html'">Se déconnecter</button>
+    <button class="bouton" id="valider" onclick="window.location.href='deconnexion.html'">Se déconnecter</button>
     <br>
 </div>
 

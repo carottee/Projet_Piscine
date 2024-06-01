@@ -131,7 +131,7 @@ $statut = $user['statut'];
                         echo "<li>" . $jour . " " . $horraire . "</li>";
                         echo "</ul>";
                         echo " <center><form action='annulation.php' method='post'>  <button class='bouton' id='annuler' name='ID_rdv' value='$ID_rdv'>Annuler</button></form></center>";
-                        echo "</div>";
+                        echo "</div> <br>";
                         $cpt++;
                     }
 
@@ -199,8 +199,8 @@ $statut = $user['statut'];
                         echo "<li>" . $prenom_client . " " . $nom_client . "</li>";
                         echo "<li>" . $jour . " " . $horraire . "</li>";
                         echo "</ul>";
-                        echo " <center><form action='annulation.php' method='post'>  <button class='bouton' id='annuler' name='ID_rdv' value='$ID_rdv'>Annuler</button></form></center>";
-                        echo "</div>";
+                        echo " <center><form action='annulation.php' method='post'> <button class='bouton' id='annuler' name='ID_rdv' value='$ID_rdv'>Annuler</button></form></center>";
+                        echo "</div> <br>";
                         $cpt++;
                     }
                 }
@@ -210,18 +210,11 @@ $statut = $user['statut'];
         }
 
 
-
-
     }
     ?>
 
 
 </div>
-
-
-
-
-
 
 
 <div>
@@ -293,7 +286,7 @@ $statut = $user['statut'];
                             echo "<li>" . $jour . " " . $horraire . "</li>";
                             echo "</ul>";
                             echo " <button>Annuler</button>";
-                            echo "</div> <br> <br> <br>";
+                            echo "</div> <br>";
                             $cpt++;
                         }
 
@@ -360,7 +353,7 @@ $statut = $user['statut'];
                             echo "<li>" . $jour . " " . $horraire . "</li>";
                             echo "</ul>";
                             echo " <button>annuler</button>  ";
-                            echo "</div> <br> <br> <br>";
+                            echo "</div> <br>";
                             $cpt++;
                         }
 
@@ -372,14 +365,6 @@ $statut = $user['statut'];
 
         }
         ?>
-
-
-
-   <!-- <button type="button" class="RDV_passes" onclick="details_rdv_finis()">
-        RDV 4
-        <div id="detail_rdv_fini4"> Cliquez pour voir le détail </div> <br>
-    </button> <br> <br> <br>-->
-
 
 </div>
 
