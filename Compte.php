@@ -124,7 +124,6 @@ if ($db_found) {
 <br> <br>
 
 <div id="votre-compte">
-    <!-- zone de connexion -->
     <br>
 
     <?php
@@ -207,12 +206,14 @@ if ($db_found) {
 
 
         } else if ($statut == 2) { //admin
-            while ($data = mysqli_fetch_assoc($result)) {
-                echo " <h2>Mes informations : </h2>";
-                echo " <h5>ID (mail) : " . $data['Mail'] . "</h5>";
-                echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
-                echo " <h5> Nom : " . $data['Nom'] . "</h5>";
-            }
+            $data = mysqli_fetch_assoc($result);
+            echo " <h2>Mes informations : </h2>";
+            echo " <h5>ID (mail) : " . $data['Mail'] . "</h5>";
+            echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
+            echo " <h5> Nom : " . $data['Nom'] . "</h5>";
+            echo "<button onclick='window.location.href= `superPouvoir.html` '> super pouvoir d'admin </button>";
+
+
         }
 
     } else {
@@ -221,7 +222,6 @@ if ($db_found) {
 
     mysqli_close($db_handle);
     ?>
-
     <br><br>
     <button class="bouton" onclick="window.location.href='deconnexion.html'">Se déconnecter</button>
     <br>

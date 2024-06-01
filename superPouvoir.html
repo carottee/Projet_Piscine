@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Votre Compte</title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+<div id="header">
+    <img src="logo_sportify.png" alt="voici le logo sportify" height="120" width="1350">
+    <div class="right">
+        <a href="sign_in_up.php"> <img src="account_circle_white.png" alt="voici le logo se connecter" height="60"
+                                       width="60"> </a>
+    </div>
+</div>
+
+<div id="navigation">
+    <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
+        <tr> <!--nouvelle ligne-->
+            <td> <!--nouvelle colonne-->
+                <a href="Accueil.html">
+                    <button class="bouton" id="accueil" type="button"> Accueil</button>
+                </a>
+            </td>
+            <td>
+                <a href="Tout_parcourir.html">
+                    <button class="bouton" id="parcourir" type="button"> Tout parcourir</button>
+                </a>
+            </td>
+            <td>
+                <a href="Recherche.html">
+                    <button class="bouton" id="recherche" type="button"> Recherche</button>
+                </a>
+            </td>
+            <td>
+                <a href="RDV.php">
+                    <button class="bouton" id="rdv" type="button"> RDV</button>
+                </a>
+            </td>
+            <td>
+                <a href="Compte.php">
+                    <button class="bouton" id="compte" type="button"> Votre compte</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+    <br>
+</div>
+
+<br> <br>
+
+
+
+<div id="votre-compte">
+
+    <!-- supprimer un ou tt les coach -->
+    <form action="superPouvoir.php" method="post">
+        <label for="sup_coach">ID du coach à supprimer :</label>
+        <input type="text" id="sup_coach" name="sup_coach" >
+        <button type="submit">Supprimer ce coach</button>
+
+        <br>
+        <button type="submit" name="sup_all_coach" value="1">Supprimer tt les coach</button>
+
+
+
+
+        <br>
+
+    <!-- reset un ou tt les emplois du temps -->
+        <label for="sup_coach">id du coach dont on reset l'edt  :</label>
+        <input type="text" id="rst_edt" name="rst_edt" >
+        <button type="submit">rst son edt</button>
+
+        <br>
+        <button type="submit" name="rst_all_edt">rst all edt</button>
+
+
+        <br>
+    <!-- reset un ou tt les rendez vous -->
+        <label for="sup_coach">id du coach dont on reset les rdv  :</label>
+        <input type="text" id="rst_rdv" name="rst_rdv" >
+        <button type="submit">rst ses rdv</button>
+
+        <br>
+        <button type="submit" name="rst_all_rdv">rst all rdv</button>
+    </form>
+
+    <br>
+    <button onclick="window.location.href='creaCoach.html'">Creer un coach</button>
+
+
+
+
+
+
+
+</div>
+
+
+
