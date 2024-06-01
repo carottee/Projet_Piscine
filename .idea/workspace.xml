@@ -4,22 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="super-pouvoirs des admins en gros">
-      <change afterPath="$PROJECT_DIR$/Alimentation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Coaching.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Horaire.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Personnels.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/confirmation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paiement.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/regles.html" afterDir="false" />
+    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="commit test">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_00_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_00_29__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_39__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_39__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_39__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_52__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_52__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_52__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_11_01__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_11_01__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_11_40__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_11_40__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_23_09__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_23_09__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_13_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_13_53__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_18_26__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_18_26__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Les_salles_de_sport_OMNES.html" beforeDir="false" afterPath="$PROJECT_DIR$/Les_salles_de_sport_OMNES.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nos_services.html" beforeDir="false" afterPath="$PROJECT_DIR$/Nos_services.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paiement.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/confirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/confirmation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +148,7 @@
     <MESSAGE value="inscription blindée, + bdd" />
     <MESSAGE value="annulation rdv, blindage inscription rdv et j'crois que c est tt" />
     <MESSAGE value="super-pouvoirs des admins en gros" />
-    <option name="LAST_COMMIT_MESSAGE" value="super-pouvoirs des admins en gros" />
+    <MESSAGE value="commit test" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit test" />
   </component>
 </project>

@@ -34,7 +34,14 @@ if (mysqli_num_rows($result)>0){
 
         if ($SOLDE >= $prix){
 
+            $SOLDE = $SOLDE - $prix;
+            $sql = "UPDATE compte SET Solde='$SOLDE' WHERE mail = '$MAIL'";
+            $result = mysqli_query($db_handle, $sql);
 
+            echo "<script>
+                alert('achat effectué');
+                window.location.href='Nos_services.html';
+         </script>";
 
         }
         else{
