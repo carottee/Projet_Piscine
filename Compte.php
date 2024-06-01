@@ -102,7 +102,7 @@ if ($db_found) {
                 </a>
             </td>
             <td>
-                <a href="Recherche.html">
+                <a href="Recherche.php">
                     <button class="bouton" id="recherche" type="button"> Recherche</button>
                 </a>
             </td>

@@ -1,3 +1,42 @@
+<?php
+
+@$keywords = $_GET['keywords'];
+@$valider  = $_GET['valider'];
+
+
+if (isset($valider) && trim($keywords) !== '') {
+    $words = explode(" ", trim($keywords));
+    for ($i=0; $i<count($words); $i++){
+        $kw[$i] = "discipline like '%".$words[$i]."%' or Nom like '%".$words[$i]."%' or Prenom like '%".$words[$i]."%' or Mail like '%".$words[$i]."%'";
+    }
+
+$database = "projet_piscine";
+$db_handle = mysqli_connect('localhost', 'root', '');
+$db_found = mysqli_select_db($db_handle, $database);
+
+
+if ($db_found) {
+
+    $sql = "select * from coach where ".implode(" or ",$kw);
+    $result = mysqli_query($db_handle, $sql);
+    if (mysqli_num_rows($result)>0) {
+        $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $afficher = 1;
+    }
+
+
+}
+
+}else {
+    $afficher = 0;
+}
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +65,7 @@
         <a href="Tout_parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir </button> </a>
       </td>
       <td>
-        <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+        <a href="Recherche.php"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
       </td>
       <td>
         <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
@@ -41,10 +80,51 @@
 <br>
 <br>
 
+
+<form action="" method="get" name="fo">
 <div class="recherche" style="display: flex; justify-content: center;">
-  <input type="texte" class="search-bar" placeholder="Rechercher...">
-  <button type="valider" class="search-button">🔍</button>
+  <input type="text" class="search-bar" name="keywords" value="<?php echo $keywords ?>" placeholder="Rechercher...">
+  <button type="submit" name="valider" class="search-button">🔍</button>
 </div>
+</form>
+
+<?php if (@$afficher == 1){ ?>
+<div id="resultat">
+<div id="nbr"><?=count($data)." ".(count($data)>1? "résultats trouvés" : "résultat trouvé") ?> </div>
+
+    <ol>
+        <?php foreach ($data as $row) { ?>
+            <li><?php echo htmlspecialchars($row['Nom']) . " " . htmlspecialchars($row['Prenom']) . " - " . htmlspecialchars($row['discipline']) . " - " . htmlspecialchars($row['Mail']); ?></li>
+        <?php } ?>
+    </ol>
+
+</div>
+
+<?php } ?>
+
+
+<?php if (@$afficher == 0){ ?>
+    <div id="resultat">
+
+        <p> aucun résultat trouvé</p>
+
+    </div>
+
+<?php } ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <br>
 <br>
