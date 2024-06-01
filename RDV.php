@@ -81,6 +81,7 @@ $statut = $user['statut'];
                     $mail_coach = $data['mail_coach'];
                     $creneau = $data['creneau'];
                     $passe = $data['passe'];
+                    $ID_rdv = $data['ID'];
 
 
                     // Détermine le jour et l'horaire selon le créneau
@@ -129,6 +130,7 @@ $statut = $user['statut'];
                         echo "<li>" . $prenom_coach . " " . $nom_coach . "</li>";
                         echo "<li>" . $jour . " " . $horraire . "</li>";
                         echo "</ul>";
+                        echo " <form action='annulation.php' method='post'>  <button name='ID_rdv' value='$ID_rdv'>Annuler</button></form>";
                         echo "</div>";
                         $cpt++;
                     }
@@ -148,6 +150,7 @@ $statut = $user['statut'];
                     $mail_client = $data['mail_client'];
                     $creneau = $data['creneau'];
                     $passe = $data['passe'];
+                    $ID_rdv = $data['ID'];
 
 
                     // Détermine le jour et l'horaire selon le créneau
@@ -189,17 +192,17 @@ $statut = $user['statut'];
                         }
                     }
 
-                    if ($passe == 0) {
+                    if ($passe == 0){
                         echo "<div class='RDV_venir'>";
                         echo "<h5>RDV $cpt</h5>";
                         echo "<ul>";
                         echo "<li>" . $prenom_client . " " . $nom_client . "</li>";
                         echo "<li>" . $jour . " " . $horraire . "</li>";
                         echo "</ul>";
+                        echo " <form action='annulation.php' method='post'>  <button name='ID_rdv' value='$ID_rdv'>Annuler</button></form>";
                         echo "</div>";
                         $cpt++;
                     }
-
                 }
             } else {
                 echo "vous n'avez pas encore de rendez-vous";
@@ -289,6 +292,7 @@ $statut = $user['statut'];
                             echo "<li>" . $prenom_coach . " " . $nom_coach . "</li>";
                             echo "<li>" . $jour . " " . $horraire . "</li>";
                             echo "</ul>";
+                            echo " <button>Annuler</button>";
                             echo "</div> <br> <br> <br>";
                             $cpt++;
                         }
@@ -355,6 +359,7 @@ $statut = $user['statut'];
                             echo "<li>" . $prenom_client . " " . $nom_client . "</li>";
                             echo "<li>" . $jour . " " . $horraire . "</li>";
                             echo "</ul>";
+                            echo " <button>annuler</button>  ";
                             echo "</div> <br> <br> <br>";
                             $cpt++;
                         }

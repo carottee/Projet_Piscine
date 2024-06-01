@@ -5,7 +5,7 @@ session_start();
 if (!isset($_SESSION['user'])) {
     // Redirect to login page if the user is not logged in
     echo "<script>alert(`vous n'êtes pas connecté`); window.location.href = 'sign_in_up.php' </script>";
-exit();
+    exit();
 }
 
 
@@ -14,8 +14,7 @@ $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, $database);
 
 
-
-if  ($db_found){
+if ($db_found) {
 
     $user = $_SESSION['user'];
 
@@ -24,56 +23,51 @@ if  ($db_found){
     $mail = $user['mail'];
 
 
-if ($statut == 1) {
+    if ($statut == 1) {
 
-    $sql = "select * from coach where Mail = '$mail'";
-    $result = mysqli_query($db_handle, $sql);
-    $data = mysqli_fetch_assoc($result);
-    $id = $data['ID'];
-
-
-    $sql = "select * from edt where id_coach = '$id'";
-    $result = mysqli_query($db_handle, $sql);
-
-    $data = mysqli_fetch_assoc($result);
-    $l = $data['l'];
-    $ld = $data['ld'];
-    $ma = $data['ma'];
-    $mad = $data['mad'];
-    $me = $data['me'];
-    $med = $data['med'];
-    $j = $data['j'];
-    $jd = $data['jd'];
-    $v = $data['v'];
-    $vd = $data['vd'];
-    $s = $data['s'];
-    $sd = $data['sd'];
+        $sql = "select * from coach where Mail = '$mail'";
+        $result = mysqli_query($db_handle, $sql);
+        $data = mysqli_fetch_assoc($result);
+        $id = $data['ID'];
 
 
-    function edt($variable)
-    {
+        $sql = "select * from edt where id_coach = '$id'";
+        $result = mysqli_query($db_handle, $sql);
 
-        if ($variable == '0') {
-            return "white";
-        } else if ($variable == '1') {
-            return "orange";
-        } else if ($variable == '2') {
-            return "rouge";
+        $data = mysqli_fetch_assoc($result);
+        $l = $data['l'];
+        $ld = $data['ld'];
+        $ma = $data['ma'];
+        $mad = $data['mad'];
+        $me = $data['me'];
+        $med = $data['med'];
+        $j = $data['j'];
+        $jd = $data['jd'];
+        $v = $data['v'];
+        $vd = $data['vd'];
+        $s = $data['s'];
+        $sd = $data['sd'];
+
+
+        function edt($variable)
+        {
+
+            if ($variable == '0') {
+                return "white";
+            } else if ($variable == '1') {
+                return "orange";
+            } else if ($variable == '2') {
+                return "rouge";
+            }
         }
     }
-}
 
 
-}else {
+} else {
     echo "Database not found";
 }
 
 ?>
-
-
-
-
-
 
 
 <!DOCTYPE html>
@@ -98,19 +92,29 @@ if ($statut == 1) {
     <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
         <tr> <!--nouvelle ligne-->
             <td> <!--nouvelle colonne-->
-                <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
+                <a href="Accueil.html">
+                    <button class="bouton" id="accueil" type="button"> Accueil</button>
+                </a>
             </td>
             <td>
-                <a href="Tout_parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir </button> </a>
+                <a href="Tout_parcourir.html">
+                    <button class="bouton" id="parcourir" type="button"> Tout parcourir</button>
+                </a>
             </td>
             <td>
-                <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+                <a href="Recherche.html">
+                    <button class="bouton" id="recherche" type="button"> Recherche</button>
+                </a>
             </td>
             <td>
-                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+                <a href="RDV.php">
+                    <button class="bouton" id="rdv" type="button"> RDV</button>
+                </a>
             </td>
             <td>
-                <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+                <a href="Compte.php">
+                    <button class="bouton" id="compte" type="button"> Votre compte</button>
+                </a>
             </td>
         </tr>
     </table>
@@ -129,69 +133,66 @@ if ($statut == 1) {
     if ($db_found) {
 
 
-        if($statut == 0){ //client
+        if ($statut == 0) { //client
             $sql = "select * from client where Mail = '$mail'";
-        }
-        else if($statut == 1){ //coach
+        } else if ($statut == 1) { //coach
             $sql = "select * from coach where Mail = '$mail'";
-        }
-        else if($statut == 2){ //admin
+        } else if ($statut == 2) { //admin
             $sql = "select * from admin where Mail = '$mail'";
         }
 
         $result = mysqli_query($db_handle, $sql);
 
-        if($statut == 0){ //client
-            while ($data = mysqli_fetch_assoc($result)){
+        if ($statut == 0) { //client
+            while ($data = mysqli_fetch_assoc($result)) {
                 echo " <h1> <u> Mes informations</u> : </h1>";
                 echo " <h5> ID (mail) : " . $data['Mail'] . "</h5>";
                 echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
-                echo " <h5> Nom : ". $data['Nom'] . "</h5>";
+                echo " <h5> Nom : " . $data['Nom'] . "</h5>";
                 echo " <h5> Prénom : " . $data['Prenom'] . "</h5>";
                 echo " <h5> Adresse : " . $data['Adresse'] . "</h5>";
                 echo " <h5> Numéro de carte étudiante : " . $data['carte'] . "</h5>";
             }
-        }
-        else if($statut == 1){ //coach
-            while ($data = mysqli_fetch_assoc($result)){
+        } else if ($statut == 1) { //coach
+            while ($data = mysqli_fetch_assoc($result)) {
 
                 echo " <h2>Mon emploi du temps : </h2>";
 
-                echo '<table class="availability">';
+                echo "<div class='availability-table'>
+            <table class='availability'>
+            <tr>
+                <th></th> <!-- Cellule vide pour l'alignement -->
+                <th>Lundi</th>
+                <th>Mardi</th>
+                <th>Mercredi</th>
+                <th>Jeudi</th>
+                <th>Vendredi</th>
+                <th>Samedi</th>
+            </tr>
+            <tr>
+                <td>Matin</td>
+                <td class='" . edt($l) . " '></td>
+                <td class='" . edt($ma) . "'></td>
+                <td class='" . edt($me) . "'></td>
+                <td class='" . edt($j) . "'></td>
+                <td class='" . edt($v) . "'></td>
+                <td class='" . edt($s) . "'></td>
+            </tr>
+            <tr>
+                <td>Après-midi</td>
+                <td class='" . edt($ld) . "'></td>
+                <td class='" . edt($mad) . "'></td>
+                <td class='" . edt($med) . "'></td>
+                <td class='" . edt($jd) . "'></td>
+                <td class='" . edt($vd) . "'></td>
+                <td class='" . edt($sd) . "'></td>
+            </tr>
+            </table>
+            </div>";
+                echo " <br><br><br> ";
+                echo "<button class='bouton' onclick='window.location.href=`frontEdition.php`'>Editer mon planning</button>";
 
-                echo "<tr>";
-                echo "<th></th> <!-- Cellule vide coin supérieur gauche -->";
-                echo "<th>Lundi</th>";
-                echo "<th>Mardi</th>";
-                echo "<th>Mercredi</th>";
-                echo "<th>Jeudi</th>";
-                echo "<th>Vendredi</th>";
-                echo "<th>Samedi</th>";
-                echo "</tr>";
 
-                echo "<tr>";
-                echo "<td>Matin</td>";
-                echo '<td class=" <?= edt($l)?> "></td>';
-                echo '<td class="<?= edt($ma)?>"></td>';
-                echo '<td class="<?= edt($me)?>"></td>';
-                echo '<td class="<?= edt($j)?>"></td>';
-                echo '<td class="<?= edt($v)?>"></td>';
-                echo '<td class="<?= edt($s)?>"></td>';
-                echo "</tr>";
-
-                echo "<tr>";
-                echo "<td>Après-midi</td>";
-                echo '<td class="<?= edt($ld)?>"></td>';
-                echo '<td class="<?= edt($mad)?>"></td>';
-                echo '<td class="<?= edt($med)?>"></td>';
-                echo '<td class="<?= edt($jd)?>"></td>';
-                echo '<td class="<?= edt($vd)?>"></td>';
-                echo '<td class="<?= edt($sd)?>"></td>';
-                echo "</tr>";
-
-                echo "</table>";
-                
-                
                 echo " <h2>Mes informations : </h2>";
                 echo " <h5> ID (mail) : " . $data['Mail'] . "</h5>" . "</h5>";
                 echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
@@ -204,43 +205,8 @@ if ($statut == 1) {
                 echo " <h5> CV : <br> <br> <embed src='" . $data['CV'] . "' type='application/pdf' width='700' height='1010px'><br>";    //    <embed src="chemin/vers/votre/fichier.pdf" type="application/pdf" width="100%" height="600px" />
             }
 
-            echo "<h5>Mon planning:</h5>";
-            echo "<div class='availability-table'>
-        <table class='availability'>
-            <tr>
-                <th></th> <!-- Cellule vide pour l'alignement -->
-                <th>Lundi</th>
-                <th>Mardi</th>
-                <th>Mercredi</th>
-                <th>Jeudi</th>
-                <th>Vendredi</th>
-                <th>Samedi</th>
-            </tr>
-            <tr>
-                <td>Matin</td>
-                <td class='". edt($l). " '></td>
-                <td class='".edt($ma)."'></td>
-                <td class='".edt($me)."'></td>
-                <td class='". edt($j)."'></td>
-                <td class='".edt($v)."'></td>
-                <td class='". edt($s)."'></td>
-            </tr>
-            <tr>
-                <td>Après-midi</td>
-                <td class='". edt($ld)."'></td>
-                <td class='". edt($mad)."'></td>
-                <td class='". edt($med)."'></td>
-                <td class='". edt($jd)."'></td>
-                <td class='". edt($vd)."'></td>
-                <td class='". edt($sd)."'></td>
-            </tr>
-            </table>
-        </div>";
 
-            echo "<button class='bouton' onclick='window.location.href=`frontEdition.php`'>Editer mon planning</button>";
-
-        }
-        else if($statut == 2){ //admin
+        } else if ($statut == 2) { //admin
             while ($data = mysqli_fetch_assoc($result)) {
                 echo " <h2>Mes informations : </h2>";
                 echo " <h5>ID (mail) : " . $data['Mail'] . "</h5>";
