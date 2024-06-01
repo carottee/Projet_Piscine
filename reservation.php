@@ -25,7 +25,7 @@ if ($db_found) {
         }
     }
 
-
+    if(!($statut == 1)){
 
     foreach ($post_variables as $var_name) {
         if (isset($_POST[$var_name])) {
@@ -65,8 +65,7 @@ if ($db_found) {
                     $sql = "INSERT INTO rdv (mail_coach, mail_client, passe, creneau) VALUES ('$mail_coach', '$mail', '0', '$var_name')";
                     $result=mysqli_query($db_handle, $sql);
 
-                    echo " <script> alert('rendez vous fixé'); window.location.href='RDV.php'</script> ";
-                    exit();
+                    echo " <script> alert('rendez vous fixé');</script> ";
                 }
                 else{
                     echo " <script> alert('vous avez deja un rendez vous sur ce creneau') </script> ";
@@ -75,8 +74,9 @@ if ($db_found) {
             }
         }
     }
+    }else{  echo "  <script>alert('vous ne pouvez pas prendre de rdv avec un autre coach, connectez vous en tant que client pour ce faire'); window.location.href='Tout_parcourir.html'</script> ";   }
 
-
+    echo "<script> window.location.href='RDV.php'</script>";
 } else {
     echo "Database not found";
 }
