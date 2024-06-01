@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Natation</title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .rectangle {
+            background-color: #333; /* Dark gray background */
+            border: 4px solid orange; /* Orange border */
+            border-radius: 25px; /* Rounded corners */
+            padding: 20px; /* Padding inside the rectangle */
+            width: 70%; /* Width of the rectangle */
+            margin: 50px auto; /* Center horizontally and margin with buttons */
+            color: white; /* Text color */
+            font-family: Arial, sans-serif; /* Font family */
+            text-align: center; /* Center text */
+        }
+
+        .rectangle h3 {
+            color: orange; /* Title color */
+            text-align: center; /* Centered title */
+        }
+
+        .rectangle p {
+            margin: 10px 0; /* Margin between paragraphs */
+        }
+
+        .rectangle ol {
+            list-style: none; /* Remove default list styling */
+            padding-left: 0; /* Remove left padding */
+        }
+
+        .rectangle ul li {
+            margin: 5px 0; /* Space between list items */
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <img src="logo_sportify.png" alt="voici le logo sportify" height="120" width="1350">
+    <div class="right">
+        <a href="sign_in_up.html"> <img src="account_circle_white.png" alt="voici le logo se connecter" height="60" width="60"> </a>
+    </div>
+</div>
+
+<div id="navigation">
+    <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
+        <tr> <!--nouvelle ligne-->
+            <td> <!--nouvelle colonne-->
+                <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
+            </td>
+            <td>
+                <a href="Tout_parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir </button> </a>
+            </td>
+            <td>
+                <a href="Recherche.php"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+            </td>
+            <td>
+                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+            </td>
+            <td>
+                <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+            </td>
+        </tr>
+    </table>
+    <br> <br>
+</div>
+
+<div class="breadcrumb">
+    <a href="Les_salles_de_sport_OMNES.html">Les sports de compétitions</a> > <a href="Nos_services.html">Nos services</a> > <a href="Horaire.html"> Horaires</a>
+</div>
+
+
+<!-- New rectangle section -->
+<div class="rectangle">
+    <h3>Voici les horaires de notre salle de sport Omnes incluant l'accès à la piscine :</h3>
+    <p><b><u>Lundi - Vendredi :</u></b></p>
+    <ol>
+        <li>Salle de sport : 6h00 - 22h00</li>
+        <li>Piscine : 7h00 - 21h00</li>
+    </ol>
+    <p><b><u>Samedi :</u></b></p>
+    <ol>
+        <li>Salle de sport : 8h00 - 20h00</li>
+        <li>Piscine : 8h00 - 19h00</li>
+    </ol>
+    <p><b><u>Dimanche :</u></b></p>
+    <ol>
+        <li>Salle de sport : 9h00 - 18h00</li>
+        <li>Piscine : 9h00 - 17h00</li>
+    </ol>
+</div>
+
+<br><br><br><br>
+<div id="footer" style="display: flex; justify-content: space-between;">
+
+
+    <ul>
+        <h3>Nous contacter </h3>
+        <li> Téléphone : <u> (+33) 06 05 04 03 02 </u> </li>
+        <li> Email : <a href = "mailto.sportify@gmail.com"> sportify@gmail.com </a> </li>
+        <li> Sur place : <address> 43 Quai de Grenelle, 75015 Paris </address> </li>
+    </ul>
+
+    <div class="right">
+        <!--carte google maps insérée--> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5250.725751806412!2d2.2838522762051072!3d48.85129037133122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e670049543178d%3A0xcda73a49149d471f!2sOMNES%20Education!5e0!3m2!1sfr!2sfr!4v1716841516349!5m2!1sfr!2sfr" width="800" height="300" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+</div>
+
+</body>
+</html>
