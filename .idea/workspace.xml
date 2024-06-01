@@ -4,13 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="annulation rdv, blindage inscription rdv et j'crois que c est tt">
-      <change afterPath="$PROJECT_DIR$/creaCoach.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/creaCoach.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/superPouvoir.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/superPouvoir.php" afterDir="false" />
+    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="super-pouvoirs des admins en gros">
+      <change afterPath="$PROJECT_DIR$/paiement.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/Accueil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Activites_sportives.html" beforeDir="false" afterPath="$PROJECT_DIR$/Activites_sportives.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compte.php" beforeDir="false" afterPath="$PROJECT_DIR$/Compte.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Les_salles_de_sport_OMNES.html" beforeDir="false" afterPath="$PROJECT_DIR$/Les_salles_de_sport_OMNES.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Les_sports_de_competitions.html" beforeDir="false" afterPath="$PROJECT_DIR$/Les_sports_de_competitions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RDV.php" beforeDir="false" afterPath="$PROJECT_DIR$/RDV.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recherche.html" beforeDir="false" afterPath="$PROJECT_DIR$/Recherche.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tout_parcourir.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tout_parcourir.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deconnexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/deconnexion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEdition.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontEdition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prendre_RDV.php" beforeDir="false" afterPath="$PROJECT_DIR$/prendre_RDV.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sign_in_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/sign_in_up.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/sign_up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sport.php" beforeDir="false" afterPath="$PROJECT_DIR$/sport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superPouvoir.html" beforeDir="false" afterPath="$PROJECT_DIR$/superPouvoir.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +97,7 @@
       <workItem from="1716899470164" duration="1391000" />
       <workItem from="1716905136093" duration="14349000" />
       <workItem from="1716971936530" duration="3085000" />
-      <workItem from="1717175353591" duration="9333000" />
+      <workItem from="1717175353591" duration="17969000" />
     </task>
     <task id="LOCAL-00001" summary="commit and push test">
       <option name="closed" value="true" />
@@ -112,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717236520426</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="super-pouvoirs des admins en gros">
+      <option name="closed" value="true" />
+      <created>1717245666525</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717245666525</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +152,7 @@
     <MESSAGE value="commit and push test" />
     <MESSAGE value="inscription blindée, + bdd" />
     <MESSAGE value="annulation rdv, blindage inscription rdv et j'crois que c est tt" />
-    <option name="LAST_COMMIT_MESSAGE" value="annulation rdv, blindage inscription rdv et j'crois que c est tt" />
+    <MESSAGE value="super-pouvoirs des admins en gros" />
+    <option name="LAST_COMMIT_MESSAGE" value="super-pouvoirs des admins en gros" />
   </component>
 </project>
