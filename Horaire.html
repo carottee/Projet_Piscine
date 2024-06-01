@@ -7,34 +7,32 @@
     <style>
         .rectangle {
             background-color: #333; /* Dark gray background */
+            border: 4px solid orange; /* Orange border */
             border-radius: 25px; /* Rounded corners */
             padding: 20px; /* Padding inside the rectangle */
-            display: flex; /* Flexbox for alignment */
-            justify-content: space-around; /* Space around items */
-            align-items: center; /* Center items vertically */
-            width: 750px; /* Fixed width */
-            margin: 150px auto; /* Center horizontally and margin with buttons */
-            height: 100px;
-        }
-
-        .circle-container {
-            text-align: center; /* Center text and image */
+            width: 70%; /* Width of the rectangle */
+            margin: 50px auto; /* Center horizontally and margin with buttons */
             color: white; /* Text color */
+            font-family: Arial, sans-serif; /* Font family */
+            text-align: center; /* Center text */
         }
 
-        .circle-container img {
-            border-radius: 50%; /* Make images round */
-            width: 60px; /* Fixed width */
-            height: 60px; /* Fixed height */
+        .rectangle h3 {
+            color: orange; /* Title color */
+            text-align: center; /* Centered title */
         }
 
-        .circle-container img:hover{
-            border: 4px solid orange; /* Modification de la taille de la bordure */
-
+        .rectangle p {
+            margin: 10px 0; /* Margin between paragraphs */
         }
 
-        .circle-container p {
-            margin-top: 10px; /* Space between image and text */
+        .rectangle ol {
+            list-style: none; /* Remove default list styling */
+            padding-left: 0; /* Remove left padding */
+        }
+
+        .rectangle ul li {
+            margin: 5px 0; /* Space between list items */
         }
     </style>
 </head>
@@ -71,42 +69,29 @@
 </div>
 
 <div class="breadcrumb">
-    <a href="Les_salles_de_sport_OMNES.html">Les sports de compétitions</a> > <a href="Nos_services.html">Nos services</a>
+    <a href="Les_salles_de_sport_OMNES.html">Les sports de compétitions</a> > <a href="Nos_services.html">Nos services</a> > <a href="Horaire.html"> Horaires</a>
 </div>
 
+
+<!-- New rectangle section -->
 <div class="rectangle">
-    <div class="circle-container">
-        <a href="Personnels.html">
-            <img src="coatch-basket.jpg" alt="Image 1">
-            <p>Personnels</p>
-        </a>
-    </div>
-    <div class="circle-container">
-        <a href="Horaire.html">
-            <img src="coatch-basket.jpg" alt="Image 2">
-            <p>Horaire</p>
-        </a>
-    </div>
-    <div class="circle-container">
-        <a href="regles.html">
-            <img src="coatch-basket.jpg" alt="Image 3">
-            <p>Règles</p>
-        </a>
-    </div>
-    <div class="circle-container">
-        <a href ="Coaching.html">
-            <img src="coatch-basket.jpg" alt="Image 4">
-            <p>Coaching</p>
-        </a>
-    </div>
-    <div class="circle-container">
-        <a href="Alimentation.html">
-            <img src="coatch-basket.jpg" alt="Image 5">
-            <p>Nutrition</p>
-        </a>
-    </div>
+    <h3>Voici les horaires de notre salle de sport Omnes incluant l'accès à la piscine :</h3>
+    <p><b><u>Lundi - Vendredi :</u></b></p>
+    <ol>
+        <li>Salle de sport : 6h00 - 22h00</li>
+        <li>Piscine : 7h00 - 21h00</li>
+    </ol>
+    <p><b><u>Samedi :</u></b></p>
+    <ol>
+        <li>Salle de sport : 8h00 - 20h00</li>
+        <li>Piscine : 8h00 - 19h00</li>
+    </ol>
+    <p><b><u>Dimanche :</u></b></p>
+    <ol>
+        <li>Salle de sport : 9h00 - 18h00</li>
+        <li>Piscine : 9h00 - 17h00</li>
+    </ol>
 </div>
-
 
 <br><br><br><br>
 <div id="footer" style="display: flex; justify-content: space-between;">
