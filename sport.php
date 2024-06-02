@@ -71,7 +71,7 @@ if($result){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Fitness</title>
+    <title><?php echo "$discipline" ?></title>
     <link href="styles.css" rel="stylesheet" type="text/css"/>
 
 </head>
