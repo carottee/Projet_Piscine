@@ -176,10 +176,10 @@ if  ($db_found){
 
                 </td>
                 <td>
-                    <a href="Accueil.html"> <button class="bouton"> Chatroom </button> </a>
+                    <a href="chatroom.html"> <button class="bouton"> Chatroom </button> </a>
                 </td>
                 <td>
-                    <a href="SDC/coatch-basket.jpg" target="_blank"> <button class="bouton">CV</button> </a>
+                    <a href="coatch-basket.jpg" target="_blank"> <button class="bouton">CV</button> </a>
                 </td>
             </tr>
         </table>

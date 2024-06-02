@@ -4,20 +4,55 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="enfin la meme chose sur main et bis ?">
-      <change afterPath="$PROJECT_DIR$/ACTIVITE_SPORTIVE/biking.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ACTIVITE_SPORTIVE/cardio-step.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ACTIVITE_SPORTIVE/cardio.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ACTIVITE_SPORTIVE/fitness.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ACTIVITE_SPORTIVE/musculation.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ACTIVITE_SPORTIVE/step.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SDC/basketball.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SDC/football.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SDC/natation.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SDC/plongeons.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SDC/rugby.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SDC/tennis.jpg" afterDir="false" />
+    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="commit test">
+      <change afterPath="$PROJECT_DIR$/appel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/barre_protéiner.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boisson_energisante.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chatroom.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coaching_duo.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coaching_groupe.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coaching_individuel.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coatch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/granola_healthy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/horaire.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/message.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nouv-client.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nutrition.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personnel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/regle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shake_proteine.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snack_sain.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vitamines.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vocal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_47__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_47__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_47__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_51__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_51__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_52__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_53__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_58__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_58__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_59__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_02_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_02_03__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_06_2024_01_49__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_06_2024_01_49__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_00_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_00_29__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_39__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_39__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_39__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_52__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_52__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_10_52__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_11_01__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_11_01__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_11_40__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_11_40__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_23_09__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2024_23_09__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_13_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_13_53__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_18_26__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_18_26__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_22_45__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_22_45__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alimentation.html" beforeDir="false" afterPath="$PROJECT_DIR$/Alimentation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coaching.html" beforeDir="false" afterPath="$PROJECT_DIR$/Coaching.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nos_services.html" beforeDir="false" afterPath="$PROJECT_DIR$/Nos_services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sport.php" beforeDir="false" afterPath="$PROJECT_DIR$/sport.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,26 +93,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;masterBis&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/Projet_Piscine/Projet_Piscine&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/wamp64/www/Projet_Piscine",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\wamp64\www\Projet_Piscine" />
       <recent name="C:\wamp64\www\Projet_Piscine\Projet_Piscine" />
     </key>
   </component>
@@ -185,6 +221,7 @@
     <MESSAGE value="ventes, pas fini" />
     <MESSAGE value="jamais entendu parler" />
     <MESSAGE value="enfin la meme chose sur main et bis ?" />
-    <option name="LAST_COMMIT_MESSAGE" value="enfin la meme chose sur main et bis ?" />
+    <MESSAGE value="commit test" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit test" />
   </component>
 </project>
