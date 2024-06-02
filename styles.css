@@ -233,16 +233,16 @@ a {
 }
 
 .main-button img {
-    width: 200px; /* Ajustement à 100px */
-    height: 200px; /* Ajustement à 100px */
+    width: 200px;
+    height: 200px;
     opacity: 0.8;
     filter: blur(2px); /* Ajout d'un flou */
     transition: opacity 0.3s;
 }
 
 .sub-button img {
-    width: 150px; /* Ajustement à 100px */
-    height: 150px; /* Ajustement à 100px */
+    width: 150px;
+    height: 150px;
     opacity: 0.9;
     filter: blur(2px); /* Ajout d'un flou */
     transition: opacity 0.3s;
@@ -250,15 +250,15 @@ a {
 
 .main-button p, .sub-button p {
     position: absolute;
-    color: black; /* Texte en noir */
-    font-size: 18px; /* Texte plus gros */
-    font-weight: bold; /* Texte en gras */
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
     text-align: center;
     margin: 0;
     padding: 0;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Ajout d'un flou derrière le texte */
-    top: 50%; /* Positionne le haut du texte à 50% du conteneur parent */
-    left: 50%; /* Positionne le côté gauche du texte à 50% du conteneur parent */
+    top: 50%; /* Positionne le haut du texte à 50% du conteneur */
+    left: 50%; /* Positionne le côté gauche du texte à 50% du conteneur */
     transform: translate(-50%, -50%); /* Déplace le texte de moitié de sa propre taille vers le haut et la gauche pour le centrer */
 }
 
@@ -310,15 +310,15 @@ a {
 }
 .info {
     display: flex;
-    flex-direction: column; /* Les informations de contact seront affichées en colonne */
-    justify-content: center; /* Centrer verticalement */
+    flex-direction: column; /* Les infos de contact affichées en colonne */
+    justify-content: center;
     align-items: flex-start; /* Aligner le texte à gauche */
-    height: 100%; /* Ajuster la hauteur pour centrer verticalement */
+    height: 100%;
 }
 
 .info p {
     margin: 15px 0; /* Espace entre chaque ligne */
-    font-size: 30px; /* Texte plus gros */
+    font-size: 30px;
 }
 
 .mot_orange {
@@ -327,8 +327,8 @@ a {
 
 
 .button-container {
-    text-align: center; /* Centrer horizontalement */
-    margin-top: 20px; /* Espace au-dessus du bouton */
+    text-align: center;
+    margin-top: 20px;
 }
 
 
@@ -336,13 +336,13 @@ a {
 /*Musculation, ftiness...*/
 .coach-info-container {
     background-color: #333; /* Couleur de fond du rectangle */
-    color: white; /* Couleur du texte */
-    padding: 20px; /* Espace intérieur */
-    margin-top: 20px; /* Espace au-dessus */
-    max-width: 1000px; /* Largeur maximale */
-    margin-left: auto; /* Centrage horizontal */
-    margin-right: auto; /* Centrage horizontal */
-    border-radius: 30px; /* Coins arrondis */
+    color: white;
+    padding: 20px;
+    margin-top: 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
 
 }
 
@@ -492,7 +492,7 @@ table {
     border-radius: 30px;
     width: 900px;
     text-align: center;
-    margin-left: auto; /* Centrage horizontal */
+    margin-left: auto;
     margin-right: auto;
 }
 
@@ -601,11 +601,9 @@ table {
 }
 
 
-
-
 .menu-deroulant {
     width: 60%;
-    height: 300px; /* Ajustez la hauteur selon vos besoins */
+    height: 300px;
     overflow-y: auto;
     border: 6px solid #ccc;
 }
@@ -626,17 +624,15 @@ table {
 }
 
 
-
-
 .message {
-    margin-bottom: 10px;
-    border-radius: 20px;
+    margin: 10px;
     max-width: 70%;
     display: block;
 }
 
 .contenu-message {
     display: flex;
+    margin: 7px;
     align-items: center;
 }
 
@@ -648,12 +644,14 @@ table {
 
 .message-envoye {
     background-color: orange;
+    border-radius: 30px 30px 0 30px;
     float: right;
     align-self: flex-end;
 }
 
 .message-recu {
     background-color: #fff;
+    border-radius: 30px 30px 30px 0;
     float: left;
     align-self: flex-start;
 

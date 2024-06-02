@@ -84,45 +84,16 @@ $mail_coach = $_POST['mail_coach'];
             </td>
         </tr>
     </table>
-    <br> <br>
+
 </div>
 
-<div class="breadcrumb">
-    <a href="Les_salles_dae_sport_OMNES.html">Les sports de compétitions</a> > <a href="Nos_services.html">Nos services</a>
-</div>
+<br> <br> <br>
 
 <h2> Chatroom </h2>
 <div class="rectangle">
-    <div class="circle-container">
         <a href="messages.php?mail_coach=<?php echo urlencode($mail_coach); ?>">
-            <img src="message.png" alt="Image 1">
-            <p>Message</p>
+            <h4>Cliquez ici pour accéder à la chatroom</h4>
         </a>
-    </div>
-    <div class="circle-container">
-        <a href="appel.html">
-            <img src="appel.png" alt="Image 2">
-            <p>Téléphone</p>
-        </a>
-    </div>
-    <div class="circle-container">
-        <a href="video.html">
-            <img src="video.png" alt="Image 3">
-            <p>Visio</p>
-        </a>
-    </div>
-    <div class="circle-container">
-        <a href ="email.html">
-            <img src="email.png" alt="Image 4">
-            <p>Mail</p>
-        </a>
-    </div>
-    <div class="circle-container">
-        <a href="vocal.html">
-            <img src="vocal.png" alt="Image 5">
-            <p>Vocal</p>
-        </a>
-    </div>
 </div>
 
 

@@ -46,9 +46,9 @@ exit();
             </td>
         </tr>
     </table>
-    <br> <br>
 </div>
-<br>
+<br> <br> <br>
+
 <div id="votre-compte">
     <!-- zone de connexion -->
 
