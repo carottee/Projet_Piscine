@@ -72,13 +72,13 @@
 </div>
 
 <div class="breadcrumb">
-    <a href="Les_salles_de_sport_OMNES.html">Les sports de compétitions</a> > <a href="Nos_services.html">Nos services</a>
+    <a href="Les_salles_dae_sport_OMNES.html">Les sports de compétitions</a> > <a href="Nos_services.html">Nos services</a>
 </div>
 
 <h2> Chatroom </h2>
 <div class="rectangle">
     <div class="circle-container">
-        <a href="message.html">
+        <a href="messages.php">
             <img src="message.png" alt="Image 1">
             <p>Message</p>
         </a>

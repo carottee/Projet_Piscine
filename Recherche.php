@@ -65,7 +65,7 @@ if ($db_found) {
         <a href="Tout_parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir </button> </a>
       </td>
       <td>
-        <a href="Recherche.php"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+        <a href="Recherche.php"><button class="bouton-actuel" id="recherche" type="button">  Recherche  </button></a>
       </td>
       <td>
         <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>

@@ -25,6 +25,7 @@ if  ($db_found){
     $cv = $data['CV'];
     $num = $data['num'];
     $id = $data['ID'];
+    $discipline = $data['discipline'];
 
 
 
@@ -85,7 +86,7 @@ if  ($db_found){
                 <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
             </td>
             <td>
-                <a href="Tout_parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir </button> </a>
+                <a href="Tout_parcourir.html"><button class="bouton-actuel" id="parcourir" type="button">  Tout parcourir </button> </a>
             </td>
             <td>
                 <a href="Recherche.php"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
@@ -173,13 +174,14 @@ if  ($db_found){
             <tr>
                 <td>
                     <form action="prendre_RDV.php" method="post"> <button class="bouton" type="submit" name="mail_coach" value="<?php echo "$mail_coach";?>">Prendre RDV</button></form>
-
                 </td>
                 <td>
-                    <a href="chatroom.html"> <button class="bouton"> Chatroom </button> </a>
+                    <form action="chatroom.php" method="post" > <button name="mail_coach" value="<?php echo "$mail_coach";?>" class="bouton"> Chatroom </button> </form>
                 </td>
                 <td>
-                    <a href="coatch-basket.jpg" target="_blank"> <button class="bouton">CV</button> </a>
+                    <a href="cv-coach/cv-<?php echo $discipline; ?>.pdf" target="_blank">
+                        <button class="bouton">CV</button>
+                    </a>
                 </td>
             </tr>
         </table>
