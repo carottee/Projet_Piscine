@@ -176,7 +176,7 @@ if  ($db_found){
 
                 </td>
                 <td>
-                    <a href="Accueil.html"> <button class="bouton"> Chatroom </button> </a>
+                    <form action="chatroom.php" method="post" > <button name="mail_coach" value="<?php echo "$mail_coach";?>" class="bouton"> Chatroom </button> </form>
                 </td>
                 <td>
                     <a href="SDC/coatch-basket.jpg" target="_blank"> <button class="bouton">CV</button> </a>

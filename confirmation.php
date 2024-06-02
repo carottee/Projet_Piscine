@@ -25,7 +25,7 @@ if (mysqli_num_rows($result)>0){
     $MAIL = $data['mail'];
     $CARTE = $data['numero'];
     $CVV = $data['cvv'];
-    $DATE = $data['date€xpi'];
+    $DATE = $data['dateExpi'];
     $SOLDE = $data['Solde'];
 
 

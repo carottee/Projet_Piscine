@@ -14,7 +14,8 @@ $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, $database);
 
 
-if ($db_found) {
+
+if  ($db_found){
 
     $user = $_SESSION['user'];
 
@@ -23,47 +24,47 @@ if ($db_found) {
     $mail = $user['mail'];
 
 
-    if ($statut == 1) {
+if ($statut == 1) {
 
-        $sql = "select * from coach where Mail = '$mail'";
-        $result = mysqli_query($db_handle, $sql);
-        $data = mysqli_fetch_assoc($result);
-        $id = $data['ID'];
-
-
-        $sql = "select * from edt where id_coach = '$id'";
-        $result = mysqli_query($db_handle, $sql);
-
-        $data = mysqli_fetch_assoc($result);
-        $l = $data['l'];
-        $ld = $data['ld'];
-        $ma = $data['ma'];
-        $mad = $data['mad'];
-        $me = $data['me'];
-        $med = $data['med'];
-        $j = $data['j'];
-        $jd = $data['jd'];
-        $v = $data['v'];
-        $vd = $data['vd'];
-        $s = $data['s'];
-        $sd = $data['sd'];
+    $sql = "select * from coach where Mail = '$mail'";
+    $result = mysqli_query($db_handle, $sql);
+    $data = mysqli_fetch_assoc($result);
+    $id = $data['ID'];
 
 
-        function edt($variable)
-        {
+    $sql = "select * from edt where id_coach = '$id'";
+    $result = mysqli_query($db_handle, $sql);
 
-            if ($variable == '0') {
-                return "white";
-            } else if ($variable == '1') {
-                return "orange";
-            } else if ($variable == '2') {
-                return "rouge";
-            }
+    $data = mysqli_fetch_assoc($result);
+    $l = $data['l'];
+    $ld = $data['ld'];
+    $ma = $data['ma'];
+    $mad = $data['mad'];
+    $me = $data['me'];
+    $med = $data['med'];
+    $j = $data['j'];
+    $jd = $data['jd'];
+    $v = $data['v'];
+    $vd = $data['vd'];
+    $s = $data['s'];
+    $sd = $data['sd'];
+
+
+    function edt($variable)
+    {
+
+        if ($variable == '0') {
+            return "white";
+        } else if ($variable == '1') {
+            return "orange";
+        } else if ($variable == '2') {
+            return "rouge";
         }
     }
+}
 
 
-} else {
+}else {
     echo "Database not found";
 }
 
@@ -97,41 +98,39 @@ if ($db_found) {
     <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
         <tr> <!--nouvelle ligne-->
             <td> <!--nouvelle colonne-->
-                <a href="Accueil.html">
-                    <button class="bouton" id="accueil" type="button"> Accueil</button>
-                </a>
+                <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
             </td>
             <td>
-                <a href="Tout_parcourir.html">
-                    <button class="bouton" id="parcourir" type="button"> Tout parcourir</button>
-                </a>
+                <a href="Tout_parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir </button> </a>
             </td>
             <td>
-                <a href="Recherche.php">
-                    <button class="bouton" id="recherche" type="button"> Recherche</button>
-                </a>
+                <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
             </td>
             <td>
-                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
             </td>
             <td>
                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
             </td>
         </tr>
     </table>
-    <br>
+    <br> <br>
 </div>
 
 <br> <br>
 
 <div id="votre-compte">
-    <br>
+    <!-- zone de connexion -->
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+
 
     <?php
 
 
     if ($db_found) {
 
+        $user = $_SESSION['user'];
 
         if ($statut == 0) { //client
             $sql = "select * from client where Mail = '$mail'";
@@ -154,7 +153,6 @@ if ($db_found) {
                 echo " <h5> Numéro de carte étudiante : " . $data['carte'] . "</h5>";
             }
         } else if ($statut == 1) { //coach
-            while ($data = mysqli_fetch_assoc($result)) {
 
             echo "<h5>Mon planning :</h5>";
 
@@ -188,10 +186,17 @@ if ($db_found) {
                 <td class='" . edt($sd) . "'></td>
             </tr>
             </table>
-            </div>";
-                echo " <br><br><br> ";
-                echo "<button class='bouton' onclick='window.location.href=`frontEdition.php`'>Editer mon planning</button>";
+        </div>";
+            echo "<br>";
 
+            echo "<button class='bouton' id='valider' onclick='window.location.href=`frontEdition.php`'>Editer mon planning</button>";
+
+            echo "<br>";echo "<br>";
+
+            echo "<button class='bouton' onclick='window.location.href=`conversations.php`'>Mes chats</button>";
+
+
+            while ($data = mysqli_fetch_assoc($result)) {
 
                 echo " <h2>Mes informations : </h2>";
                 echo " <h5> ID (mail) : " . $data['Mail'] . "</h5>" . "</h5>";
@@ -204,27 +209,24 @@ if ($db_found) {
                 echo " <h5> Numéro : " . $data['num'] . "</h5>";
                 echo " <h5> CV : <br> <br> <embed src='" . $data['CV'] . "' type='application/pdf' width='700' height='1010px'><br>";    //    <embed src="chemin/vers/votre/fichier.pdf" type="application/pdf" width="100%" height="600px" />
             }
-
-
         } else if ($statut == 2) { //admin
-            $data = mysqli_fetch_assoc($result);
-            echo " <h2>Mes informations : </h2>";
-            echo " <h5>ID (mail) : " . $data['Mail'] . "</h5>";
-            echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
-            echo " <h5> Nom : " . $data['Nom'] . "</h5>";
-            echo "<button onclick='window.location.href= `superPouvoir.html` '> super pouvoir d'admin </button>";
-
-
+            while ($data = mysqli_fetch_assoc($result)) {
+                echo " <h2>Mes informations : </h2>";
+                echo " <h5>ID (mail) : " . $data['Mail'] . "</h5>";
+                echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
+                echo " <h5> Nom : " . $data['Nom'] . "</h5>";
+            }
         }
-
-    } else {
+    }
+    else {
         echo "Database not found";
     }
 
     mysqli_close($db_handle);
     ?>
-    <br><br>
-    <button class="bouton" onclick="window.location.href='deconnexion.html'">Se déconnecter</button>
+
+    <br>
+    <button class="bouton" id="valider" onclick="window.location.href='deconnexion.html'">Se déconnecter</button>
     <br>
 </div>
 

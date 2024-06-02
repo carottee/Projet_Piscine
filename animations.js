@@ -23,6 +23,3 @@ function details_rdv_finis() { //fonction pour afficher le détail du rdv fini
     xhttp.open("GET", "rdv_fini_test.html", true);
     xhttp.send();
 }
-
-
-
