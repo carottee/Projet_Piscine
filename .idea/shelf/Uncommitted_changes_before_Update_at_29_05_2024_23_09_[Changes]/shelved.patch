@@ -1,0 +1,1199 @@
+Index: Prendre_RDV_basket.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Prendre_RDV_basket.html b/Prendre_RDV_basket.php
+rename from Prendre_RDV_basket.html
+rename to Prendre_RDV_basket.php
+--- a/Prendre_RDV_basket.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Prendre_RDV_basket.php	(date 1717013047208)
+@@ -1,10 +1,32 @@
++<?php
++session_start();
++
++// Check if the user is logged in
++if (!isset($_SESSION['user'])) {
++    // Redirect to login page if the user is not logged in
++    echo "<script>alert(`vous n'êtes pas connecté`); window.location.href = 'sign_in_up.php' </script>";
++    exit();
++}
++
++?>
++
++
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <title>Prendre RDV basket</title>
+     <link href="styles.css" rel="stylesheet" type="text/css"/>
+-    <script src="animations.js"></script>
++    <script>
++        // Fonction pour modifier la valeur des cases à cocher avant la soumission du formulaire
++        function valeur_check(checkbox) {
++            if (!checkbox.checked) {
++                checkbox.value = "0"; // Si la case n'est pas cochée, la valeur est 0
++            } else {
++                checkbox.value = "1"; // Si la case est cochée, la valeur est 1
++            }
++        }
++    </script>
+ </head>
+ 
+ <body>
+@@ -20,19 +42,29 @@
+     <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
+         <tr> <!--nouvelle ligne-->
+             <td> <!--nouvelle colonne-->
+-                <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
++                <a href="Accueil.html">
++                    <button class="bouton" id="accueil" type="button"> Accueil</button>
++                </a>
+             </td>
+             <td>
+-                <a href="Tout_parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir </button> </a>
++                <a href="Tout_parcourir.html">
++                    <button class="bouton" id="parcourir" type="button"> Tout parcourir</button>
++                </a>
+             </td>
+             <td>
+-                <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
++                <a href="Recherche.html">
++                    <button class="bouton" id="recherche" type="button"> Recherche</button>
++                </a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php">
++                    <button class="bouton" id="rdv" type="button"> RDV</button>
++                </a>
+             </td>
+             <td>
+-                <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
++                <a href="Compte.php">
++                    <button class="bouton" id="compte" type="button"> Votre compte</button>
++                </a>
+             </td>
+         </tr>
+     </table>
+@@ -41,17 +73,18 @@
+ 
+ <!-- Ligne de navigation -->
+ <div class="breadcrumb">
+-    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.html">Prendre RDV</a>
++    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a
++            href="Prendre_RDV_basket.php">Prendre RDV</a>
+ </div>
+ 
+ <!-- Contenu principal -->
+ <div class="availability-container">
+ 
+ 
+-
+     <!-- Availability Table -->
+-        <div class="availability-table">
+-            <h2>Disponibilité du coatch</h2>
++    <div class="availability-table">
++        <h2>Disponibilité du coatch</h2>
++        <form action="reservation.php" method="post">
+             <table class="availability">
+                 <thead>
+                 <tr>
+@@ -67,33 +100,35 @@
+                 <tbody>
+                 <tr>
+                     <td>Matin</td>
+-                    <td class="availability-cell"></td>
+-                    <td class="availability-cell"></td>
+-                    <td class="availability-cell"></td>
+-                    <td class="availability-cell"></td>
+-                    <td class="availability-cell"></td>
+-                    <td class="availability-cell"></td>
++                    <td class="availability-cell"><input type="checkbox" id="l" name="l" onchange="valeur_check(this)"></td>
++                    <td class="availability-cell"><input type="checkbox" id="ma"  name="ma" onchange="valeur_check(this)"</td>
++                    <td class="availability-cell"><input type="checkbox" id="me" name="me"  onchange="valeur_check(this)"></td>
++                    <td class="availability-cell"><input type="checkbox" id="j"  name="j"  onchange="valeur_check(this)"></td>
++                    <td class="availability-cell"><input type="checkbox" id="v"  name="v"  onchange="valeur_check(this)"></td>
++                    <td class="availability-cell"><input type="checkbox" id="s"  name="s"  onchange="valeur_check(this)"></td>
+                 </tr>
+                 <tr>
+                     <td>Après-midi</td>
+-                    <td class="availability-cell"></td>
+-                    <td class="availability-cell"></td>
+-                    <td class="availability-cell"></td>
+-                    <td class="availability-cell"></td>
+-                    <td class="availability-cell"></td>
+-                    <td class="availability-cell"></td>
++                    <td class="availability-cell"><input type="checkbox" id="ld" name="ld"   onchange="valeur_check(this)"></td>
++                    <td class="availability-cell"><input type="checkbox" id="mad"  name="mad"  onchange="valeur_check(this)"></td>
++                    <td class="availability-cell"><input type="checkbox" id="med" name="med"   onchange="valeur_check(this)" ></td>
++                    <td class="availability-cell"><input type="checkbox" id="jd"  name="jd"   onchange="valeur_check(this)"></td>
++                    <td class="availability-cell"><input type="checkbox" id="vd"  name="vd"   onchange="valeur_check(this)"></td>
++                    <td class="availability-cell"><input type="checkbox" id="sd"  name="sd"  onchange="valeur_check(this)"></td>
+                 </tr>
+                 </tbody>
+             </table>
+-
+-            <button class="bouton" id = "valider"> <a href=""> Valider</a></button>
+-
+-        </div>
+-
+-
++            <input type="submit" id="valider" value="Valider réservation">
++        </form>
+     </div>
++
++
+ </div>
+ 
+ 
++
++
++
++
+ </body>
+ </html>
+Index: deconnexion.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Sign In</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\" type=\"text/javascript\"></script>\r\n</head>\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\"\r\n                                       width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n<br>\r\n<div id=\"votre-compte\">\r\n    <!-- zone de connexion -->\r\n\r\n    <form action=\"deconnexion.php\" method=\"POST\">\r\n        <h2>Deconnexion</h2>\r\n        <h4>assurons nous de votre identité</h4>\r\n        <br><br>\r\n        <h4><b>email</b></h4>\r\n        <input type=\"text\" placeholder=\"Entrer l'adresse email\" name=\"mail\" id=\"mail\" required>\r\n\r\n        <br><br>\r\n\r\n        <h4><b>Mot de passe</b></h4>\r\n        <input type=\"password\" placeholder=\"Entrer le mot de passe\" name=\"password\" id=\"password\" required>\r\n\r\n        <br><br>\r\n\r\n\r\n        <input type=\"submit\" id='submit' value='SE DECONNECTER'>\r\n\r\n\r\n\r\n    </form>\r\n\r\n\r\n\r\n\r\n</div>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/deconnexion.html b/deconnexion.html
+--- a/deconnexion.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/deconnexion.html	(date 1716999162643)
+@@ -27,7 +27,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: sign_up.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Sign up</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\" type=\"text/javascript\"></script>\r\n</head>\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt = \"voici le logo sportify\" height = \"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n<br>\r\n<div id=\"votre-compte\">\r\n    <!-- zone de connexion -->\r\n\r\n    <form action=\"sign_up.php\" method=\"POST\" id=\"signupForm\" onsubmit=\"return validatePassword()\">\r\n        <h2>Connexion</h2>\r\n\r\n        <label>Email :</label><br>\r\n        <input type=\"text\" placeholder=\"Entrer le nom d'utilisateur\" id=\"mail\" name=\"mail\" required>\r\n\r\n        <br><br>\r\n\r\n        <label for=\"password\">Mot de passe :</label><br>\r\n        <input type=\"password\" id=\"password\" name=\"password\" required><br><br>\r\n\r\n        <label for=\"confirm_password\">Confirmer le mot de passe :</label><br>\r\n        <input type=\"password\" id=\"confirm_password\" name=\"confirm_password\" required><br><br>\r\n\r\n\r\n        <label>Nom : </label><br>\r\n        <input type=\"text\" id=\"nom\" name=\"nom\" required><br><br>\r\n\r\n        <label>Prenom : </label><br>\r\n        <input type=\"text\" id=\"prenom\" name=\"prenom\" required><br><br>\r\n\r\n        <label>Numéro de carte étudiante : </label><br>\r\n        <input type=\"number\" id=\"num\" name=\"num\" required><br><br>\r\n\r\n        <label>Adresse : </label><br>\r\n        <input type=\"text\" id=\"adresse\" name=\"adresse\" required><br><br>\r\n\r\n        <span id=\"error_message\" class=\"error\">Les mots de passe ne correspondent pas.</span><br>\r\n\r\n        <input type=\"submit\" id='submit' value='S&apos;INSCRIRE' >\r\n\r\n\r\n\r\n    </form>\r\n\r\n</div>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/sign_up.html b/sign_up.html
+--- a/sign_up.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/sign_up.html	(date 1716999162389)
+@@ -26,7 +26,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Step.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Step</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n\r\n\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> >  <a href=\"Step.html\">Step</a>\r\n</div>\r\n\r\n\r\n<div class=\"coach-info-container\">\r\n    <div class=\"coach-info\">\r\n        <div class=\"coach-photo\">\r\n            <img src=\"SDC/coatch-basket.jpg\" alt=\"Photo du coach\">\r\n        </div>\r\n        <div class=\"coach-details\">\r\n            <p><span class=\"label\">Guy Dumais</span></p>\r\n            <p>Coach - Basketball</p>\r\n            <p>Tél : XX XX XX XX XX</p>\r\n            <p>Email : guy.dumais@gmail.com</p>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"availability-table\">\r\n        <table class=\"availability\">\r\n            <tr>\r\n                <th></th> <!-- Cellule vide pour l'alignement -->\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n\r\n\r\n\r\n    <!-- Boutons -->\r\n    <div class=\"button-container\">\r\n        <button class=\"bouton\"> <a href=\"Prendre_RDV_Step.html\"> Prendre RDV </a></button>\r\n        <button class=\"bouton\"><a href=\"Accueil.html\"> Communiquer avec le coach </a></button>\r\n        <button class=\"bouton\">Voir son CV</button>\r\n    </div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Step.html b/Step.html
+--- a/Step.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Step.html	(date 1716999162551)
+@@ -28,7 +28,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Football.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <title>Football</title>\r\n  <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n\r\n<div id=\"header\">\r\n  <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n  <div class=\"right\">\r\n    <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n  </div>\r\n</div>\r\n\r\n\r\n<div id=\"navigation\">\r\n  <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n    <tr> <!--nouvelle ligne-->\r\n      <td> <!--nouvelle colonne-->\r\n        <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n      </td>\r\n      <td>\r\n        <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n      </td>\r\n      <td>\r\n        <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n      </td>\r\n      <td>\r\n        <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n      </td>\r\n      <td>\r\n        <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n      </td>\r\n    </tr>\r\n  </table>\r\n  <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n\r\n\r\n<div class=\"breadcrumb\">\r\n  <a href=\"Les_sports_de_competitions.html\">Les sports de compétitions</a> > <a href=\"Football.html\">Football</a>\r\n</div>\r\n\r\n\r\n<div class=\"coach-info-container\">\r\n  <div class=\"coach-info\">\r\n    <div class=\"coach-photo\">\r\n      <img src=\"SDC/coatch-basket.jpg\" alt=\"Photo du coach\">\r\n    </div>\r\n    <div class=\"coach-details\">\r\n      <p><span class=\"label\">Guy Dumais</span></p>\r\n      <p>Coach - Football</p>\r\n      <p>Tél : XX XX XX XX XX</p>\r\n      <p>Email : guy.dumais@gmail.com</p>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"availability-table\">\r\n    <table class=\"availability\">\r\n      <tr>\r\n        <th></th> <!-- Cellule vide pour l'alignement -->\r\n        <th>Lundi</th>\r\n        <th>Mardi</th>\r\n        <th>Mercredi</th>\r\n        <th>Jeudi</th>\r\n        <th>Vendredi</th>\r\n        <th>Samedi</th>\r\n      </tr>\r\n      <tr>\r\n        <td>Matin</td>\r\n        <td class=\"white\"></td> <!-- Case blanche -->\r\n        <td class=\"orange\"></td> <!-- Case orange -->\r\n        <td class=\"white\"></td>\r\n        <td class=\"white\"></td>\r\n        <td class=\"orange\"></td>\r\n        <td class=\"white\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Après-midi</td>\r\n        <td class=\"orange\"></td> <!-- Case orange -->\r\n        <td class=\"white\"></td> <!-- Case blanche -->\r\n        <td class=\"white\"></td>\r\n        <td class=\"orange\"></td>\r\n        <td class=\"white\"></td>\r\n        <td class=\"orange\"></td>\r\n      </tr>\r\n    </table>\r\n  </div>\r\n\r\n\r\n\r\n  <!-- Boutons -->\r\n  <div class=\"button-container\">\r\n    <button class=\"bouton\"> <a href=\"Prendre_RDV_Football.html\"> Prendre RDV </a></button>\r\n    <button class=\"bouton\"><a href=\"Accueil.html\"> Communiquer avec le coach </a></button>\r\n    <button class=\"bouton\">Voir son CV</button>\r\n  </div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Football.html b/Football.html
+--- a/Football.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Football.html	(date 1716999162681)
+@@ -28,7 +28,7 @@
+         <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+       </td>
+       <td>
+-        <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++        <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+       </td>
+       <td>
+         <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Natation.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Natation</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n\r\n\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Les_sports_de_competitions.html\">Les sports de compétitions</a> > <a href=\"Natation.html\">Natation</a>\r\n</div>\r\n\r\n\r\n<div class=\"coach-info-container\">\r\n    <div class=\"coach-info\">\r\n        <div class=\"coach-photo\">\r\n            <img src=\"SDC/coatch-basket.jpg\" alt=\"Photo du coach\">\r\n        </div>\r\n        <div class=\"coach-details\">\r\n            <p><span class=\"label\">Guy Dumais</span></p>\r\n            <p>Coach - Natation</p>\r\n            <p>Tél : XX XX XX XX XX</p>\r\n            <p>Email : guy.dumais@gmail.com</p>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"availability-table\">\r\n        <table class=\"availability\">\r\n            <tr>\r\n                <th></th> <!-- Cellule vide pour l'alignement -->\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n\r\n\r\n\r\n    <!-- Boutons -->\r\n    <div class=\"button-container\">\r\n        <button class=\"bouton\"> <a href=Prendre_RDV_Natation.html> Prendre RDV </a></button>\r\n        <button class=\"bouton\"><a href=\"Accueil.html\"> Communiquer avec le coach </a></button>\r\n        <button class=\"bouton\">Voir son CV</button>\r\n    </div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Natation.html b/Natation.html
+--- a/Natation.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Natation.html	(date 1716999162509)
+@@ -28,7 +28,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: sign_in_up.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\nsession_start();\r\n\r\nif (isset($_SESSION['user'])) {\r\n    // If user is already logged in, redirect to the home page or another appropriate page\r\n    echo \"<script> window.location.href = 'deconnexion.html' </script>\";\r\nexit();\r\n}\r\n?>\r\n\r\n\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Sign In</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\" type=\"text/javascript\"></script>\r\n</head>\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\"\r\n                                        width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n<br>\r\n<div id=\"votre-compte\">\r\n    <!-- zone de connexion -->\r\n\r\n    <form action=\"connexion.php\" method=\"POST\">\r\n        <h2>Connexion</h2>\r\n\r\n        <h4><b>Email</b></h4>\r\n        <input type=\"text\" placeholder=\"Entrer le nom d'utilisateur\" name=\"mail\" id=\"mail\" required>\r\n\r\n        <br><br>\r\n\r\n        <h4><b>Mot de passe</b></h4>\r\n        <input type=\"password\" placeholder=\"Entrer le mot de passe\" name=\"password\" id=\"password\" required>\r\n\r\n        <br><br>\r\n\r\n\r\n        <input type=\"submit\" id='submit' value='SE CONNECTER'>\r\n\r\n        <p>----------------------------------------------------------------------------------</p>\r\n\r\n    </form>\r\n\r\n    <h4>Pas encore de compte ? Inscivez-vous !</h4>\r\n    <input type=\"submit\" onclick=\"window.location.href='sign_up.html'\" value=\"S'INSCRIRE\">\r\n\r\n\r\n</div>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/sign_in_up.php b/sign_in_up.php
+--- a/sign_in_up.php	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/sign_in_up.php	(date 1716999162398)
+@@ -39,7 +39,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Prendre_RDV_Plongeon.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Prendre RDV basket</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\"></script>\r\n</head>\r\n\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\">\r\n            <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\">\r\n        </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<!-- Ligne de navigation -->\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> > <a href=\"Basketball.html\">Basketball</a> > <a href=\"Prendre_RDV_basket.html\">Prendre RDV</a>\r\n</div>\r\n\r\n<!-- Contenu principal -->\r\n<div class=\"availability-container\">\r\n\r\n\r\n\r\n    <!-- Availability Table -->\r\n    <div class=\"availability-table\">\r\n        <h2>Disponibilité du coatch</h2>\r\n        <table class=\"availability\">\r\n            <thead>\r\n            <tr>\r\n                <th></th>\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            </thead>\r\n            <tbody>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n        <button class=\"bouton\" id = \"valider\"> <a href=\"\"> Valider</a></button>\r\n\r\n    </div>\r\n\r\n\r\n</div>\r\n</div>\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Prendre_RDV_Plongeon.html b/Prendre_RDV_Plongeon.html
+--- a/Prendre_RDV_Plongeon.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Prendre_RDV_Plongeon.html	(date 1716999308132)
+@@ -29,7 +29,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+@@ -41,7 +41,7 @@
+ 
+ <!-- Ligne de navigation -->
+ <div class="breadcrumb">
+-    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.html">Prendre RDV</a>
++    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.php">Prendre RDV</a>
+ </div>
+ 
+ <!-- Contenu principal -->
+Index: animations.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>function validatePassword() {\r\n    var password = document.getElementById(\"password\").value;\r\n    var confirm_password = document.getElementById(\"confirm_password\").value;\r\n    var error_message = document.getElementById(\"error_message\");\r\n\r\n    if (password !== confirm_password) {\r\n        error_message.style.display = \"block\";\r\n        return false; // Empêche l'envoi du formulaire\r\n    } else {\r\n        error_message.style.display = \"none\";\r\n        return true; // Permet l'envoi du formulaire\r\n    }\r\n}\r\n\r\n\r\nfunction details_rdv_finis() { //fonction pour afficher le détail du rdv fini\r\n    var xhttp = new XMLHttpRequest();\r\n    xhttp.onreadystatechange = function() {\r\n        if (this.readyState == 4 && this.status == 200) {\r\n            document.getElementById(\"detail_rdv_fini\").innerHTML = this.responseText;\r\n        }\r\n    };\r\n    xhttp.open(\"GET\", \"rdv_fini_test.html\", true);\r\n    xhttp.send();\r\n}\r\n\r\n\r\n\r\ndocument.addEventListener('DOMContentLoaded', () => {\r\n    const cells = document.querySelectorAll('.availability-cell');\r\n\r\n    cells.forEach(cell => {\r\n        cell.addEventListener('click', () => {\r\n            if (cell.classList.contains('selected')) {\r\n                cell.classList.remove('selected');\r\n                cell.style.backgroundColor = 'white';\r\n            } else {\r\n                cell.classList.add('selected');\r\n                cell.style.backgroundColor = 'black';\r\n            }\r\n        });\r\n\r\n        cell.addEventListener('mouseover', () => {\r\n            if (!cell.classList.contains('selected')) {\r\n                cell.style.border = '4px solid orange';\r\n            }\r\n        });\r\n\r\n        cell.addEventListener('mouseout', () => {\r\n            if (!cell.classList.contains('selected')) {\r\n                cell.style.border = '1px solid #ccc';\r\n            }\r\n        });\r\n    });\r\n});\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/animations.js b/animations.js
+--- a/animations.js	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/animations.js	(date 1717004004221)
+@@ -26,7 +26,7 @@
+ 
+ 
+ 
+-document.addEventListener('DOMContentLoaded', () => {
++/*document.addEventListener('DOMContentLoaded', () => {
+     const cells = document.querySelectorAll('.availability-cell');
+ 
+     cells.forEach(cell => {
+@@ -52,4 +52,4 @@
+             }
+         });
+     });
+-});
++});*/
+Index: Prendre_RDV_Football.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Prendre RDV basket</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\"></script>\r\n</head>\r\n\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\">\r\n            <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\">\r\n        </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<!-- Ligne de navigation -->\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> > <a href=\"Basketball.html\">Basketball</a> > <a href=\"Prendre_RDV_basket.html\">Prendre RDV</a>\r\n</div>\r\n\r\n<!-- Contenu principal -->\r\n<div class=\"availability-container\">\r\n\r\n\r\n\r\n    <!-- Availability Table -->\r\n    <div class=\"availability-table\">\r\n        <h2>Disponibilité du coatch</h2>\r\n        <table class=\"availability\">\r\n            <thead>\r\n            <tr>\r\n                <th></th>\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            </thead>\r\n            <tbody>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n        <button class=\"bouton\" id = \"valider\"> <a href=\"\"> Valider</a></button>\r\n\r\n    </div>\r\n\r\n\r\n</div>\r\n</div>\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Prendre_RDV_Football.html b/Prendre_RDV_Football.html
+--- a/Prendre_RDV_Football.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Prendre_RDV_Football.html	(date 1716999308084)
+@@ -29,7 +29,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+@@ -41,7 +41,7 @@
+ 
+ <!-- Ligne de navigation -->
+ <div class="breadcrumb">
+-    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.html">Prendre RDV</a>
++    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.php">Prendre RDV</a>
+ </div>
+ 
+ <!-- Contenu principal -->
+Index: Cours_collectifs.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>CC</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n\r\n<<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n\r\n\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> >  <a href=\"Cours_collectifs.html\">Cours collectifs</a>\r\n</div>\r\n\r\n\r\n<div class=\"coach-info-container\">\r\n    <div class=\"coach-info\">\r\n        <div class=\"coach-photo\">\r\n            <img src=\"SDC/coatch-basket.jpg\" alt=\"Photo du coach\">\r\n        </div>\r\n        <div class=\"coach-details\">\r\n            <p><span class=\"label\">Guy Dumais</span></p>\r\n            <p>Coach - Cours collectifs</p>\r\n            <p>Tél : XX XX XX XX XX</p>\r\n            <p>Email : guy.dumais@gmail.com</p>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"availability-table\">\r\n        <table class=\"availability\">\r\n            <tr>\r\n                <th></th> <!-- Cellule vide pour l'alignement -->\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n\r\n\r\n\r\n    <!-- Boutons -->\r\n    <div class=\"button-container\">\r\n        <button class=\"bouton\"> <a href=\"Prendre_RDV_Cours_collectifs.html\"> Prendre RDV </a></button>\r\n        <button class=\"bouton\"><a href=\"Accueil.html\"> Communiquer avec le coach </a></button>\r\n        <button class=\"bouton\">Voir son CV</button>\r\n    </div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Cours_collectifs.html b/Cours_collectifs.html
+--- a/Cours_collectifs.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Cours_collectifs.html	(date 1716999162666)
+@@ -28,7 +28,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: RDV.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RDV.html b/RDV.php
+rename from RDV.html
+rename to RDV.php
+--- a/RDV.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/RDV.php	(date 1716999162636)
+@@ -1,3 +1,16 @@
++<?php
++session_start();
++
++// Check if the user is logged in
++if (!isset($_SESSION['user'])) {
++    // Redirect to login page if the user is not logged in
++    echo "<script>alert(`vous n'êtes pas connecté`); window.location.href = 'sign_in_up.php' </script>";
++    exit();
++}
++
++?>
++
++
+ <!DOCTYPE html>
+ <html lang="en" xmlns:display="http://www.w3.org/1999/xhtml">
+ <head>
+@@ -29,7 +42,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Plongeon.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Plongeon</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n\r\n\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Les_sports_de_competitions.html\">Les sports de compétitions</a> > <a href=\"Plongeon.html\">Plongeon</a>\r\n</div>\r\n\r\n\r\n<div class=\"coach-info-container\">\r\n    <div class=\"coach-info\">\r\n        <div class=\"coach-photo\">\r\n            <img src=\"SDC/coatch-basket.jpg\" alt=\"Photo du coach\">\r\n        </div>\r\n        <div class=\"coach-details\">\r\n            <p><span class=\"label\">Guy Dumais</span></p>\r\n            <p>Coach - Plongeon</p>\r\n            <p>Tél : XX XX XX XX XX</p>\r\n            <p>Email : guy.dumais@gmail.com</p>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"availability-table\">\r\n        <table class=\"availability\">\r\n            <tr>\r\n                <th></th> <!-- Cellule vide pour l'alignement -->\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n\r\n\r\n\r\n    <!-- Boutons -->\r\n    <div class=\"button-container\">\r\n        <button class=\"bouton\"> <a href=\"Prendre_RDV_Plongeon.html\"> Prendre RDV </a></button>\r\n        <button class=\"bouton\"><a href=\"Accueil.html\"> Communiquer avec le coach </a></button>\r\n        <button class=\"bouton\">Voir son CV</button>\r\n    </div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Plongeon.html b/Plongeon.html
+--- a/Plongeon.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Plongeon.html	(date 1716999162577)
+@@ -28,7 +28,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: reservation.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/reservation.php b/reservation.php
+new file mode 100644
+--- /dev/null	(date 1717015269799)
++++ b/reservation.php	(date 1717015269799)
+@@ -0,0 +1,65 @@
++<?php
++session_start();
++$database = "projet_piscine";
++$db_handle = mysqli_connect('localhost', 'root', '');
++$db_found = mysqli_select_db($db_handle, $database);
++
++if ($db_found) {
++
++    $user = $_SESSION['user'];
++    $statut = $user['statut'];
++    $mail = $user['mail'];
++
++    $post_variables = ['l', 'ld', 'ma', 'mad', 'me', 'med', 'j', 'jd', 'v', 'vd', 's', 'sd'];
++
++    foreach ($post_variables as $var_name) {
++        if (isset($_POST[$var_name])) {
++            ${$var_name} = $_POST[$var_name];
++
++
++            $escaped_value = mysqli_real_escape_string($db_handle, ${$var_name});
++
++            $sql = "SELECT $var_name FROM edt WHERE id_coach = '6' AND $var_name = '1'";
++            $result = mysqli_query($db_handle, $sql);
++
++            // Vérifier si la requête a renvoyé des résultats. si c est le cas, le créneau est pris
++            if (mysqli_num_rows($result) > 0) {
++
++                echo " <script> alert('ce créneau est invalide'); window.location.href='Prendre_RDV_basket.php'</script>  ";
++                exit();
++            }
++
++            else{
++
++                $sql = "UPDATE edt SET $var_name = 1 WHERE id_coach = '6';";
++                $result = mysqli_query($db_handle, $sql);
++
++                $sql = "INSERT INTO rdv (mail_coach, mail_client, passe, creneau) VALUES ('frank.petit@gmail.com', '$mail', '0', '$var_name')";
++                $result=mysqli_query($db_handle, $sql);
++
++                echo " <script> alert('rendez vous fixé'); window.location.href='Prendre_RDV_basket.php'</script> ";
++                exit();
++
++
++
++            }
++        }
++    }
++
++    echo " <script> alert('saissisez un creneau'); window.location.href='Prendre_RDV_basket.php'</script> ";
++    exit();
++
++
++
++
++
++
++
++
++
++} else {
++    echo "Database not found";
++}
++
++mysqli_close($db_handle);
++?>
+\ No newline at end of file
+Index: Les_salles_de_sport_OMNES.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Salles de sport</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n\r\n<div id=\"jj\">\r\n    <div class=\"main-buttons\">\r\n        <button class=\"main-button\" >\r\n            <a href=\"Activites_sportives.html\">\r\n                <img src=\"PARCOURIR/sport.jpg\" alt=\"Activités sportives\">\r\n                <p>Activités sportives</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"main-button\">\r\n            <a href=\"Les_sports_de_competitions.html\">\r\n                <img src=\"PARCOURIR/SC.jpg\" alt=\"Les sports de compétitions\">\r\n                <p>Les sports de compétitions</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"main-button active\">\r\n            <a href=\"Les_salles_de_sport_OMNES.html\">\r\n                <img src=\"PARCOURIR/SDS.jpg\" alt=\"Les salles de sport OMNES\">\r\n                <p>Les salles de sport OMNES</p>\r\n            </a>\r\n        </button>\r\n    </div>\r\n\r\n    <div class=\"container\">\r\n        <div class=\"image\">\r\n            <img src=\"SDS/une-salle-de-sport.jpg\" alt=\"salle_de_sport\">\r\n        </div>\r\n        <div class=\"contact-info\">\r\n            <div class=\"info\">\r\n                <p><span class=\"mot_orange\">Adresse : </span> 1 rue Sportify </p>\r\n                <p><span class=\"mot_orange\">Tel : </span> +33 XX XX XX XX </p>\r\n                <p><span class=\"mot_orange\">Email : </span> sportify@gmail.com </p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"button-container\">\r\n        <button class=\"bouton\"><a href=\"Nos_services.html\"> Nos services </a> </button>\r\n    </div>\r\n\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Les_salles_de_sport_OMNES.html b/Les_salles_de_sport_OMNES.html
+--- a/Les_salles_de_sport_OMNES.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Les_salles_de_sport_OMNES.html	(date 1716999162628)
+@@ -25,7 +25,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Prendre_RDV_Cours_collectifs.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Prendre RDV basket</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\"></script>\r\n</head>\r\n\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\">\r\n            <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\">\r\n        </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<!-- Ligne de navigation -->\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> > <a href=\"Basketball.html\">Basketball</a> > <a href=\"Prendre_RDV_basket.html\">Prendre RDV</a>\r\n</div>\r\n\r\n<!-- Contenu principal -->\r\n<div class=\"availability-container\">\r\n\r\n\r\n\r\n    <!-- Availability Table -->\r\n    <div class=\"availability-table\">\r\n        <h2>Disponibilité du coatch</h2>\r\n        <table class=\"availability\">\r\n            <thead>\r\n            <tr>\r\n                <th></th>\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            </thead>\r\n            <tbody>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n        <button class=\"bouton\" id = \"valider\"> <a href=\"\"> Valider</a></button>\r\n\r\n    </div>\r\n\r\n\r\n</div>\r\n</div>\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Prendre_RDV_Cours_collectifs.html b/Prendre_RDV_Cours_collectifs.html
+--- a/Prendre_RDV_Cours_collectifs.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Prendre_RDV_Cours_collectifs.html	(date 1716999308106)
+@@ -29,7 +29,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+@@ -41,7 +41,7 @@
+ 
+ <!-- Ligne de navigation -->
+ <div class="breadcrumb">
+-    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.html">Prendre RDV</a>
++    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.php">Prendre RDV</a>
+ </div>
+ 
+ <!-- Contenu principal -->
+Index: Tennis.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Tennis</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n\r\n\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Les_sports_de_competitions.html\">Les sports de compétitions</a> > <a href=\"Tennis.html\">Tennis</a>\r\n</div>\r\n\r\n\r\n<div class=\"coach-info-container\">\r\n    <div class=\"coach-info\">\r\n        <div class=\"coach-photo\">\r\n            <img src=\"SDC/coatch-basket.jpg\" alt=\"Photo du coach\">\r\n        </div>\r\n        <div class=\"coach-details\">\r\n            <p><span class=\"label\">Guy Dumais</span></p>\r\n            <p>Coach - Tennis</p>\r\n            <p>Tél : XX XX XX XX XX</p>\r\n            <p>Email : guy.dumais@gmail.com</p>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"availability-table\">\r\n        <table class=\"availability\">\r\n            <tr>\r\n                <th></th> <!-- Cellule vide pour l'alignement -->\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n\r\n\r\n\r\n    <!-- Boutons -->\r\n    <div class=\"button-container\">\r\n        <button class=\"bouton\"> <a href=\"Prendre_RDV_Tennis.html\"> Prendre RDV </a></button>\r\n        <button class=\"bouton\"><a href=\"Accueil.html\"> Communiquer avec le coach </a></button>\r\n        <button class=\"bouton\">Voir son CV</button>\r\n    </div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Tennis.html b/Tennis.html
+--- a/Tennis.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Tennis.html	(date 1716999162532)
+@@ -28,7 +28,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Prendre_RDV_Step.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Prendre RDV basket</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\"></script>\r\n</head>\r\n\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\">\r\n            <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\">\r\n        </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<!-- Ligne de navigation -->\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> > <a href=\"Basketball.html\">Basketball</a> > <a href=\"Prendre_RDV_basket.html\">Prendre RDV</a>\r\n</div>\r\n\r\n<!-- Contenu principal -->\r\n<div class=\"availability-container\">\r\n\r\n\r\n\r\n    <!-- Availability Table -->\r\n    <div class=\"availability-table\">\r\n        <h2>Disponibilité du coatch</h2>\r\n        <table class=\"availability\">\r\n            <thead>\r\n            <tr>\r\n                <th></th>\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            </thead>\r\n            <tbody>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n        <button class=\"bouton\" id = \"valider\"> <a href=\"\"> Valider</a></button>\r\n\r\n    </div>\r\n\r\n\r\n</div>\r\n</div>\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Prendre_RDV_Step.html b/Prendre_RDV_Step.html
+--- a/Prendre_RDV_Step.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Prendre_RDV_Step.html	(date 1716999308067)
+@@ -29,7 +29,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+@@ -41,7 +41,7 @@
+ 
+ <!-- Ligne de navigation -->
+ <div class="breadcrumb">
+-    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.html">Prendre RDV</a>
++    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.php">Prendre RDV</a>
+ </div>
+ 
+ <!-- Contenu principal -->
+Index: Activites_sportives.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Activités sportives</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n<div id=\"jj\">\r\n    <div class=\"main-buttons\">\r\n        <button class=\"main-button active\" >\r\n            <a href=\"Activites_sportives.html\">\r\n                <img src=\"PARCOURIR/sport.jpg\" alt=\"Activités sportives\">\r\n                <p>Activités sportives</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"main-button\">\r\n            <a href=\"Les_sports_de_competitions.html\">\r\n                <img src=\"PARCOURIR/SC.jpg\" alt=\"Les sports de compétitions\">\r\n                <p>Les sports de compétitions</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"main-button\">\r\n            <a href=\"Les_salles_de_sport_OMNES.html\">\r\n                <img src=\"PARCOURIR/SDS.jpg\" alt=\"Les salles de sport OMNES\">\r\n                <p>Les salles de sport OMNES</p>\r\n            </a>\r\n        </button>\r\n    </div>\r\n    <div class=\"sub-buttons\">\r\n        <button class=\"sub-button\">\r\n            <a href=\"Musculation.html\">\r\n                <img src=\"ACTIVITE_SPORTIVE/musculation.jpg\" alt=\"Musculation\">\r\n                <p>Musculation</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"sub-button\">\r\n            <a href=\"Fitness.html\">\r\n                <img src=\"ACTIVITE_SPORTIVE/fitness.jpg\" alt=\"Fitness\">\r\n                <p>Fitness</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"sub-button\">\r\n            <a href=\"Biking.html\">\r\n                <img src=\"ACTIVITE_SPORTIVE/biking.jpeg\" alt=\"Biking\">\r\n                <p>Biking</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"sub-button\">\r\n            <a href=\"Cardio.html\">\r\n                <img src=\"ACTIVITE_SPORTIVE/cardio.jpeg\" alt=\"Cardio\">\r\n                <p>Cardio</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"sub-button\">\r\n            <a href=\"Step.html\">\r\n                <img src=\"ACTIVITE_SPORTIVE/step.jpg\" alt=\"Step\">\r\n                <p>Step</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"sub-button\">\r\n            <a href=\"Cours_collectifs.html\">\r\n                <img src=\"ACTIVITE_SPORTIVE/cours_collectifs.jpg\" alt=\"Cours collectifs\">\r\n                <p>Cours collectifs</p>\r\n            </a>\r\n        </button>\r\n    </div>\r\n</div>\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Activites_sportives.html b/Activites_sportives.html
+--- a/Activites_sportives.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Activites_sportives.html	(date 1716999162473)
+@@ -25,7 +25,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Tout_parcourir.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Sports de compétitions</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n<div id=\"jj\">\r\n    <div class=\"main-buttons\">\r\n        <button class=\"main-button\" >\r\n            <a href=\"Activites_sportives.html\">\r\n                <img src=\"PARCOURIR/sport.jpg\" alt=\"Activités sportives\">\r\n                <p>Activités sportives</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"main-button\">\r\n            <a href=\"Les_sports_de_competitions.html\">\r\n                <img src=\"PARCOURIR/SC.jpg\" alt=\"Les sports de compétitions\">\r\n                <p>Les sports de compétitions</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"main-button\">\r\n            <a href=\"Les_salles_de_sport_OMNES.html\">\r\n                <img src=\"PARCOURIR/SDS.jpg\" alt=\"Les salles de sport OMNES\">\r\n                <p>Les salles de sport OMNES</p>\r\n            </a>\r\n        </button>\r\n    </div>\r\n    </div>\r\n</div>\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Tout_parcourir.html b/Tout_parcourir.html
+--- a/Tout_parcourir.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Tout_parcourir.html	(date 1716999162570)
+@@ -25,7 +25,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Rugby.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Rugby</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n\r\n\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Les_sports_de_competitions.html\">Les sports de compétitions</a> > <a href=\"Rugby.html\">Rugby</a>\r\n</div>\r\n\r\n\r\n<div class=\"coach-info-container\">\r\n    <div class=\"coach-info\">\r\n        <div class=\"coach-photo\">\r\n            <img src=\"SDC/coatch-basket.jpg\" alt=\"Photo du coach\">\r\n        </div>\r\n        <div class=\"coach-details\">\r\n            <p><span class=\"label\">Guy Dumais</span></p>\r\n            <p>Coach - Rugby</p>\r\n            <p>Tél : XX XX XX XX XX</p>\r\n            <p>Email : guy.dumais@gmail.com</p>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"availability-table\">\r\n        <table class=\"availability\">\r\n            <tr>\r\n                <th></th> <!-- Cellule vide pour l'alignement -->\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n\r\n\r\n\r\n    <!-- Boutons -->\r\n    <div class=\"button-container\">\r\n        <button class=\"bouton\"> <a href=\"Prendre_RDV_Rugby.html\"> Prendre RDV </a></button>\r\n        <button class=\"bouton\"><a href=\"Accueil.html\"> Communiquer avec le coach </a></button>\r\n        <button class=\"bouton\">Voir son CV</button>\r\n    </div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Rugby.html b/Rugby.html
+--- a/Rugby.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Rugby.html	(date 1716999162612)
+@@ -28,7 +28,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Prendre_RDV_Musculation.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Prendre RDV basket</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\"></script>\r\n</head>\r\n\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\">\r\n            <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\">\r\n        </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<!-- Ligne de navigation -->\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> > <a href=\"Basketball.html\">Basketball</a> > <a href=\"Prendre_RDV_basket.html\">Prendre RDV</a>\r\n</div>\r\n\r\n<!-- Contenu principal -->\r\n<div class=\"availability-container\">\r\n\r\n\r\n\r\n    <!-- Availability Table -->\r\n    <div class=\"availability-table\">\r\n        <h2>Disponibilité du coatch</h2>\r\n        <table class=\"availability\">\r\n            <thead>\r\n            <tr>\r\n                <th></th>\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            </thead>\r\n            <tbody>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n        <button class=\"bouton\" id = \"valider\"> <a href=\"\"> Valider</a></button>\r\n\r\n    </div>\r\n\r\n\r\n</div>\r\n</div>\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Prendre_RDV_Musculation.html b/Prendre_RDV_Musculation.html
+--- a/Prendre_RDV_Musculation.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Prendre_RDV_Musculation.html	(date 1716999308143)
+@@ -29,7 +29,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+@@ -41,7 +41,7 @@
+ 
+ <!-- Ligne de navigation -->
+ <div class="breadcrumb">
+-    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.html">Prendre RDV</a>
++    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.php">Prendre RDV</a>
+ </div>
+ 
+ <!-- Contenu principal -->
+Index: Accueil.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\" xmlns:https=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Accueil</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\" type=\"text/javascript\"></script>\r\n</head>\r\n\r\n\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt = \"voici le logo sportify\" height = \"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n<br>\r\n<div id=\"main_page\">\r\n    <p>Carrousel évènements de la semaine</p>\r\n</div>\r\n\r\n\r\n<br>\r\n<div id=\"footer\" style=\"display: flex; justify-content: space-between;\">\r\n\r\n\r\n    <ul>\r\n        <h3>Nous contacter </h3>\r\n        <li> Téléphone : <u> (+33) 06 05 04 03 02 </u> </li>\r\n        <li> Email : <a href = \"mailto.sportify@gmail.com\"> sportify@gmail.com </a> </li>\r\n        <li> Sur place : <address> 43 Quai de Grenelle, 75015 Paris </address> </li>\r\n    </ul>\r\n\r\n    <div class=\"right\">\r\n        <!--carte google maps insérée--> <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5250.725751806412!2d2.2838522762051072!3d48.85129037133122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e670049543178d%3A0xcda73a49149d471f!2sOMNES%20Education!5e0!3m2!1sfr!2sfr!4v1716841516349!5m2!1sfr!2sfr\" width=\"800\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" width=\"600\" height=\"350\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>\r\n    </div>\r\n\r\n</div>\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Accueil.html b/Accueil.html
+--- a/Accueil.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Accueil.html	(date 1716999162452)
+@@ -30,7 +30,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Prendre_RDV_Rugby.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Prendre RDV basket</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\"></script>\r\n</head>\r\n\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\">\r\n            <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\">\r\n        </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<!-- Ligne de navigation -->\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> > <a href=\"Basketball.html\">Basketball</a> > <a href=\"Prendre_RDV_basket.html\">Prendre RDV</a>\r\n</div>\r\n\r\n<!-- Contenu principal -->\r\n<div class=\"availability-container\">\r\n\r\n\r\n\r\n    <!-- Availability Table -->\r\n    <div class=\"availability-table\">\r\n        <h2>Disponibilité du coatch</h2>\r\n        <table class=\"availability\">\r\n            <thead>\r\n            <tr>\r\n                <th></th>\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            </thead>\r\n            <tbody>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n        <button class=\"bouton\" id = \"valider\"> <a href=\"\"> Valider</a></button>\r\n\r\n    </div>\r\n\r\n\r\n</div>\r\n</div>\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Prendre_RDV_Rugby.html b/Prendre_RDV_Rugby.html
+--- a/Prendre_RDV_Rugby.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Prendre_RDV_Rugby.html	(date 1716999308125)
+@@ -29,7 +29,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+@@ -41,7 +41,7 @@
+ 
+ <!-- Ligne de navigation -->
+ <div class="breadcrumb">
+-    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.html">Prendre RDV</a>
++    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.php">Prendre RDV</a>
+ </div>
+ 
+ <!-- Contenu principal -->
+Index: Compte.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\nsession_start();\r\n\r\n// Check if the user is logged in\r\nif (!isset($_SESSION['user'])) {\r\n    // Redirect to login page if the user is not logged in\r\n    echo \"<script>alert(`vous n'êtes pas connecté`); window.location.href = 'sign_in_up.php' </script>\";\r\nexit();\r\n}\r\n\r\n?>\r\n\r\n\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Votre Compte</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\"\r\n                                       width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n<div id=\"votre-compte\">\r\n    <!-- zone de connexion -->\r\n    <br><br><br><br><br>\r\n    <br><br><br><br><br>\r\n\r\n\r\n    <?php\r\n    $database = \"projet_piscine\";\r\n    $db_handle = mysqli_connect('localhost', 'root', '');\r\n    $db_found = mysqli_select_db($db_handle, $database);\r\n\r\n    if ($db_found) {\r\n\r\n        $user = $_SESSION['user'];\r\n\r\n        // Accédez aux propriétés spécifiques de l'utilisateur\r\n        $statut = $user['statut'];\r\n        $mail = $user['mail'];\r\n\r\n        if($statut == 0){\r\n            $sql = \"select * from client where Mail = '$mail'\";\r\n        }\r\n        else if($statut == 1){\r\n            $sql = \"select * from coach where Mail = '$mail'\";\r\n        }\r\n        else if($statut == 2){\r\n            $sql = \"select * from admin where Mail = '$mail'\";\r\n        }\r\n\r\n        $result = mysqli_query($db_handle, $sql);\r\n\r\n        if($statut == 0){\r\n            while ($data = mysqli_fetch_assoc($result)){\r\n                echo \" <h1>ID: \" . $data['Mail']. \"</h1>\" . \"<br>\";\r\n                echo \"mot de passe: \" . $data['mdp'] . \"<br>\";\r\n                echo \"Nom: \" . $data['Nom'] . \"<br>\";\r\n                echo \"Prenom: \" . $data['Prenom'] . \"<br>\";\r\n                echo \"ID: \" . $data['ID'] . \"<br>\";\r\n                echo \"Adresse: \" . $data['Adresse'] . \"<br>\";\r\n                echo \"numéro de carte étudiante: \" . $data['carte'] . \"<br>\";\r\n\r\n                echo \"<br>\";\r\n                echo \"<br>\";\r\n                echo \"<br>\";\r\n            }\r\n        }\r\n        else if($statut == 1){\r\n            while ($data = mysqli_fetch_assoc($result)){\r\n                echo \" <h1>ID: \" . $data['Mail']. \"</h1>\" . \"<br>\";\r\n                echo \"mot de passe: \" . $data['mdp'] . \"<br>\";\r\n                echo \"Nom: \" . $data['Nom'] . \"<br>\";\r\n                echo \"Prénom: \" . $data['Prenom'] . \"<br>\";\r\n                echo \"photo: \" . $data['photo'] . \"<br>\";\r\n                echo \"ID: \" . $data['ID'] . \"<br>\";\r\n                echo \"discipline: \" . $data['discipline'] . \"<br>\";\r\n                echo \"CV: <embed src='\" . $data['CV'] . \"' type='application/pdf' width='100%' height='600px'><br>\";    //    <embed src=\"chemin/vers/votre/fichier.pdf\" type=\"application/pdf\" width=\"100%\" height=\"600px\" />\r\n                echo \"numéro: \" . $data['num'] . \"<br>\";\r\n\r\n                echo \"<br>\";\r\n                echo \"<br>\";\r\n                echo \"<br>\";\r\n            }\r\n        }\r\n        else if($statut == 2){\r\n            while ($data = mysqli_fetch_assoc($result)) {\r\n                echo \" <h1>ID: \" . $data['Mail']. \"</h1>\" . \"<br>\";\r\n                echo \"mot de passe: \" . $data['mdp'] . \"<br>\";\r\n                echo \"Nom: \" . $data['Nom'] . \"<br>\";\r\n\r\n\r\n                echo \"<br>\";\r\n                echo \"<br>\";\r\n                echo \"<br>\";\r\n            }\r\n        }\r\n\r\n    } else {\r\n        echo \"Database not found\";\r\n    }\r\n\r\n    mysqli_close($db_handle);\r\n    ?>\r\n\r\n\r\n\r\n    <br><br><br><br><br>\r\n    <button onclick=\"window.location.href='deconnexion.html'\">se deconnecter</button>\r\n    <br><br><br><br><br>\r\n</div>\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Compte.php b/Compte.php
+--- a/Compte.php	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Compte.php	(date 1716999162441)
+@@ -43,7 +43,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Fitness.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Fitness</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n\r\n\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> >  <a href=\"Fitness.html\">Fitness</a>\r\n</div>\r\n\r\n\r\n<div class=\"coach-info-container\">\r\n    <div class=\"coach-info\">\r\n        <div class=\"coach-photo\">\r\n            <img src=\"SDC/coatch-basket.jpg\" alt=\"Photo du coach\">\r\n        </div>\r\n        <div class=\"coach-details\">\r\n            <p><span class=\"label\">Guy Dumais</span></p>\r\n            <p>Coach - Fitness</p>\r\n            <p>Tél : XX XX XX XX XX</p>\r\n            <p>Email : guy.dumais@gmail.com</p>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"availability-table\">\r\n        <table class=\"availability\">\r\n            <tr>\r\n                <th></th> <!-- Cellule vide pour l'alignement -->\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n\r\n\r\n\r\n    <!-- Boutons -->\r\n    <div class=\"button-container\">\r\n        <button class=\"bouton\"> <a href=\"Prendre_RDV_Fitness.html\"> Prendre RDV </a></button>\r\n        <button class=\"bouton\"><a href=\"Accueil.html\"> Communiquer avec le coach </a></button>\r\n        <a href=\"SDC/coatch-basket.jpg\" target=\"_blank\">\r\n            <button class=\"bouton\">Voir son CV</button>\r\n        </a>\r\n    </div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Fitness.html b/Fitness.html
+--- a/Fitness.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Fitness.html	(date 1716999162595)
+@@ -28,7 +28,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Prendre_RDV_Fitness.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Prendre RDV basket</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\"></script>\r\n</head>\r\n\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\">\r\n            <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\">\r\n        </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<!-- Ligne de navigation -->\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> > <a href=\"Basketball.html\">Basketball</a> > <a href=\"Prendre_RDV_basket.html\">Prendre RDV</a>\r\n</div>\r\n\r\n<!-- Contenu principal -->\r\n<div class=\"availability-container\">\r\n\r\n\r\n\r\n    <!-- Availability Table -->\r\n    <div class=\"availability-table\">\r\n        <h2>Disponibilité du coatch</h2>\r\n        <table class=\"availability\">\r\n            <thead>\r\n            <tr>\r\n                <th></th>\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            </thead>\r\n            <tbody>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n        <button class=\"bouton\" id = \"valider\"> <a href=\"\"> Valider</a></button>\r\n\r\n    </div>\r\n\r\n\r\n</div>\r\n</div>\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Prendre_RDV_Fitness.html b/Prendre_RDV_Fitness.html
+--- a/Prendre_RDV_Fitness.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Prendre_RDV_Fitness.html	(date 1716999308113)
+@@ -29,7 +29,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+@@ -41,7 +41,7 @@
+ 
+ <!-- Ligne de navigation -->
+ <div class="breadcrumb">
+-    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.html">Prendre RDV</a>
++    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.php">Prendre RDV</a>
+ </div>
+ 
+ <!-- Contenu principal -->
+Index: Recherche.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <title>Recherche</title>\r\n  <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n\r\n\r\n<body>\r\n\r\n<div id=\"header\">\r\n  <img src=\"logo_sportify.png\" alt = \"voici le logo sportify\" height = \"120\" width=\"1350\">\r\n  <div class=\"right\">\r\n    <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n  </div>\r\n</div>\r\n\r\n<div id=\"navigation\">\r\n  <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n    <tr> <!--nouvelle ligne-->\r\n      <td> <!--nouvelle colonne-->\r\n        <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n      </td>\r\n      <td>\r\n        <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n      </td>\r\n      <td>\r\n        <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n      </td>\r\n      <td>\r\n        <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n      </td>\r\n      <td>\r\n        <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n      </td>\r\n    </tr>\r\n  </table>\r\n  <br> <br>\r\n</div>\r\n<br>\r\n<br>\r\n\r\n<div class=\"recherche\" style=\"display: flex; justify-content: center;\">\r\n  <input type=\"texte\" class=\"search-bar\" placeholder=\"Rechercher...\">\r\n  <button type=\"valider\" class=\"search-button\">\uD83D\uDD0D</button>\r\n</div>\r\n\r\n<br>\r\n<br>\r\n<div id=\"footer\" style=\"display: flex; justify-content: space-between;\">\r\n\r\n\r\n  <ul>\r\n    <h3>Nous contacter </h3>\r\n    <li> Téléphone : <u> (+33) 06 05 04 03 02 </u> </li>\r\n    <li> Email : <a href = \"mailto.sportify@gmail.com\"> sportify@gmail.com </a> </li>\r\n    <li> Sur place : <address> 43 Quai de Grenelle, 75015 Paris </address> </li>\r\n  </ul>\r\n\r\n  <div id=\"footer-right\">\r\n    <!--carte google maps insérée--> <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5250.725751806412!2d2.2838522762051072!3d48.85129037133122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e670049543178d%3A0xcda73a49149d471f!2sOMNES%20Education!5e0!3m2!1sfr!2sfr!4v1716841516349!5m2!1sfr!2sfr\" width=\"800\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" width=\"600\" height=\"350\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>\r\n  </div>\r\n\r\n</div>\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Recherche.html b/Recherche.html
+--- a/Recherche.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Recherche.html	(date 1716999162499)
+@@ -29,7 +29,7 @@
+         <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+       </td>
+       <td>
+-        <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++        <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+       </td>
+       <td>
+         <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Cardio.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Cardio</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n\r\n\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> >  <a href=\"Cardio.html\">Cardio</a>\r\n</div>\r\n\r\n\r\n<div class=\"coach-info-container\">\r\n    <div class=\"coach-info\">\r\n        <div class=\"coach-photo\">\r\n            <img src=\"SDC/coatch-basket.jpg\" alt=\"Photo du coach\">\r\n        </div>\r\n        <div class=\"coach-details\">\r\n            <p><span class=\"label\">Guy Dumais</span></p>\r\n            <p>Coach - Cardio</p>\r\n            <p>Tél : XX XX XX XX XX</p>\r\n            <p>Email : guy.dumais@gmail.com</p>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"availability-table\">\r\n        <table class=\"availability\">\r\n            <tr>\r\n                <th></th> <!-- Cellule vide pour l'alignement -->\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n\r\n\r\n\r\n    <!-- Boutons -->\r\n    <div class=\"button-container\">\r\n        <button class=\"bouton\"> <a href=\"Prendre_RDV_Cardio.html\"> Prendre RDV </a></button>\r\n        <button class=\"bouton\"><a href=\"Accueil.html\"> Communiquer avec le coach </a></button>\r\n        <a href=\"SDC/coatch-basket.jpg\" target=\"_blank\">\r\n            <button class=\"bouton\">Voir son CV</button>\r\n        </a>\r\n    </div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Cardio.html b/Cardio.html
+--- a/Cardio.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Cardio.html	(date 1716999162672)
+@@ -28,7 +28,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"0c640efc-b6a8-453a-9b8f-2d82c8220ab9\" name=\"Changes\" comment=\"inscription blindée, + bdd\">\r\n      <change afterPath=\"$PROJECT_DIR$/connexion.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/deconnexion.html\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/deconnexion.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/animations.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/animations.js\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"HTML File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"PhpDebugGeneral\" listening_started=\"true\" />\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 8\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2h3SGM1I7dcT8GDKfUrkL4GGGKk\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/Projet_Piscine/Projet_Piscine&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\wamp64\\www\\Projet_Piscine\\Projet_Piscine\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"0c640efc-b6a8-453a-9b8f-2d82c8220ab9\" name=\"Changes\" comment=\"\" />\r\n      <created>1716821170500</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1716821170500</updated>\r\n      <workItem from=\"1716821171583\" duration=\"676000\" />\r\n      <workItem from=\"1716848580575\" duration=\"4000\" />\r\n      <workItem from=\"1716848594457\" duration=\"5266000\" />\r\n      <workItem from=\"1716899470164\" duration=\"1391000\" />\r\n      <workItem from=\"1716905136093\" duration=\"14349000\" />\r\n      <workItem from=\"1716971936530\" duration=\"3085000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"commit and push test\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716848699257</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716848699257</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"inscription blindée, + bdd\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716928696201</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716928696203</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"commit and push test\" />\r\n    <MESSAGE value=\"inscription blindée, + bdd\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"inscription blindée, + bdd\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/.idea/workspace.xml	(date 1717016942492)
+@@ -4,11 +4,45 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="inscription blindée, + bdd">
+-      <change afterPath="$PROJECT_DIR$/connexion.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/deconnexion.html" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/deconnexion.php" afterDir="false" />
++    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="nouvelle branche, pareil que le main, sans les sous fichiers. Les balises des bouttons sont dans le bon sens">
++      <change afterPath="$PROJECT_DIR$/reservation.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/Accueil.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Activites_sportives.html" beforeDir="false" afterPath="$PROJECT_DIR$/Activites_sportives.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Basketball.html" beforeDir="false" afterPath="$PROJECT_DIR$/Basketball.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Biking.html" beforeDir="false" afterPath="$PROJECT_DIR$/Biking.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Cardio.html" beforeDir="false" afterPath="$PROJECT_DIR$/Cardio.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Compte.php" beforeDir="false" afterPath="$PROJECT_DIR$/Compte.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Cours_collectifs.html" beforeDir="false" afterPath="$PROJECT_DIR$/Cours_collectifs.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Fitness.html" beforeDir="false" afterPath="$PROJECT_DIR$/Fitness.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Football.html" beforeDir="false" afterPath="$PROJECT_DIR$/Football.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Les_salles_de_sport_OMNES.html" beforeDir="false" afterPath="$PROJECT_DIR$/Les_salles_de_sport_OMNES.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Les_sports_de_competitions.html" beforeDir="false" afterPath="$PROJECT_DIR$/Les_sports_de_competitions.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Musculation.html" beforeDir="false" afterPath="$PROJECT_DIR$/Musculation.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Natation.html" beforeDir="false" afterPath="$PROJECT_DIR$/Natation.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Plongeon.html" beforeDir="false" afterPath="$PROJECT_DIR$/Plongeon.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Biking.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Biking.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Cardio.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Cardio.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Cours_collectifs.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Cours_collectifs.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Fitness.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Fitness.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Football.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Football.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Musculation.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Musculation.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Natation.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Natation.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Plongeon.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Plongeon.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Rugby.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Rugby.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Step.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Step.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Prendre_RDV_Tennis.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_Tennis.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Prendre_RDV_basket.html" beforeDir="false" afterPath="$PROJECT_DIR$/Prendre_RDV_basket.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/RDV.html" beforeDir="false" afterPath="$PROJECT_DIR$/RDV.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Recherche.html" beforeDir="false" afterPath="$PROJECT_DIR$/Recherche.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Rugby.html" beforeDir="false" afterPath="$PROJECT_DIR$/Rugby.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Step.html" beforeDir="false" afterPath="$PROJECT_DIR$/Step.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Tennis.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tennis.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Tout_parcourir.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tout_parcourir.html" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/animations.js" beforeDir="false" afterPath="$PROJECT_DIR$/animations.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/deconnexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/deconnexion.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/sign_in_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/sign_in_up.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/sign_up.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -26,6 +60,11 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="6db72f5d6648c879058bc6d60024552181e1c10e" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+@@ -40,23 +79,23 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/Projet_Piscine/Projet_Piscine&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "DefaultHtmlFileTemplate": "HTML File",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "masterBis",
++    "ignore.virus.scanning.warn.message": "true",
++    "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "C:/wamp64/www/Projet_Piscine/Projet_Piscine",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\wamp64\www\Projet_Piscine\Projet_Piscine" />
+@@ -82,7 +121,7 @@
+       <workItem from="1716848594457" duration="5266000" />
+       <workItem from="1716899470164" duration="1391000" />
+       <workItem from="1716905136093" duration="14349000" />
+-      <workItem from="1716971936530" duration="3085000" />
++      <workItem from="1716971936530" duration="32269000" />
+     </task>
+     <task id="LOCAL-00001" summary="commit and push test">
+       <option name="closed" value="true" />
+@@ -100,7 +139,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1716928696203</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="nouvelle branche, pareil que le main, sans les sous fichiers. Les balises des bouttons sont dans le bon sens">
++      <option name="closed" value="true" />
++      <created>1716991746794</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1716991746795</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -120,6 +167,7 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="commit and push test" />
+     <MESSAGE value="inscription blindée, + bdd" />
+-    <option name="LAST_COMMIT_MESSAGE" value="inscription blindée, + bdd" />
++    <MESSAGE value="nouvelle branche, pareil que le main, sans les sous fichiers. Les balises des bouttons sont dans le bon sens" />
++    <option name="LAST_COMMIT_MESSAGE" value="nouvelle branche, pareil que le main, sans les sous fichiers. Les balises des bouttons sont dans le bon sens" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: Musculation.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Musculation</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n\r\n\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> >  <a href=\"Musculation.html\">Musculation</a>\r\n</div>\r\n\r\n\r\n<div class=\"coach-info-container\">\r\n    <div class=\"coach-info\">\r\n        <div class=\"coach-photo\">\r\n            <img src=\"SDC/coatch-basket.jpg\" alt=\"Photo du coach\">\r\n        </div>\r\n        <div class=\"coach-details\">\r\n            <p><span class=\"label\">Guy Dumais</span></p>\r\n            <p>Coach - Musculation</p>\r\n            <p>Tél : XX XX XX XX XX</p>\r\n            <p>Email : guy.dumais@gmail.com</p>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"availability-table\">\r\n        <table class=\"availability\">\r\n            <tr>\r\n                <th></th> <!-- Cellule vide pour l'alignement -->\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n\r\n\r\n\r\n    <!-- Boutons -->\r\n    <div class=\"button-container\">\r\n        <button class=\"bouton\"> <a href=\"Prendre_RDV_Musculation.html\"> Prendre RDV </a></button>\r\n        <button class=\"bouton\"><a href=\"Accueil.html\"> Communiquer avec le coach </a></button>\r\n        <button class=\"bouton\">Voir son CV</button>\r\n    </div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Musculation.html b/Musculation.html
+--- a/Musculation.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Musculation.html	(date 1716999162490)
+@@ -28,7 +28,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Prendre_RDV_Biking.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Prendre RDV basket</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\"></script>\r\n</head>\r\n\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\">\r\n            <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\">\r\n        </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<!-- Ligne de navigation -->\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> > <a href=\"Basketball.html\">Basketball</a> > <a href=\"Prendre_RDV_basket.html\">Prendre RDV</a>\r\n</div>\r\n\r\n<!-- Contenu principal -->\r\n<div class=\"availability-container\">\r\n\r\n\r\n\r\n    <!-- Availability Table -->\r\n    <div class=\"availability-table\">\r\n        <h2>Disponibilité du coatch</h2>\r\n        <table class=\"availability\">\r\n            <thead>\r\n            <tr>\r\n                <th></th>\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            </thead>\r\n            <tbody>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n        <button class=\"bouton\" id = \"valider\"> <a href=\"\"> Valider</a></button>\r\n\r\n    </div>\r\n\r\n\r\n</div>\r\n</div>\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Prendre_RDV_Biking.html b/Prendre_RDV_Biking.html
+--- a/Prendre_RDV_Biking.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Prendre_RDV_Biking.html	(date 1716999308090)
+@@ -29,7 +29,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+@@ -41,7 +41,7 @@
+ 
+ <!-- Ligne de navigation -->
+ <div class="breadcrumb">
+-    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.html">Prendre RDV</a>
++    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.php">Prendre RDV</a>
+ </div>
+ 
+ <!-- Contenu principal -->
+Index: styles.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>body {\r\n    background-color: #a5a5a5;\r\n    font-family: Arial, Helvetica, sans-serif;\r\n}\r\n\r\nh2 {\r\n    color: #ffffff;\r\n    font-size: 40px;\r\n    text-align: center;\r\n    padding: 10px;\r\n}\r\n\r\nh3 {\r\n    color: #2d2a2a;\r\n    font-size: 30px;\r\n    padding: 15px;\r\n}\r\n\r\nh4 {\r\n    font: bold 14px Verdana;\r\n}\r\n\r\nh5 {\r\n    font: bold 23px Verdana;\r\n    text-align: center;\r\n}\r\n\r\n#header {\r\n    width: auto;\r\n    margin: auto;\r\n}\r\n\r\n#navigation {\r\n    width: auto;\r\n    height: 50px;\r\n    margin: auto;\r\n    border-radius: 10px;\r\n    padding-left: 10px;\r\n}\r\n\r\n#main_page{\r\n    width: 1300px;\r\n    height: 400px;\r\n    border-radius: 10px;\r\n    margin: auto;\r\n    background-color: #2d2a2a;\r\n    color: #ffffff;\r\n    padding-left: 10px;\r\n}\r\n\r\n.recherche {\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.search-bar {\r\n    width: 400px;\r\n    height: 40px;\r\n    padding: 10px;\r\n    border: 2px solid #ccc;\r\n    border-radius: 30px 0 0 30px;\r\n    outline: none;\r\n}\r\n\r\n.search-button {\r\n    height: 63px;\r\n    padding: 0 40px;\r\n    border: 2px solid #ccc;\r\n    border-left: none;\r\n    border-radius: 0 30px 30px 0;\r\n    background-color: #eeb253;\r\n    color: white;\r\n    cursor: pointer;\r\n}\r\n\r\n.search-button:hover {\r\n    background-color: #fda316;\r\n}\r\n\r\n.RDV_venir {\r\n    background-color: #eeb253;\r\n    width: 300px;\r\n    height: 350px;\r\n    border-radius: 30px;\r\n    margin: 20px;\r\n    padding: 10px;\r\n    display: inline-block;\r\n}\r\n\r\n.RDV_passes {\r\n    background-color: #cccacc;\r\n    margin: auto;\r\n    width: 1000px;\r\n    height: 50px;\r\n    border-radius: 30px;\r\n    padding: 10px;\r\n}\r\n\r\n#votre-compte {\r\n    margin: auto;\r\n    width: 700px;\r\n    height: auto;\r\n    border-radius: 30px;\r\n    background-color: #2d2a2a;\r\n    color: #ffffff;\r\n    text-align: center;\r\n    padding-left: 20px;\r\n}\r\n\r\n#footer {\r\n    width: auto;\r\n    height: auto;\r\n    border-radius: 10px;\r\n    padding: 5px;\r\n    background-color: #eeb253;\r\n}\r\n\r\n.right {\r\n    float: right;\r\n    padding-right: 10px;\r\n}\r\n\r\n.error {\r\n    color: red;\r\n    display: none;\r\n}\r\n\r\n.t-nav {\r\n    table-layout: fixed;\r\n    width: 1000px;\r\n    height: 50px;\r\n    border-collapse: collapse;\r\n    margin: auto;\r\n}\r\n\r\nbutton {\r\n    cursor: pointer;\r\n    text-transform: capitalize;\r\n}\r\n\r\n.bouton {\r\n    border-radius: 30px;\r\n    background: #eeb253;\r\n    border: none;\r\n    font: bold 14px Verdana;\r\n    padding: 20px 5px;\r\n    text-align: center;\r\n    width: 140px;\r\n    color: #cccacc;\r\n}\r\n\r\n.bouton:hover {\r\n    border-radius: 30px;\r\n    background: #f89905;\r\n    border: 4px solid orange; /* Modification de la taille de la bordure */\r\n}\r\n\r\n.bouton-actuel{\r\n    border-radius: 30px;\r\n    background: #f89905;\r\n    border: 4px solid orange; /* Modification de la taille de la bordure */\r\n    font: bold 14px Verdana;\r\n    padding: 20px 5px;\r\n    text-align: center;\r\n    width: 140px;\r\n    color: #cccacc;\r\n}\r\n\r\ninput[type=text], input[type=password] {\r\n    width: 400px;\r\n    padding: 10px;\r\n    margin: 8px 0;\r\n    display: inline-block;\r\n    border: 1px solid #ccc;\r\n    border-radius: 30px;\r\n}\r\n\r\ninput[type=submit] {\r\n    background-color: #eeb253;\r\n    color: #2d2a2a;\r\n    padding: 14px 20px;\r\n    margin: 8px 0;\r\n    border: none;\r\n    cursor: pointer;\r\n    width: 170px;\r\n    border-radius: 30px;\r\n}\r\n\r\ninput[type=submit]:hover {\r\n    background-color: #fda316;\r\n    color: #2d2a2a;\r\n    border: 1px solid #fda316;\r\n    border-radius: 30px;\r\n}\r\n\r\na {\r\n    color: white;\r\n    text-decoration: none;\r\n}\r\n\r\n/* Pour activite sportives + les sports de compet */\r\n.main-buttons, .sub-buttons {\r\n    display: flex;\r\n    flex-wrap: wrap; /* Permet de faire passer les éléments à la ligne si nécessaire */\r\n    justify-content: center;\r\n    margin: 20px 0;\r\n}\r\n\r\n.main-button, .sub-button {\r\n    position: relative;\r\n    margin: 10px;\r\n    cursor: pointer;\r\n    transition: border 0.3s, box-shadow 0.3s;\r\n    justify-content: center;\r\n    align-items: center; /* Centrage vertical */\r\n}\r\n\r\n.main-button img {\r\n    width: 200px; /* Ajustement à 100px */\r\n    height: 200px; /* Ajustement à 100px */\r\n    opacity: 0.8;\r\n    filter: blur(2px); /* Ajout d'un flou */\r\n    transition: opacity 0.3s;\r\n}\r\n\r\n.sub-button img {\r\n    width: 150px; /* Ajustement à 100px */\r\n    height: 150px; /* Ajustement à 100px */\r\n    opacity: 0.9;\r\n    filter: blur(2px); /* Ajout d'un flou */\r\n    transition: opacity 0.3s;\r\n}\r\n\r\n.main-button p, .sub-button p {\r\n    position: absolute;\r\n    color: black; /* Texte en noir */\r\n    font-size: 18px; /* Texte plus gros */\r\n    font-weight: bold; /* Texte en gras */\r\n    text-align: center;\r\n    margin: 0;\r\n    padding: 0;\r\n    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Ajout d'un flou derrière le texte */\r\n    top: 50%; /* Positionne le haut du texte à 50% du conteneur parent */\r\n    left: 50%; /* Positionne le côté gauche du texte à 50% du conteneur parent */\r\n    transform: translate(-50%, -50%); /* Déplace le texte de moitié de sa propre taille vers le haut et la gauche pour le centrer */\r\n}\r\n\r\n.main-button:hover, .sub-button:hover {\r\n    border: 4px solid orange; /* Modification de la taille de la bordure */\r\n\r\n}\r\n\r\n.main-button img:hover, .sub-button img:hover {\r\n    opacity: 1;\r\n    filter: blur(0); /* Retrait du flou */\r\n}\r\n\r\n\r\n.main-button.active {\r\n    border: 4px solid orange;\r\n\r\n}\r\n\r\n.main-button.active img {\r\n    filter: none; /* Retrait du flou uniquement pour le bouton actif */\r\n}\r\n\r\n\r\n.container {\r\n    display: flex;\r\n}\r\n\r\n.image {\r\n    width: 50%;\r\n    padding-right: 20px; /* Espace entre l'image et les informations de contact */\r\n}\r\n\r\n.image img {\r\n    width: 600px;\r\n    height: 200px;\r\n    border-radius: 30px 0 0 30px;\r\n    margin-left: 130px;\r\n}\r\n\r\n.contact-info {\r\n    width: 600px;\r\n    height: 200px;\r\n    border-radius: 0 30px 30px 0;\r\n    background-color: #333;\r\n    color: white;\r\n    padding: 20px;\r\n    box-sizing: border-box; /* Pour inclure le padding dans la largeur du conteneur */\r\n}\r\n.info {\r\n    display: flex;\r\n    flex-direction: column; /* Les informations de contact seront affichées en colonne */\r\n    justify-content: center; /* Centrer verticalement */\r\n    align-items: flex-start; /* Aligner le texte à gauche */\r\n    height: 100%; /* Ajuster la hauteur pour centrer verticalement */\r\n}\r\n\r\n.info p {\r\n    margin: 15px 0; /* Espace entre chaque ligne */\r\n    font-size: 30px; /* Texte plus gros */\r\n}\r\n\r\n.info .mot_orange {\r\n    color: orange; /* Couleur orange pour le mot spécifié */\r\n}\r\n\r\n.button-container {\r\n    text-align: center; /* Centrer horizontalement */\r\n    margin-top: 20px; /* Espace au-dessus du bouton */\r\n}\r\n\r\n\r\n\r\n\r\n/*Musculation, ftiness...*/\r\n.coach-info-container {\r\n    background-color: #333; /* Couleur de fond du rectangle */\r\n    color: white; /* Couleur du texte */\r\n    padding: 20px; /* Espace intérieur */\r\n    margin-top: 20px; /* Espace au-dessus */\r\n    max-width: 1000px; /* Largeur maximale */\r\n    margin-left: auto; /* Centrage horizontal */\r\n    margin-right: auto; /* Centrage horizontal */\r\n    border-radius: 30px; /* Coins arrondis */\r\n\r\n}\r\n\r\n.coach-info {\r\n    display: flex;\r\n    align-items: center; /* Alignement vertical */\r\n    margin: 15px 0;\r\n    font-size: 20px; /* Texte plus gros */\r\n\r\n}\r\n\r\n.coach-photo {\r\n    margin-right: 20px; /* Espace à droite de la photo */\r\n}\r\n\r\n.coach-photo img {\r\n    width: 150px; /* Taille de la photo */\r\n    height: 150px;\r\n}\r\n\r\n.coach-details p {\r\n    margin: 5px 0; /* Espace entre les paragraphes */\r\n}\r\n\r\n.label {\r\n    font-size: 40px;\r\n}\r\n\r\n\r\n.availability-table {\r\n    margin-top: 20px;\r\n    width: 100%; /* Le tableau occupera toute la largeur du conteneur */\r\n\r\n\r\n}\r\n\r\n.availability-container {\r\n    background-color: #333; /* Gris foncé */\r\n    padding: 20px;\r\n    border-radius: 30px; /* Pour arrondir les coins */\r\n    color: white; /* Couleur du texte */\r\n    margin-top: 20px; /* Espace au-dessus */\r\n    width: 1000px; /* Largeur maximale */\r\n    height: 400px;\r\n    margin-left: auto; /* Centrage horizontal */\r\n    margin-right: auto; /* Centrage horizontal */\r\n    display: flex;\r\n    justify-content: center; /* Centrer horizontalement */\r\n    align-items: center; /* Centrer verticalement */\r\n\r\n}\r\n\r\ntable {\r\n    width: 100%;\r\n    border-collapse: collapse;\r\n}\r\n\r\n.availability th, .availability td {\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    text-align: center;\r\n}\r\n\r\n.availability-cell {\r\n    cursor: pointer;\r\n}\r\n\r\n.availability-cell:hover {\r\n    border: 4px solid orange;\r\n}\r\n\r\n.selected {\r\n    background-color: black;\r\n    color: white;\r\n}\r\n\r\n.white {\r\n    background-color: white; /* Case blanche */\r\n}\r\n\r\n.orange {\r\n    background-color: orange; /* Case orange */\r\n}\r\n\r\n\r\n.buttons {\r\n    text-align: center; /* Centrage horizontal des boutons */\r\n    margin-top: 20px; /* Espace au-dessus des boutons */\r\n    margin-left: 20px;\r\n}\r\n\r\n.breadcrumb {\r\n    color: white;\r\n    margin-top: 20px;\r\n    font-size: 20px;\r\n    margin-left: 20px;\r\n}\r\n\r\n.breadcrumb a {\r\n    text-decoration: none;\r\n}\r\n\r\n.breadcrumb a:hover {\r\n    color: orange;\r\n}\r\n\r\n#valider {\r\n    margin-top: 20px; /* Espacement entre le tableau et le bouton */\r\n    text-align: center; /* Centrer horizontalement */\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/styles.css b/styles.css
+--- a/styles.css	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/styles.css	(date 1717004296184)
+@@ -393,9 +393,7 @@
+     cursor: pointer;
+ }
+ 
+-.availability-cell:hover {
+-    border: 4px solid orange;
+-}
++
+ 
+ .selected {
+     background-color: black;
+Index: Prendre_RDV_Tennis.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Prendre RDV basket</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\"></script>\r\n</head>\r\n\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\">\r\n            <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\">\r\n        </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<!-- Ligne de navigation -->\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> > <a href=\"Basketball.html\">Basketball</a> > <a href=\"Prendre_RDV_basket.html\">Prendre RDV</a>\r\n</div>\r\n\r\n<!-- Contenu principal -->\r\n<div class=\"availability-container\">\r\n\r\n\r\n\r\n    <!-- Availability Table -->\r\n    <div class=\"availability-table\">\r\n        <h2>Disponibilité du coatch</h2>\r\n        <table class=\"availability\">\r\n            <thead>\r\n            <tr>\r\n                <th></th>\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            </thead>\r\n            <tbody>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n        <button class=\"bouton\" id = \"valider\"> <a href=\"\"> Valider</a></button>\r\n\r\n    </div>\r\n\r\n\r\n</div>\r\n</div>\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Prendre_RDV_Tennis.html b/Prendre_RDV_Tennis.html
+--- a/Prendre_RDV_Tennis.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Prendre_RDV_Tennis.html	(date 1716999308150)
+@@ -29,7 +29,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+@@ -41,7 +41,7 @@
+ 
+ <!-- Ligne de navigation -->
+ <div class="breadcrumb">
+-    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.html">Prendre RDV</a>
++    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.php">Prendre RDV</a>
+ </div>
+ 
+ <!-- Contenu principal -->
+Index: Basketball.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Basketball</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n\r\n\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Les_sports_de_competitions.html\">Les sports de compétitions</a> >  <a href=\"Basketball.html\">Basketball</a>\r\n</div>\r\n\r\n\r\n<div class=\"coach-info-container\">\r\n    <div class=\"coach-info\">\r\n        <div class=\"coach-photo\">\r\n            <img src=\"SDC/coatch-basket.jpg\" alt=\"Photo du coach\">\r\n        </div>\r\n        <div class=\"coach-details\">\r\n            <p><span class=\"label\">Guy Dumais</span></p>\r\n            <p>Coach - Basketball</p>\r\n            <p>Tél : XX XX XX XX XX</p>\r\n            <p>Email : guy.dumais@gmail.com</p>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"availability-table\">\r\n        <table class=\"availability\">\r\n            <tr>\r\n                <th></th> <!-- Cellule vide pour l'alignement -->\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n\r\n\r\n\r\n    <!-- Boutons -->\r\n    <div class=\"button-container\">\r\n        <button class=\"bouton\"> <a href=\"Prendre_RDV_basket.html\"> Prendre RDV </a></button>\r\n        <button class=\"bouton\"><a href=\"Accueil.html\"> Communiquer avec le coach </a></button>\r\n        <button class=\"bouton\">Voir son CV</button>\r\n    </div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Basketball.html b/Basketball.html
+--- a/Basketball.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Basketball.html	(date 1717000038245)
+@@ -28,7 +28,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+@@ -95,8 +95,8 @@
+ 
+     <!-- Boutons -->
+     <div class="button-container">
+-        <button class="bouton"> <a href="Prendre_RDV_basket.html"> Prendre RDV </a></button>
+-        <button class="bouton"><a href="Accueil.html"> Communiquer avec le coach </a></button>
++        <a href="Prendre_RDV_basket.php"><button class="bouton">  Prendre RDV </button></a>
++        <a href="Accueil.html"><button class="bouton"> Communiquer avec le coach </button></a>
+         <button class="bouton">Voir son CV</button>
+     </div>
+ </div>
+Index: Les_sports_de_competitions.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Sports de compétitions</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n<div id=\"jj\">\r\n    <div class=\"main-buttons\">\r\n        <button class=\"main-button\" >\r\n            <a href=\"Activites_sportives.html\">\r\n                <img src=\"PARCOURIR/sport.jpg\" alt=\"Activités sportives\">\r\n                <p>Activités sportives</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"main-button active\">\r\n            <a href=\"Les_sports_de_competitions.html\">\r\n                <img src=\"PARCOURIR/SC.jpg\" alt=\"Les sports de compétitions\">\r\n                <p>Les sports de compétitions</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"main-button\">\r\n            <a href=\"Les_salles_de_sport_OMNES.html\">\r\n                <img src=\"PARCOURIR/SDS.jpg\" alt=\"Les salles de sport OMNES\">\r\n                <p>Les salles de sport OMNES</p>\r\n            </a>\r\n        </button>\r\n    </div>\r\n    <div class=\"sub-buttons\">\r\n        <button class=\"sub-button\">\r\n            <a href=\"Basketball.html\">\r\n                <img src=\"SDC/basketball.jpg\" alt=\"basketball\">\r\n                <p>Basketball</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"sub-button\">\r\n            <a href=\"Football.html\">\r\n                <img src=\"SDC/football.jpg\" alt=\"football\">\r\n                <p>Football</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"sub-button\">\r\n            <a href=\"Rugby.html\">\r\n                <img src=\"SDC/rugby.jpg\" alt=\"rugby\">\r\n                <p>Rugby</p>\r\n            </a>\r\n        </button>\r\n\r\n        <button class=\"sub-button\">\r\n            <a href=\"Tennis.html\">\r\n                <img src=\"SDC/tennis.jpg\" alt=\"tennis\">\r\n                <p>Tennis</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"sub-button\">\r\n            <a href=\"Natation.html\">\r\n                <img src=\"SDC/natation.jpg\" alt=\"natation\">\r\n                <p>Natation</p>\r\n            </a>\r\n        </button>\r\n        <button class=\"sub-button\">\r\n            <a href=\"Plongeon.html\">\r\n                <img src=\"SDC/plongeons.jpg\" alt=\"plongeons\">\r\n                <p>Plongeon</p>\r\n            </a>\r\n        </button>\r\n    </div>\r\n</div>\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Les_sports_de_competitions.html b/Les_sports_de_competitions.html
+--- a/Les_sports_de_competitions.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Les_sports_de_competitions.html	(date 1716999162652)
+@@ -25,7 +25,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Prendre_RDV_Natation.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Prendre RDV basket</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\"></script>\r\n</head>\r\n\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\">\r\n            <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\">\r\n        </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<!-- Ligne de navigation -->\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> > <a href=\"Basketball.html\">Basketball</a> > <a href=\"Prendre_RDV_basket.html\">Prendre RDV</a>\r\n</div>\r\n\r\n<!-- Contenu principal -->\r\n<div class=\"availability-container\">\r\n\r\n\r\n\r\n    <!-- Availability Table -->\r\n    <div class=\"availability-table\">\r\n        <h2>Disponibilité du coatch</h2>\r\n        <table class=\"availability\">\r\n            <thead>\r\n            <tr>\r\n                <th></th>\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            </thead>\r\n            <tbody>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n        <button class=\"bouton\" id = \"valider\"> <a href=\"\"> Valider</a></button>\r\n\r\n    </div>\r\n\r\n\r\n</div>\r\n</div>\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Prendre_RDV_Natation.html b/Prendre_RDV_Natation.html
+--- a/Prendre_RDV_Natation.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Prendre_RDV_Natation.html	(date 1716999308157)
+@@ -29,7 +29,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+@@ -41,7 +41,7 @@
+ 
+ <!-- Ligne de navigation -->
+ <div class="breadcrumb">
+-    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.html">Prendre RDV</a>
++    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.php">Prendre RDV</a>
+ </div>
+ 
+ <!-- Contenu principal -->
+Index: Biking.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Biking</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n</head>\r\n<body>\r\n\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\"> <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\"> </a>\r\n    </div>\r\n</div>\r\n\r\n\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<br><br>\r\n\r\n\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> >  <a href=\"Biking.html\">Biking</a>\r\n</div>\r\n\r\n\r\n<div class=\"coach-info-container\">\r\n    <div class=\"coach-info\">\r\n        <div class=\"coach-photo\">\r\n            <img src=\"SDC/coatch-basket.jpg\" alt=\"Photo du coach\">\r\n        </div>\r\n        <div class=\"coach-details\">\r\n            <p><span class=\"label\">Guy Dumais</span></p>\r\n            <p>Coach - Biking</p>\r\n            <p>Tél : XX XX XX XX XX</p>\r\n            <p>Email : guy.dumais@gmail.com</p>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"availability-table\">\r\n        <table class=\"availability\">\r\n            <tr>\r\n                <th></th> <!-- Cellule vide pour l'alignement -->\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"orange\"></td> <!-- Case orange -->\r\n                <td class=\"white\"></td> <!-- Case blanche -->\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n                <td class=\"white\"></td>\r\n                <td class=\"orange\"></td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n\r\n\r\n\r\n    <!-- Boutons -->\r\n    <div class=\"button-container\">\r\n        <button class=\"bouton\"> <a href=\"Prendre_RDV_Biking.html\"> Prendre RDV </a></button>\r\n        <button class=\"bouton\"><a href=\"Accueil.html\"> Communiquer avec le coach </a></button>\r\n        <button class=\"bouton\">Voir son CV</button>\r\n    </div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Biking.html b/Biking.html
+--- a/Biking.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Biking.html	(date 1716999162621)
+@@ -28,7 +28,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+Index: Prendre_RDV_Cardio.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Prendre RDV basket</title>\r\n    <link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n    <script src=\"animations.js\"></script>\r\n</head>\r\n\r\n<body>\r\n<div id=\"header\">\r\n    <img src=\"logo_sportify.png\" alt=\"voici le logo sportify\" height=\"120\" width=\"1350\">\r\n    <div class=\"right\">\r\n        <a href=\"sign_in_up.php\">\r\n            <img src=\"account_circle_white.png\" alt=\"voici le logo se connecter\" height=\"60\" width=\"60\">\r\n        </a>\r\n    </div>\r\n</div>\r\n<div id=\"navigation\">\r\n    <table class=\"t-nav\"> <!--tableau onglets + cf CSS .t-nav-->\r\n        <tr> <!--nouvelle ligne-->\r\n            <td> <!--nouvelle colonne-->\r\n                <a href=\"Accueil.html\"><button class=\"bouton\" id=\"accueil\" type=\"button\">  Accueil  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Tout_parcourir.html\"><button class=\"bouton\" id=\"parcourir\" type=\"button\">  Tout parcourir </button> </a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Recherche.html\"><button class=\"bouton\" id=\"recherche\" type=\"button\">  Recherche  </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"RDV.html\"><button class=\"bouton\" id=\"rdv\" type=\"button\">  RDV </button></a>\r\n            </td>\r\n            <td>\r\n                <a href=\"Compte.php\"><button class=\"bouton\" id=\"compte\" type=\"button\">  Votre compte  </button></a>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n    <br> <br>\r\n</div>\r\n\r\n<!-- Ligne de navigation -->\r\n<div class=\"breadcrumb\">\r\n    <a href=\"Activites_sportives.html\">Activités sportives</a> > <a href=\"Basketball.html\">Basketball</a> > <a href=\"Prendre_RDV_basket.html\">Prendre RDV</a>\r\n</div>\r\n\r\n<!-- Contenu principal -->\r\n<div class=\"availability-container\">\r\n\r\n\r\n\r\n    <!-- Availability Table -->\r\n    <div class=\"availability-table\">\r\n        <h2>Disponibilité du coatch</h2>\r\n        <table class=\"availability\">\r\n            <thead>\r\n            <tr>\r\n                <th></th>\r\n                <th>Lundi</th>\r\n                <th>Mardi</th>\r\n                <th>Mercredi</th>\r\n                <th>Jeudi</th>\r\n                <th>Vendredi</th>\r\n                <th>Samedi</th>\r\n            </tr>\r\n            </thead>\r\n            <tbody>\r\n            <tr>\r\n                <td>Matin</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            <tr>\r\n                <td>Après-midi</td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n                <td class=\"availability-cell\"></td>\r\n            </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n        <button class=\"bouton\" id = \"valider\"> <a href=\"\"> Valider</a></button>\r\n\r\n    </div>\r\n\r\n\r\n</div>\r\n</div>\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Prendre_RDV_Cardio.html b/Prendre_RDV_Cardio.html
+--- a/Prendre_RDV_Cardio.html	(revision d83a0ae2d487ceb4bad43c4d9fd8d45a9f3e45e4)
++++ b/Prendre_RDV_Cardio.html	(date 1716999308118)
+@@ -29,7 +29,7 @@
+                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+             </td>
+             <td>
+-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
++                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+             </td>
+             <td>
+                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+@@ -41,7 +41,7 @@
+ 
+ <!-- Ligne de navigation -->
+ <div class="breadcrumb">
+-    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.html">Prendre RDV</a>
++    <a href="Activites_sportives.html">Activités sportives</a> > <a href="Basketball.html">Basketball</a> > <a href="Prendre_RDV_basket.php">Prendre RDV</a>
+ </div>
+ 
+ <!-- Contenu principal -->

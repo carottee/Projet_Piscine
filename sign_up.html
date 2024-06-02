@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    <script src="animations.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="header">
+    <img src="logo_sportify.png" alt = "voici le logo sportify" height = "120" width="1350">
+    <div class="right">
+        <a href="sign_in_up.php"> <img src="account_circle_white.png" alt="voici le logo se connecter" height="60" width="60"> </a>
+    </div>
+</div>
+<div id="navigation">
+    <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
+        <tr> <!--nouvelle ligne-->
+            <td> <!--nouvelle colonne-->
+                <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
+            </td>
+            <td>
+                <a href="Tout_parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir </button> </a>
+            </td>
+            <td>
+                <a href="Recherche.php"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+            </td>
+            <td>
+                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+            </td>
+            <td>
+                <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+            </td>
+        </tr>
+    </table>
+    <br> <br>
+</div>
+<br>
+<div id="votre-compte">
+    <!-- zone de connexion -->
+
+    <form action="sign_up.php" method="POST" id="signupForm" onsubmit="return validatePassword()">
+        <h2>Inscription</h2>
+
+        <label>Email :</label><br>
+        <input type="text" placeholder="Entrer le nom d'utilisateur" id="mail" name="mail" required>
+
+        <br><br>
+
+        <label for="password">Mot de passe :</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="confirm_password">Confirmer le mot de passe :</label><br>
+        <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+
+
+        <label>Nom : </label><br>
+        <input type="text" id="nom" name="nom" required><br><br>
+
+        <label>Prénom : </label><br>
+        <input type="text" id="prenom" name="prenom" required><br><br>
+
+        <label>Numéro de carte étudiante : </label><br>
+        <input type="number" id="num" name="num" required><br><br>
+
+        <label>Adresse : </label><br>
+        <input type="text" id="adresse" name="adresse" required><br><br>
+
+        <span id="error_message" class="error">Les mots de passe ne correspondent pas.</span>
+
+        <input type="submit" id='submit' value='S&apos;INSCRIRE' >
+
+
+
+    </form>
+
+</div>
+</body>
+</html>

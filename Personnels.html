@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Natation</title>
+  <link href="styles.css" rel="stylesheet" type="text/css"/>
+  <style>
+    .rectangle {
+      background-color: #333; /* Dark gray background */
+      border-radius: 25px; /* Rounded corners */
+      display: flex; /* Flexbox for alignment */
+      align-items: center; /* Center items vertically */
+      width: 80%; /* Width of the rectangle */
+      height: 600px; /* Height of the rectangle */
+      margin: 50px auto; /* Center horizontally and margin with buttons */
+      padding: 20px; /* Padding inside the rectangle */
+      color: white; /* Text color */
+    }
+
+    .rectangle img {
+      height: 100%; /* Image height same as the rectangle */
+      border-radius: 25px; /* Rounded corners for the image */
+      margin-right: 20px; /* Space between image and text */
+    }
+
+    .rectangle .text {
+      flex-grow: 1; /* Take remaining space */
+      overflow-y: auto; /* Scroll if text overflows */
+    }
+
+    .rectangle .text h2 {
+      margin-top: 0; /* Remove default margin */
+    }
+
+    .rectangle .text p {
+      margin-bottom: 1em; /* Space between paragraphs */
+    }
+  </style>
+</head>
+<body>
+
+<div id="header">
+  <img src="logo_sportify.png" alt="voici le logo sportify" height="120" width="1350">
+  <div class="right">
+    <a href="sign_in_up.html"> <img src="account_circle_white.png" alt="voici le logo se connecter" height="60" width="60"> </a>
+  </div>
+</div>
+
+<div id="navigation">
+  <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
+    <tr> <!--nouvelle ligne-->
+      <td> <!--nouvelle colonne-->
+        <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
+      </td>
+      <td>
+        <a href="Tout_parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir </button> </a>
+      </td>
+      <td>
+        <a href="Recherche.php"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+      </td>
+      <td>
+        <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+      </td>
+      <td>
+        <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+      </td>
+    </tr>
+  </table>
+  <br> <br>
+</div>
+
+<div class="breadcrumb">
+  <a href="Les_salles_de_sport_OMNES.html">Les sports de compétitions</a> > <a href="Nos_services.html">Nos services</a> > <a href="Personnels.html"> Personnels</a>
+</div>
+
+<!-- New rectangle section -->
+<div class="rectangle">
+  <img src="PARCOURIR/SDS.jpg" alt="Image">
+  <div class="text">
+    <h2>Le personnel de la salle OMNES</h2>
+    <p>Chez la salle de sport OMNES, notre personnel est composé de professionnels passionnés et dévoués, prêts à vous accompagner dans votre parcours de remise en forme.<p>
+    <p>Nos coachs certifiés offrent des programmes d'entraînement personnalisés pour répondre à vos besoins spécifiques et atteindre vos objectifs.</p>
+    <p>L'équipe de nutritionnistes vous aide à adopter une alimentation équilibrée et adaptée à votre style de vie.</p>
+    <p>De plus, nos conseillers en bien-être sont là pour vous fournir des conseils sur la gestion du stress et la récupération. </p>
+    <p>Ensemble, nous créons un environnement motivant et soutenant pour vous aider à vous sentir mieux chaque jour.</p>
+
+  </div>
+</div>
+
+<br><br><br><br>
+<div id="footer" style="display: flex; justify-content: space-between;">
+
+
+  <ul>
+    <h3>Nous contacter </h3>
+    <li> Téléphone : <u> (+33) 06 05 04 03 02 </u> </li>
+    <li> Email : <a href = "mailto.sportify@gmail.com"> sportify@gmail.com </a> </li>
+    <li> Sur place : <address> 43 Quai de Grenelle, 75015 Paris </address> </li>
+  </ul>
+
+  <div class="right">
+    <!--carte google maps insérée--> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5250.725751806412!2d2.2838522762051072!3d48.85129037133122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e670049543178d%3A0xcda73a49149d471f!2sOMNES%20Education!5e0!3m2!1sfr!2sfr!4v1716841516349!5m2!1sfr!2sfr" width="800" height="300" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+</div>
+
+</body>
+</html>
