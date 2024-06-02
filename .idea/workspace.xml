@@ -4,23 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="commit test">
-      <change afterPath="$PROJECT_DIR$/barre_protéiner.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/boisson_energisante.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coaching_duo.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coaching_groupe.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coaching_individuel.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coatch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/granola_healthy.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/horaire.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nutrition.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personnel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/regle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/salle-de-sport.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shake_proteine.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snack_sain.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitamines.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="modif mise en forme/ lien entre page/ nutrition">
+      <change afterPath="$PROJECT_DIR$/nouveau-client.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_47__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_47__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_47__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_51__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_51__Changes_.xml" afterDir="false" />
@@ -34,34 +19,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/Accueil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Activites_sportives.html" beforeDir="false" afterPath="$PROJECT_DIR$/Activites_sportives.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Alimentation.html" beforeDir="false" afterPath="$PROJECT_DIR$/Alimentation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coaching.html" beforeDir="false" afterPath="$PROJECT_DIR$/Coaching.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compte.php" beforeDir="false" afterPath="$PROJECT_DIR$/Compte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Horaire.html" beforeDir="false" afterPath="$PROJECT_DIR$/Horaire.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Les_salles_de_sport_OMNES.html" beforeDir="false" afterPath="$PROJECT_DIR$/Les_salles_de_sport_OMNES.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Les_sports_de_competitions.html" beforeDir="false" afterPath="$PROJECT_DIR$/Les_sports_de_competitions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nos_services.html" beforeDir="false" afterPath="$PROJECT_DIR$/Nos_services.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personnels.html" beforeDir="false" afterPath="$PROJECT_DIR$/Personnels.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RDV.php" beforeDir="false" afterPath="$PROJECT_DIR$/RDV.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recherche.php" beforeDir="false" afterPath="$PROJECT_DIR$/Recherche.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tout_parcourir.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tout_parcourir.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEdition.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEdition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatroom.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conversations.php" beforeDir="false" afterPath="$PROJECT_DIR$/conversations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deconnexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/deconnexion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deconnexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/deconnexion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEdition.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontEdition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/messages.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/paiement.php" beforeDir="false" afterPath="$PROJECT_DIR$/paiement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prendre_RDV.php" beforeDir="false" afterPath="$PROJECT_DIR$/prendre_RDV.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/regles.html" beforeDir="false" afterPath="$PROJECT_DIR$/regles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign_in_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/sign_in_up.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/sign_up.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sport.php" beforeDir="false" afterPath="$PROJECT_DIR$/sport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superPouvoir.html" beforeDir="false" afterPath="$PROJECT_DIR$/superPouvoir.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717245666525</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="modif mise en forme/ lien entre page/ nutrition">
+      <option name="closed" value="true" />
+      <created>1717358156772</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717358156773</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,6 +163,7 @@
     <MESSAGE value="annulation rdv, blindage inscription rdv et j'crois que c est tt" />
     <MESSAGE value="super-pouvoirs des admins en gros" />
     <MESSAGE value="commit test" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit test" />
+    <MESSAGE value="modif mise en forme/ lien entre page/ nutrition" />
+    <option name="LAST_COMMIT_MESSAGE" value="modif mise en forme/ lien entre page/ nutrition" />
   </component>
 </project>
