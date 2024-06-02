@@ -114,15 +114,13 @@ if ($statut == 1) {
             </td>
         </tr>
     </table>
-    <br> <br>
 </div>
 
-<br> <br>
+<br> <br> <br>
 
 <div id="votre-compte">
     <!-- zone de connexion -->
-    <br><br><br><br><br>
-    <br><br><br><br><br>
+    <br><br>
 
 
     <?php
@@ -144,7 +142,7 @@ if ($statut == 1) {
 
         if ($statut == 0) { //client
             while ($data = mysqli_fetch_assoc($result)) {
-                echo " <h1> <u> Mes informations</u> : </h1>";
+                echo " <h2> <u> Mes informations</u> : </h2>";
                 echo " <h5> ID (mail) : " . $data['Mail'] . "</h5>";
                 echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
                 echo " <h5> Nom : " . $data['Nom'] . "</h5>";
