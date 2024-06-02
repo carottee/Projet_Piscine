@@ -191,31 +191,34 @@ if ($statut == 1) {
 
             echo "<button class='bouton' id='valider' onclick='window.location.href=`frontEdition.php`'>Editer mon planning</button>";
 
-        }
-        while ($data = mysqli_fetch_assoc($result)) {
+            echo "<br>";echo "<br>";
 
-            echo " <h2>Mes informations : </h2>";
-            echo " <h5> ID (mail) : " . $data['Mail'] . "</h5>" . "</h5>";
-            echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
-            echo " <h5> Nom : " . $data['Nom'] . "<br>" . "</h5>";
-            echo " <h5> Prénom : " . $data['Prenom'] . "</h5>";
-            echo " <h5> Photo : " . $data['photo'] . "</h5>";
-            echo " <h5> ID : " . $data['ID'] . "</h5>";
-            echo " <h5> Discipline : " . $data['discipline'] . "</h5>";
-            echo " <h5> Numéro : " . $data['num'] . "</h5>";
-            echo " <h5> CV : <br> <br> <embed src='" . $data['CV'] . "' type='application/pdf' width='700' height='1010px'><br>";    //    <embed src="chemin/vers/votre/fichier.pdf" type="application/pdf" width="100%" height="600px" />
-        }
-    }
+            echo "<button class='bouton' onclick='window.location.href=`conversations.php`'>Mes chats</button>";
 
 
-        else if($statut == 2){ //admin
+            while ($data = mysqli_fetch_assoc($result)) {
+
+                echo " <h2>Mes informations : </h2>";
+                echo " <h5> ID (mail) : " . $data['Mail'] . "</h5>" . "</h5>";
+                echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
+                echo " <h5> Nom : " . $data['Nom'] . "<br>" . "</h5>";
+                echo " <h5> Prénom : " . $data['Prenom'] . "</h5>";
+                echo " <h5> Photo : " . $data['photo'] . "</h5>";
+                echo " <h5> ID : " . $data['ID'] . "</h5>";
+                echo " <h5> Discipline : " . $data['discipline'] . "</h5>";
+                echo " <h5> Numéro : " . $data['num'] . "</h5>";
+                echo " <h5> CV : <br> <br> <embed src='" . $data['CV'] . "' type='application/pdf' width='700' height='1010px'><br>";    //    <embed src="chemin/vers/votre/fichier.pdf" type="application/pdf" width="100%" height="600px" />
+            }
+        } else if ($statut == 2) { //admin
             while ($data = mysqli_fetch_assoc($result)) {
                 echo " <h2>Mes informations : </h2>";
                 echo " <h5>ID (mail) : " . $data['Mail'] . "</h5>";
                 echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
                 echo " <h5> Nom : " . $data['Nom'] . "</h5>";
             }
-        }else {
+        }
+    }
+    else {
         echo "Database not found";
     }
 

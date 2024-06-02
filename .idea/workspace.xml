@@ -5,41 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="enfin la meme chose sur main et bis ?">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_47_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_47_[Changes]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_47__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_47__Changes_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_51_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_51__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_52_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_52__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_53_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_53__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_58_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_58__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_59_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_01_59__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_02_03_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2024_02_03__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_06_2024_01_49_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_06_2024_01_49__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ACTIVITE_SPORTIVE/biking.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ACTIVITE_SPORTIVE/cardio-step.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ACTIVITE_SPORTIVE/cardio.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ACTIVITE_SPORTIVE/fitness.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ACTIVITE_SPORTIVE/musculation.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ACTIVITE_SPORTIVE/step.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SDC/basketball.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SDC/football.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SDC/natation.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SDC/plongeons.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SDC/rugby.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SDC/tennis.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account_circle_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chatroom.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/connexion.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conversations.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deconnexion.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/envoie_message.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/messages.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compte.php" beforeDir="false" afterPath="$PROJECT_DIR$/Compte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RDV.php" beforeDir="false" afterPath="$PROJECT_DIR$/RDV.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recherche.php" beforeDir="false" afterPath="$PROJECT_DIR$/Recherche.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/animations.js" beforeDir="false" afterPath="$PROJECT_DIR$/animations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/connexion.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-musculation.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deconnexion.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prendre_RDV.php" beforeDir="false" afterPath="$PROJECT_DIR$/prendre_RDV.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/regles.html" beforeDir="false" afterPath="$PROJECT_DIR$/regles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign_in_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/sign_in_up.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PARCOURIR/logo2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logo_sportify.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sport.php" beforeDir="false" afterPath="$PROJECT_DIR$/sport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superPouvoir.html" beforeDir="false" afterPath="$PROJECT_DIR$/superPouvoir.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +89,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Projet_Piscine\Projet_Piscine" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Projet_Piscine\Projet_Piscine\ACTIVITE_SPORTIVE" />
+      <recent name="C:\wamp64\www\Projet_Piscine\Projet_Piscine\SDC" />
       <recent name="C:\wamp64\www\Projet_Piscine\Projet_Piscine" />
     </key>
   </component>
