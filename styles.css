@@ -3,6 +3,16 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+h1 {
+    color: white;
+    font-size: 20px;
+}
+
+h6 {
+    color: #eeb253;
+    font-size: 24px;
+}
+
 h2 {
     color: #ffffff;
     font-size: 40px;
@@ -39,13 +49,13 @@ h5 {
 }
 
 #main_page{
-    width: 1300px;
+    width: 860px;
     height: 400px;
-    border-radius: 10px;
+    border-radius: 30px;
     margin: auto;
     background-color: #2d2a2a;
     color: #ffffff;
-    padding-left: 10px;
+    padding: 20px;
 }
 
 .recherche {
@@ -478,7 +488,7 @@ table {
     position: relative;
     overflow: hidden;
     margin-bottom: 10px;
-    background-color: #3b382e;
+    background-color: #2d2a2a;
     border-radius: 30px;
     width: 900px;
     text-align: center;
