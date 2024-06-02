@@ -153,7 +153,8 @@
 
         <input type="hidden" name="prix" value="<?php echo $prix ?>">
         <input type="hidden" name="id" value="<?php  $id = isset($_GET['product_id']) ? intval($_GET['product_id']) : 0; echo $id ?>">
-        <button type="submit"> Valider</button>
+        <br> <br>
+        <button class="bouton" type="submit"> Valider</button>
     </form>
 </div>
 
