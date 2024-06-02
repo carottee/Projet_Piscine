@@ -83,7 +83,7 @@ if ($db_found) {
 <form action="" method="get" name="fo">
 <div class="recherche" style="display: flex; justify-content: center;">
   <input type="text" class="search-bar" name="keywords" value="<?php echo $keywords ?>" placeholder="Rechercher...">
-  <button type="submit" name="valider" class="search-button">🔍</button>
+  <button type="submit" name="valider" class="loupe">🔍</button>
 </div>
 </form>
 
@@ -112,21 +112,8 @@ if ($db_found) {
 <?php } ?>
 
 
+<br> <br> <br> <br> <br> <br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-<br>
 <div id="footer" style="display: flex; justify-content: space-between;">
 
 

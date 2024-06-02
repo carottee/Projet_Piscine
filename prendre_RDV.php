@@ -146,7 +146,7 @@ if ($db_found) {
             </table>
             <br> <br>
             <center>
-                <button class="bouton" type="submit" name="mail_coach" value="<?php echo $mail_coach;?>">Valider réservation</button>
+                <button class="bouton" id="valider" type="submit" name="mail_coach" value="<?php echo $mail_coach;?>">Valider réservation</button>
             </center>
         </form>
 

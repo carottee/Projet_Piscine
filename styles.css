@@ -90,8 +90,8 @@ h5 {
 .RDV_venir {
     background-color: #eeb253;
     width: 200px;
-    height: 200px;
-    border-radius: 15%;
+    height: 230px;
+    border-radius: 30px;
     margin: 20px;
     padding: 20px;
     display: inline-block;
@@ -99,8 +99,8 @@ h5 {
 .RDV_passes {
     background-color: #cccacc;
     width: 200px;
-    height: 200px;
-    border-radius: 15%;
+    height: 230px;
+    border-radius: 30px;
     margin: 20px;
     padding: 20px;
     display: inline-block;
