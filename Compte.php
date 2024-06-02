@@ -72,10 +72,6 @@ if ($statut == 1) {
 
 
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,17 +106,17 @@ if ($statut == 1) {
                 <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
             </td>
             <td>
-                <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+                <a href="Compte.php"><button class="bouton-actuel" id="compte" type="button">  Votre compte  </button></a>
             </td>
         </tr>
     </table>
+    <br> <br>
 </div>
 
-<br> <br> <br>
+<br> <br>
 
 <div id="votre-compte">
     <!-- zone de connexion -->
-    <br><br>
 
 
     <?php
@@ -214,6 +210,7 @@ if ($statut == 1) {
                 echo " <h5> Mot de passe : " . $data['mdp'] . "</h5>";
                 echo " <h5> Nom : " . $data['Nom'] . "</h5>";
             }
+            echo " <button class = 'bouton' onclick='window.location.href =  `superPouvoir.html`' > Super-pouvoirs d'admin </button>";
         }
     }
     else {

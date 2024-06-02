@@ -64,7 +64,7 @@ $mail_env = $user['mail'];
 </div>
 
 <center>
-
+<h2> Bienvenue dans votre Chatroom ! </h2>
     <div class="menu-deroulant">
         <div id="affichage_conv">
             <?php

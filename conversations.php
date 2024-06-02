@@ -105,6 +105,7 @@ $mail_env = $user['mail'];
 
             // Afficher le nombre de conversations distinctes
 
+
             // Afficher les adresses e-mail des interlocuteurs
             echo "Interlocuteurs :<br>";
             foreach ($interlocutors as $interlocutor) {
@@ -117,7 +118,7 @@ $mail_env = $user['mail'];
                 echo "<br>";
             }
         }else {
-            echo " vous n'avez pas de conversation pour le moment";
+            echo " Vous n'avez pas de conversation pour le moment.";
         }
     }
 

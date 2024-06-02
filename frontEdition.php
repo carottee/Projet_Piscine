@@ -4,7 +4,7 @@ session_start();
 // Check if the user is logged in
 if (!isset($_SESSION['user'])) {
     // Redirect to login page if the user is not logged in
-    echo "<script>alert(`vous n'êtes pas connecté`); window.location.href = 'sign_in_up.php' </script>";
+    echo "<script> alert(`Vous n'êtes pas connecté`); window.location.href = 'sign_in_up.php' </script>";
     exit();
 }
 
@@ -86,7 +86,7 @@ if ($db_found) {
             </td>
             <td>
                 <a href="Compte.php">
-                    <button class="bouton" id="compte" type="button"> Votre compte</button>
+                    <button class="bouton-actuel" id="compte" type="button"> Votre compte</button>
                 </a>
             </td>
         </tr>
@@ -104,7 +104,7 @@ if ($db_found) {
     <!-- Availability Table -->
     <div class="availability-table">
         <h2>Mon planning</h2>
-        <p>selectionner les créneau sur lesquels vous n'étes pas libre</p>
+        <p>Selectionnez les créneaux sur lesquels vous n'êtes pas disponible :</p>
         <form action="backEdition.php" method="post">
             <table class="availability">
                 <thead>

@@ -42,7 +42,7 @@ exit();
                 <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
             </td>
             <td>
-                <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+                <a href="Compte.php"><button class="bouton-actuel" id="compte" type="button">  Votre compte  </button></a>
             </td>
         </tr>
     </table>

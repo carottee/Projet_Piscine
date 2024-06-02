@@ -107,7 +107,7 @@ h5 {
 }
 
 #votre-compte {
-    margin: auto;
+    margin: 50px auto;
     width: 1150px;
     height: auto;
     border-radius: 30px;
@@ -182,6 +182,8 @@ button {
     text-align: center;
     width: 140px;
     color: #ffffff;
+    font: bold 14px Verdana;
+
 }
 
 input[type=text], input[type=password] {

@@ -37,7 +37,7 @@ if ($db_found) {
             // Vérifier si la requête a renvoyé des résultats. si c est le cas, le créneau est pris
             if (mysqli_num_rows($result) > 0) {
 
-                echo " <script> alert('vous avez un rendez vous sur le créneau $var_name'); window.location.href='frontEdition.php'</script>  ";
+                echo " <script> alert('Vous avez un rendez-vous sur le créneau $var_name'); window.location.href='frontEdition.php'</script>  ";
                 exit();
             }
 
@@ -53,11 +53,11 @@ if ($db_found) {
 
 
     if ($flag == 0){
-        echo " <script>alert('modification enregistrées'); window.location.href='Compte.php'</script> ";
+        echo " <script>alert('Modifications enregistrées !'); window.location.href='Compte.php'</script> ";
         exit();
     }
     else{
-        echo " <script>alert('something went wrong, try again'); window.location.href='frontEdition.php'</script> ";
+        echo " <script>alert('Erreur, réessayer'); window.location.href='frontEdition.php'</script> ";
         exit();
     }
 

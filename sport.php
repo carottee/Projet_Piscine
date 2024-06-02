@@ -85,7 +85,7 @@ if  ($db_found){
                 <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
             </td>
             <td>
-                <a href="Tout_parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir </button> </a>
+                <a href="Tout_parcourir.html"><button class="bouton-actuel" id="parcourir" type="button">  Tout parcourir </button> </a>
             </td>
             <td>
                 <a href="Recherche.php"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
@@ -98,10 +98,10 @@ if  ($db_found){
             </td>
         </tr>
     </table>
-    <br> <br>
+    <br><br>
 </div>
 
-<br><br>
+<br>
 
 
 <div class="breadcrumb">
@@ -176,7 +176,7 @@ if  ($db_found){
 
                 </td>
                 <td>
-                    <form action="chatroom.php" method="post" > <button name="mail_coach" value="<?php echo "$mail_coach";?>" class="bouton"> Chatroom </button> </form>
+                    <form action="messages.php" method="post" > <button name="mail_coach" value="<?php echo "$mail_coach";?>" class="bouton"> Chatroom </button> </form>
                 </td>
                 <td>
                     <a href="SDC/coatch-basket.jpg" target="_blank"> <button class="bouton">CV</button> </a>

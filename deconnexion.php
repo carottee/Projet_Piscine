@@ -23,7 +23,7 @@ if ($db_found) {
         $sql = "delete from session where mail = '$mail'";
         $result = mysqli_query($db_handle, $sql);
 
-    }else {echo " <script> alert('vous n`êtes pas connecté') </script> ";}
+    }else {echo " <script> alert('vous n êtes pas connecté') </script> ";}
 
 
     echo " <script> window.location.href = 'sign_in_up.php' </script> ";

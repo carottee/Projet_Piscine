@@ -72,7 +72,7 @@
             </td>
             <td>
                 <a href="Tout_parcourir.html">
-                    <button class="bouton" id="parcourir" type="button"> Tout parcourir</button>
+                    <button class="bouton-actuel" id="parcourir" type="button"> Tout parcourir</button>
                 </a>
             </td>
             <td>
@@ -95,9 +95,10 @@
     <br> <br>
 </div>
 
+<br>
+
 <div class="breadcrumb">
-    <a href="Les_salles_de_sport_OMNES.html">Les sports de compétitions</a> > <a href="Nos_services.html">Nos
-        services</a> > Paiement
+    <a href="Les_salles_de_sport_OMNES.html">Les salles de sport OMNES</a> > <a href="Nos_services.html">Nos services</a> > Paiement
 </div>
 
 <!-- Payment rectangle section -->

@@ -50,7 +50,7 @@ $statut = $user['statut'];
                 <a href="Recherche.php"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
             </td>
             <td>
-                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+                <a href="RDV.php"><button class="bouton-actuel" id="rdv" type="button">  RDV </button></a>
             </td>
             <td>
                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
