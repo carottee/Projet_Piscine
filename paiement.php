@@ -122,7 +122,7 @@
             $prix = $data['price'];
             $nom = $data['name'];
 
-            echo "<p><img src='$image' alt='$nom'><br>$nom - $prix</p>";
+            echo "<h4><br>$nom - $prix</h4>";
         } else {
             echo "<p>Produit non trouvé</p>";
         }
@@ -130,7 +130,7 @@
         echo "<p>Base de données non trouvée</p>";
     }
     ?>
-
+<br><br>
 
     <form action="confirmation.php" method="post">
         <label for="name">Nom Complet :</label>
