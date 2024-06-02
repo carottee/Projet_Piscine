@@ -56,9 +56,9 @@ if ($db_found) {
 </div>
 
 <div id="navigation">
-  <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
-    <tr> <!--nouvelle ligne-->
-      <td> <!--nouvelle colonne-->
+  <table class="t-nav">
+    <tr>
+      <td>
         <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
       </td>
       <td>
@@ -125,7 +125,7 @@ if ($db_found) {
   </ul>
 
   <div class="right">
-    <!--carte google maps insérée--> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5250.725751806412!2d2.2838522762051072!3d48.85129037133122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e670049543178d%3A0xcda73a49149d471f!2sOMNES%20Education!5e0!3m2!1sfr!2sfr!4v1716841516349!5m2!1sfr!2sfr" width="800" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5250.725751806412!2d2.2838522762051072!3d48.85129037133122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e670049543178d%3A0xcda73a49149d471f!2sOMNES%20Education!5e0!3m2!1sfr!2sfr!4v1716841516349!5m2!1sfr!2sfr" width="800" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 
 </div>

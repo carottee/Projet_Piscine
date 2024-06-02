@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="nom de la page sport">
-      <change beforePath="$PROJECT_DIR$/Coaching.html" beforeDir="false" afterPath="$PROJECT_DIR$/Coaching.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Horaire.html" beforeDir="false" afterPath="$PROJECT_DIR$/Horaire.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nos_services.html" beforeDir="false" afterPath="$PROJECT_DIR$/Nos_services.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personnels.html" beforeDir="false" afterPath="$PROJECT_DIR$/Personnels.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RDV.php" beforeDir="false" afterPath="$PROJECT_DIR$/RDV.php" afterDir="false" />
+    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="modif en tete de page">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recherche.php" beforeDir="false" afterPath="$PROJECT_DIR$/Recherche.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tout_parcourir.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tout_parcourir.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conversations.php" beforeDir="false" afterPath="$PROJECT_DIR$/conversations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deconnexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/deconnexion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prendre_RDV.php" beforeDir="false" afterPath="$PROJECT_DIR$/prendre_RDV.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/regles.html" beforeDir="false" afterPath="$PROJECT_DIR$/regles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/sign_up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superPouvoir.html" beforeDir="false" afterPath="$PROJECT_DIR$/superPouvoir.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717362678500</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="modif en tete de page">
+      <option name="closed" value="true" />
+      <created>1717363269758</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1717363269758</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +205,7 @@
     <MESSAGE value="blindage si coach supprimer" />
     <MESSAGE value="cv des coachs" />
     <MESSAGE value="nom de la page sport" />
-    <option name="LAST_COMMIT_MESSAGE" value="nom de la page sport" />
+    <MESSAGE value="modif en tete de page" />
+    <option name="LAST_COMMIT_MESSAGE" value="modif en tete de page" />
   </component>
 </project>
