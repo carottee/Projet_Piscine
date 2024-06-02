@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Natation</title>
-    <link href="../styles.css" rel="stylesheet" type="text/css"/>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
     <style>
         .rectangle {
             background-color: #333; /* Dark gray background */
@@ -41,71 +41,88 @@
 <body>
 
 <div id="header">
-    <img src="../Projet_Piscine/logo_sportify.png" alt="voici le logo sportify" height="120" width="1350">
+    <img src="logo_sportify.png" alt="voici le logo sportify" height="120" width="1350">
     <div class="right">
-        <a href="../Projet_Piscine/sign_in_up.html"> <img src="../Projet_Piscine/account_circle_white.png" alt="voici le logo se connecter" height="60" width="60"> </a>
+        <a href="sign_in_up.html"> <img src="account_circle_white.png" alt="voici le logo se connecter" height="60" width="60"> </a>
     </div>
 </div>
 
 <div id="navigation">
-    <table class="t-nav">
-        <tr>
-            <td>
-                <button class="bouton" id="accueil" type="button"> <a href="../Projet_Piscine/Accueil.html"> Accueil </a> </button>
+    <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
+        <tr> <!--nouvelle ligne-->
+            <td> <!--nouvelle colonne-->
+                <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
             </td>
             <td>
-                <button class="bouton-actuel" id="parcourir" type="button"> <a href="../Projet_Piscine/TT_PARCOURIR/Tout_parcourir.html"> Tout parcourir </a> </button>
+                <a href="Tout_parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir </button> </a>
             </td>
             <td>
-                <button class="bouton" id="recherche" type="button"> <a href="../Projet_Piscine/Recherche.html"> Recherche </a> </button>
+                <a href="Recherche.php"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
             </td>
             <td>
-                <button class="bouton" id="rdv" type="button"> <a href="../Projet_Piscine/RDV.html"> RDV </a> </button>
+                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
             </td>
             <td>
-                <button class="bouton" id="compte" type="button"> <a href="../Projet_Piscine/Compte.html"> Votre compte </a> </button>
+                <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
             </td>
         </tr>
     </table>
-    <br><br>
+    <br> <br>
 </div>
 
 <div class="breadcrumb">
-    <a href="../Projet_Piscine/TT_PARCOURIR/Les_salles_de_sport_OMNES.html">Les sports de compétitions</a> > <a href="Nos_services.html">Nos services</a>
+    <a href="Les_salles_de_sport_OMNES.html">Les sports de compétitions</a> > <a href="Nos_services.html">Nos services</a>
 </div>
 
-<!-- New rectangle section -->
 <div class="rectangle">
     <div class="circle-container">
         <a href="Personnels.html">
-            <img src="../Projet_Piscine/SDC/coatch-basket.jpg" alt="Image 1">
+            <img src="coatch-basket.jpg" alt="Image 1">
             <p>Personnels</p>
         </a>
     </div>
     <div class="circle-container">
         <a href="Horaire.html">
-            <img src="../Projet_Piscine/SDC/coatch-basket.jpg" alt="Image 2">
+            <img src="coatch-basket.jpg" alt="Image 2">
             <p>Horaire</p>
         </a>
     </div>
     <div class="circle-container">
-        <a href="Regles.html">
-            <img src="../Projet_Piscine/SDC/coatch-basket.jpg" alt="Image 3">
+        <a href="regles.html">
+            <img src="coatch-basket.jpg" alt="Image 3">
             <p>Règles</p>
         </a>
     </div>
     <div class="circle-container">
-        <a href ="Nouv-client.html">
-            <img src="../Projet_Piscine/SDC/coatch-basket.jpg" alt="Image 4">
-            <p>Nouveaux clients</p>
+        <a href ="Coaching.html">
+            <img src="coatch-basket.jpg" alt="Image 4">
+            <p>Coaching</p>
         </a>
     </div>
     <div class="circle-container">
         <a href="Alimentation.html">
-            <img src="../Projet_Piscine/SDC/coatch-basket.jpg" alt="Image 5">
-            <p>Alimentation et nutrition</p>
+            <img src="coatch-basket.jpg" alt="Image 5">
+            <p>Nutrition</p>
         </a>
     </div>
+</div>
+
+
+<br><br><br><br>
+<div id="footer" style="display: flex; justify-content: space-between;">
+
+
+    <ul>
+        <h3>Nous contacter </h3>
+        <li> Téléphone : <u> (+33) 06 05 04 03 02 </u> </li>
+        <li> Email : <a href = "mailto.sportify@gmail.com"> sportify@gmail.com </a> </li>
+        <li> Sur place : <address> 43 Quai de Grenelle, 75015 Paris </address> </li>
+    </ul>
+
+    <div class="right">
+        <!--carte google maps insérée--> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5250.725751806412!2d2.2838522762051072!3d48.85129037133122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e670049543178d%3A0xcda73a49149d471f!2sOMNES%20Education!5e0!3m2!1sfr!2sfr!4v1716841516349!5m2!1sfr!2sfr" width="800" height="300" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
 </div>
 
 </body>

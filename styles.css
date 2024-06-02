@@ -59,18 +59,18 @@ h5 {
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 30px 0 0 30px;
-    outline: none;
 }
 
-.search-button {
-    height: 63px;
-    padding: 0 40px;
-    border: 2px solid #ccc;
-    border-left: none;
+.loupe {
     border-radius: 0 30px 30px 0;
-    background-color: #eeb253;
-    color: white;
-    cursor: pointer;
+    background: #eeb253;
+    border: 4px solid #eeb253;
+    font: bold 14px Verdana;
+    padding: 20px 5px;
+    text-align: center;
+    width: 140px;
+    height: 61px;
+    color: #ffffff;
 }
 
 .search-button:hover {
@@ -79,32 +79,32 @@ h5 {
 
 .RDV_venir {
     background-color: #eeb253;
-    width: 300px;
-    height: 350px;
-    border-radius: 30px;
+    width: 200px;
+    height: 200px;
+    border-radius: 15%;
     margin: 20px;
-    padding: 10px;
+    padding: 20px;
     display: inline-block;
 }
-
 .RDV_passes {
     background-color: #cccacc;
-    margin: auto;
-    width: 1000px;
-    height: 50px;
-    border-radius: 30px;
-    padding: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 15%;
+    margin: 20px;
+    padding: 20px;
+    display: inline-block;
 }
 
 #votre-compte {
     margin: auto;
-    width: 700px;
+    width: 1150px;
     height: auto;
     border-radius: 30px;
     background-color: #2d2a2a;
     color: #ffffff;
     text-align: center;
-    padding-left: 20px;
+    padding: 20px;
 }
 
 #footer {
@@ -133,6 +133,14 @@ h5 {
     margin: auto;
 }
 
+.t-RDV {
+    table-layout: fixed;
+    width: 500px;
+    height: 50px;
+    border-collapse: collapse;
+    margin: auto;
+}
+
 button {
     cursor: pointer;
     text-transform: capitalize;
@@ -141,23 +149,12 @@ button {
 .bouton {
     border-radius: 30px;
     background: #eeb253;
-    border: none;
+    border: 4px solid #eeb253;
     font: bold 14px Verdana;
     padding: 20px 5px;
     text-align: center;
     width: 140px;
-    color: #cccacc;
-}
-
-.bouton-actuel{
-    border-radius: 30px;
-    background: #f89905;
-    border: 4px solid orange; /* Modification de la taille de la bordure */
-    font: bold 14px Verdana;
-    padding: 20px 5px;
-    text-align: center;
-    width: 140px;
-    color:#cccacc;
+    color: #ffffff;
 }
 
 .bouton:hover {
@@ -167,12 +164,11 @@ button {
 }
 
 input[type=text], input[type=password] {
-    width: 400px;
+    width: 300px;
     padding: 10px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 30px;
 }
 
 input[type=submit] {
@@ -182,7 +178,7 @@ input[type=submit] {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 170px;
+    width: auto;
     border-radius: 30px;
 }
 
@@ -356,21 +352,21 @@ a {
 
 .availability-table {
     margin-top: 20px;
-    width: 100%; /* Le tableau occupera toute la largeur du conteneur */
+    width: 100%;
 
 
 }
 
 .availability-container {
-    background-color: #333; /* Gris foncé */
+    background-color: #333;
     padding: 20px;
-    border-radius: 30px; /* Pour arrondir les coins */
-    color: white; /* Couleur du texte */
-    margin-top: 20px; /* Espace au-dessus */
-    width: 1000px; /* Largeur maximale */
-    height: 400px;
-    margin-left: auto; /* Centrage horizontal */
-    margin-right: auto; /* Centrage horizontal */
+    border-radius: 30px;
+    color: white;
+    margin-top: 20px;
+    width: 1400px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     justify-content: center; /* Centrer horizontalement */
     align-items: center; /* Centrer verticalement */
@@ -383,6 +379,7 @@ table {
 }
 
 .availability th, .availability td {
+    width: 65px;
     padding: 10px;
     border: 1px solid #ccc;
     text-align: center;
@@ -409,6 +406,10 @@ table {
     background-color: orange; /* Case orange */
 }
 
+.rouge {
+    background-color: #c70a0a;
+}
+
 
 .buttons {
     text-align: center; /* Centrage horizontal des boutons */
@@ -418,7 +419,7 @@ table {
 
 .breadcrumb {
     color: white;
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 20px;
     margin-left: 20px;
 }
@@ -429,29 +430,36 @@ table {
 
 .breadcrumb a:hover {
     color: orange;
-
-
-}
-
-.bouton-actuel{
-    border-radius: 30px;
-    background: #f89905;
-    border: 4px solid orange; /* Modification de la taille de la bordure */
-    font: bold 14px Verdana;
-    padding: 20px 5px;
-    text-align: center;
-    width: 140px;
-    color: #cccacc;
 }
 
 #valider {
     margin-top: 20px; /* Espacement entre le tableau et le bouton */
     text-align: center; /* Centrer horizontalement */
+    width: auto;
+    padding: 20px;
+}
 
+#annuler {
+    margin-top: 20px; /* Espacement entre le tableau et le bouton */
+    text-align: center; /* Centrer horizontalement */
+    width: auto;
+    padding: 20px;
+    color: #ffffff;
+    border: 4px #fda316;
+}
+
+#admin {
+    margin: 20px;
+    text-align: center; /* Centrer horizontalement */
+    width: 180px;
+    padding: 20px;
+    background-color: #bd4444;
+    border: 0;
 }
 
 #carrousel {
     display: flex;
+    flex-direction: column;
     justify-content: center; 
     align-items: center;
     background-position: center;
@@ -460,7 +468,7 @@ table {
     margin-bottom: 10px; 
     background-color: #3b382e;
     border-radius: 30px;
-    width: 1000px;
+    width: 900px;
     text-align: center;
     margin-left: auto; /* Centrage horizontal */
     margin-right: auto;
@@ -563,109 +571,9 @@ table {
 
 :focus:not(:active) {
   box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
-}}
-
+}
+}
 
 .controls{
 margin: 20px;
-}
-
-#fond_gris{
-
-
-background-color: #545454;
-width: 1000px;
-height:500px;
-border-radius: 10px;
-display: flex;
-justify-content: center; 
-align-items: center;
-background-position: center;
-position: relative;
-overflow: hidden; 
-margin-top: 20px;
-text-align: center;
-margin-top: 20px;
-margin-left: auto;
-margin-right: auto;
-}
-
-#per{
-    border-radius: 10px;
-    margin-left: -450px;
-    position: absolute;
-}
-
-#tper{
-    font: bold 23px Verdana;
-    margin-right: -500px;
-    margin-bottom: 450px;
-    color : #fff;
-    position: absolute;
-}
-
-#pere{
-    text-align: justify;
-    margin-left: 550px;
-    font: 16px Verdana;
-    color : #d9d9d9;
-    margin-right: 15px;
-    margin-top: 50px;}
-
-#thor{
-    font: bold 23px Verdana;
-    text-align: center;
-    margin-right: -5px;
-    margin-bottom: 450px;
-    color : #ffbd59;
-    position: absolute;
-
-}
-
-#fond_gris2{
-
-
-background-color: #545454;
-width: 1000px;
-height:500px;
-border-radius: 30px;
-display: flex;
-justify-content: center; 
-align-items: center;
-background-position: center;
-position: relative;
-overflow: hidden; 
-margin-top: 20px;
-text-align: center;
-margin-top: 20px;
-margin-left: auto;
-margin-right: auto;
-border: 9px solid #ffbd59;
- 
-}
-
-.tho{
-    font: 20px Verdana;
-    color : #fff;
-    margin-top:60px;
-}
-
-.col{
-color:#ffbd59;
-}
-
-#tnv{
-    font: 20px Verdana;
-    color : #fff;
-    margin-top:60px;
-    margin-left: 15px;
-    margin-right: 15px;
-    text-align: center;
-}
-
-.thr{
-    font: 12px Verdana;
-    color : #fff;
-    margin-top:60px;
-    margin-left: 500px;
 }

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Activités sportives</title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="header">
+    <img src="logo_sportify.png" alt="voici le logo sportify" height="120" width="1350">
+    <div class="right">
+        <a href="sign_in_up.php"> <img src="account_circle_white.png" alt="voici le logo se connecter" height="60" width="60"> </a>
+    </div>
+</div>
+<div id="navigation">
+    <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
+        <tr> <!--nouvelle ligne-->
+            <td> <!--nouvelle colonne-->
+                <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
+            </td>
+            <td>
+                <a href="Tout_parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir </button> </a>
+            </td>
+            <td>
+                <a href="Recherche.php"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+            </td>
+            <td>
+                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+            </td>
+            <td>
+                <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
+            </td>
+        </tr>
+    </table>
+    <br> <br>
+</div>
+
+<br><br>
+<div id="jj">
+    <div class="main-buttons">
+        <button class="main-button active" >
+            <a href="Activites_sportives.html">
+                <img src="PARCOURIR/sport.jpg" alt="Activités sportives">
+                <p>Activités sportives</p>
+            </a>
+        </button>
+        <button class="main-button">
+            <a href="Les_sports_de_competitions.html">
+                <img src="PARCOURIR/SC.jpg" alt="Les sports de compétitions">
+                <p>Les sports de compétitions</p>
+            </a>
+        </button>
+        <button class="main-button">
+            <a href="Les_salles_de_sport_OMNES.html">
+                <img src="PARCOURIR/SDS.jpg" alt="Les salles de sport OMNES">
+                <p>Les salles de sport OMNES</p>
+            </a>
+        </button>
+    </div>
+    <div class="sub-buttons">
+        <form action="sport.php" method="post">
+            <button class="sub-button" type="submit" name="sport" value="musculation">
+                <img src="ACTIVITE_SPORTIVE/musculation.jpg" alt="Musculation">
+                <p>Musculation</p>
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="fitness">
+                <img src="ACTIVITE_SPORTIVE/fitness.jpg" alt="Fitness">
+                <p>Fitness</p>
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="biking">
+                <img src="ACTIVITE_SPORTIVE/biking.jpeg" alt="Biking">
+                <p>Biking</p>
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="cardio">
+            <img src="ACTIVITE_SPORTIVE/cardio.jpeg" alt="cardio">
+                <p>Cardio</p>
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="step">
+                <img src="ACTIVITE_SPORTIVE/step.jpg" alt="step">
+                <p>Step</p>
+            </button>
+            <button class="sub-button" type="submit" name="sport" value="courscollectifs">
+                <img src="ACTIVITE_SPORTIVE/cours_collectifs.jpg" alt="cours_collectifs">
+                <p>Cours-collectifs</p>
+            </button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

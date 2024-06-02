@@ -18,9 +18,12 @@ if ($db_found) {
 
 
     $sql = "select * from client where Mail = '$mail'";
-    $result = mysqli_query($db_handle, $sql);
+    $result_client = mysqli_query($db_handle, $sql);
+    $sql = "select * from coach where Mail = '$mail'";
+    $result_coach = mysqli_query($db_handle, $sql);
 
-    if (mysqli_num_rows($result) == 0) {
+
+    if (mysqli_num_rows($result_client) == 0 && mysqli_num_rows($result_coach) == 0) {
         $sql = "INSERT INTO `client` (`Mail`, `mdp`, `Nom`, `Prenom`, `ID`, `Adresse`, `carte`) VALUES ('$mail', '$mdp', '$nom', '$prenom', '1', '$adresse', '$num') ";
         $result = mysqli_query($db_handle, $sql);
 

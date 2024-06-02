@@ -1,0 +1,17 @@
+Index: annulation.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nsession_start();\r\n\r\n// Check if the user is logged in\r\nif (!isset($_SESSION['user'])) {\r\n    // Redirect to login page if the user is not logged in\r\n    echo \"<script>alert(`vous n'êtes pas connecté`); window.location.href = 'sign_in_up.php' </script>\";\r\n    exit();\r\n}\r\n\r\n$database = \"projet_piscine\";\r\n$db_handle = mysqli_connect('localhost', 'root', '');\r\n$db_found = mysqli_select_db($db_handle, $database);\r\nif ($db_found){\r\n\r\n    $user = $_SESSION['user'];\r\n    $mail = $user['mail'];\r\n    $statut = $user['statut'];\r\n\r\n\r\n    $id = $_POST['ID_rdv'];\r\n\r\n\r\n    $sql = \" select * from rdv where ID = '$id'\";\r\n    $result = mysqli_query($db_handle, $sql);\r\n\r\n\r\n    if ($result){\r\n        if(mysqli_num_rows($result)>0){\r\n            $data = mysqli_fetch_assoc($result);\r\n            $mail_coach = $data['mail_coach'];\r\n            $mail_client = $data['mail_client'];\r\n            $creneau = $data['creneau'];\r\n\r\n\r\n            $sql = \" delete from rdv where ID =  '$id'\";\r\n            $result = mysqli_query($db_handle, $sql);\r\n\r\n\r\n            $sql = \"select ID from coach where Mail = '$mail_coach'\";\r\n            $result = mysqli_query($db_handle, $sql);\r\n            $data = mysqli_fetch_assoc($result);\r\n            $id_coach = $data['ID'];\r\n\r\n\r\n\r\n\r\n\r\n            $sql = \"update edt set $creneau = '0' where id_coach = '$id_coach'  and $creneau = '1'\";\r\n            $result = mysqli_query($db_handle, $sql);\r\n        }\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n}\r\n\r\n\r\n?>\r\n
+===================================================================
+diff --git a/annulation.php b/annulation.php
+--- a/annulation.php	
++++ b/annulation.php	
+@@ -49,6 +49,8 @@
+ 
+             $sql = "update edt set $creneau = '0' where id_coach = '$id_coach'  and $creneau = '1'";
+             $result = mysqli_query($db_handle, $sql);
++
++            echo " <script> window.location.href='RDV.php' </script> ";
+         }
+     }
+ 
