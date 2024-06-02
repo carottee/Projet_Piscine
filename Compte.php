@@ -5,7 +5,7 @@ session_start();
 if (!isset($_SESSION['user'])) {
     // Redirect to login page if the user is not logged in
     echo "<script>alert(`vous n'êtes pas connecté`); window.location.href = 'sign_in_up.php' </script>";
-exit();
+    exit();
 }
 
 
@@ -107,27 +107,30 @@ if ($statut == 1) {
                 <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
             </td>
             <td>
-                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
             </td>
             <td>
                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
             </td>
         </tr>
     </table>
-    <br>
+    <br> <br>
 </div>
 
 <br> <br>
 
 <div id="votre-compte">
     <!-- zone de connexion -->
-    <br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+
 
     <?php
 
 
     if ($db_found) {
 
+        $user = $_SESSION['user'];
 
         if ($statut == 0) { //client
             $sql = "select * from client where Mail = '$mail'";
