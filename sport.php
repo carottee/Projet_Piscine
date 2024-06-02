@@ -15,29 +15,35 @@ if  ($db_found){
     $result = mysqli_query($db_handle, $sql);
 
 
+if($result){
+    if (mysqli_num_rows($result) > 0){
+
+        $data = mysqli_fetch_assoc($result);
+        $mail_coach = $data['Mail'];
+        $nom = $data['Nom'];
+        $prenom = $data['Prenom'];
+        $photo = $data['photo'];
+        $cv = $data['CV'];
+        $num = $data['num'];
+        $id = $data['ID'];
 
 
-    $data = mysqli_fetch_assoc($result);
-    $mail_coach = $data['Mail'];
-    $nom = $data['Nom'];
-    $prenom = $data['Prenom'];
-    $photo = $data['photo'];
-    $cv = $data['CV'];
-    $num = $data['num'];
-    $id = $data['ID'];
 
+        $sql ="select * from edt where id_coach = '$id'";
+        $result = mysqli_query($db_handle, $sql);
 
+        $data = mysqli_fetch_assoc($result);
+        $l = $data['l']; $ld = $data['ld'];
+        $ma = $data['ma']; $mad = $data['mad'];
+        $me = $data['me']; $med = $data['med'];
+        $j = $data['j']; $jd = $data['jd'];
+        $v = $data['v']; $vd = $data['vd'];
+        $s = $data['s']; $sd = $data['sd'];
 
-    $sql ="select * from edt where id_coach = '$id'";
-    $result = mysqli_query($db_handle, $sql);
+    }
 
-    $data = mysqli_fetch_assoc($result);
-    $l = $data['l']; $ld = $data['ld'];
-    $ma = $data['ma']; $mad = $data['mad'];
-    $me = $data['me']; $med = $data['med'];
-    $j = $data['j']; $jd = $data['jd'];
-    $v = $data['v']; $vd = $data['vd'];
-    $s = $data['s']; $sd = $data['sd'];
+}
+
 
 
 
@@ -107,29 +113,29 @@ if  ($db_found){
 <div class="breadcrumb">
     <a href="<?php
 
-    if ($sport == 'musculation' || $sport == 'step' || $sport == 'cardio' || $sport == 'courscollectifs' || $sport == 'biking' || $sport == 'fitness'){
+    if (@$sport == 'musculation' || @$sport == 'step' || @$sport == 'cardio' || $sport == 'courscollectifs' || @$sport == 'biking' || @$sport == 'fitness'){
         echo "activites_sportives.html";
     }else{echo "Les_sports_de_competitions.html";}
     ?>
 "><?php
 
-        if ($sport == 'musculation' || $sport == 'step' || $sport == 'cardio' || $sport == 'courscollectifs' || $sport == 'biking' || $sport == 'fitness'){
+        if (@$sport == 'musculation' || @$sport == 'step' || @$sport == 'cardio' || @$sport == 'courscollectifs' || @$sport == 'biking' || @$sport == 'fitness'){
             echo "activites sportives";
         }else{echo "Les sports de competition";}
-        ?></a> >  <?php echo "$sport" ?>
+        ?></a> >  <?php echo "@$sport" ?>
 </div>
 
 
 <div class="coach-info-container">
     <div class="coach-info">
         <div class="coach-photo">
-            <img src="<?php echo "$photo" ?>" alt="Photo du coach">
+            <img src="<?php echo "@$photo" ?>" alt="Photo du coach">
         </div>
         <div class="coach-details">
-            <p><span class="label"><?php echo "$prenom  $nom" ?></span></p>
-            <p>Coach - <?php echo "$sport" ?></p>
-            <p>Tél : <?php echo "$num" ?></p>
-            <p>Email : <?php echo "$mail_coach" ?></p>
+            <p><span class="label"><?php echo "@$prenom  @$nom" ?></span></p>
+            <p>Coach - <?php echo "@$sport" ?></p>
+            <p>Tél : <?php echo "@$num" ?></p>
+            <p>Email : <?php echo "@$mail_coach" ?></p>
         </div>
     </div>
 
@@ -172,11 +178,11 @@ if  ($db_found){
         <table class="t-RDV">
             <tr>
                 <td>
-                    <form action="prendre_RDV.php" method="post"> <button class="bouton" type="submit" name="mail_coach" value="<?php echo "$mail_coach";?>">Prendre RDV</button></form>
+                    <form action="prendre_RDV.php" method="post"> <button class="bouton" type="submit" name="mail_coach" value="<?php echo "@$mail_coach";?>">Prendre RDV</button></form>
 
                 </td>
                 <td>
-                    <form action="messages.php" method="post" > <button name="mail_coach" value="<?php echo "$mail_coach";?>" class="bouton"> Chatroom </button> </form>
+                    <form action="messages.php" method="post" > <button name="mail_coach" value="<?php echo "@$mail_coach";?>" class="bouton"> Chatroom </button> </form>
                 </td>
                 <td>
                     <a href="SDC/coatch-basket.jpg" target="_blank"> <button class="bouton">CV</button> </a>
