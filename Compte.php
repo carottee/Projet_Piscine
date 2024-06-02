@@ -104,10 +104,10 @@ if ($statut == 1) {
                 <a href="Tout_parcourir.html"><button class="bouton" id="parcourir" type="button">  Tout parcourir </button> </a>
             </td>
             <td>
-                <a href="Recherche.html"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
+                <a href="Recherche.php"><button class="bouton" id="recherche" type="button">  Recherche  </button></a>
             </td>
             <td>
-                <a href="RDV.html"><button class="bouton" id="rdv" type="button">  RDV </button></a>
+                <a href="RDV.php"><button class="bouton" id="rdv" type="button">  RDV </button></a>
             </td>
             <td>
                 <a href="Compte.php"><button class="bouton" id="compte" type="button">  Votre compte  </button></a>
