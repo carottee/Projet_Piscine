@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="modif sur paiment/coaching">
+    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="blindage si coach supprimer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sport.php" beforeDir="false" afterPath="$PROJECT_DIR$/sport.php" afterDir="false" />
     </list>
@@ -133,7 +133,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717359854501</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="blindage si coach supprimer">
+      <option name="closed" value="true" />
+      <created>1717361151626</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1717361151626</updated>
+    </task>
+    <task id="LOCAL-00008" summary="blindage si coach supprimer">
+      <option name="closed" value="true" />
+      <created>1717361255095</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717361255095</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +174,7 @@
     <MESSAGE value="commit test" />
     <MESSAGE value="modif mise en forme/ lien entre page/ nutrition" />
     <MESSAGE value="modif sur paiment/coaching" />
-    <option name="LAST_COMMIT_MESSAGE" value="modif sur paiment/coaching" />
+    <MESSAGE value="blindage si coach supprimer" />
+    <option name="LAST_COMMIT_MESSAGE" value="blindage si coach supprimer" />
   </component>
 </project>

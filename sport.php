@@ -26,6 +26,7 @@ if($result){
         $cv = $data['CV'];
         $num = $data['num'];
         $id = $data['ID'];
+        $discipline = $data['discipline'];
 
 
 
@@ -85,9 +86,9 @@ if($result){
 
 
 <div id="navigation">
-    <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
-        <tr> <!--nouvelle ligne-->
-            <td> <!--nouvelle colonne-->
+    <table class="t-nav">
+        <tr>
+            <td>
                 <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
             </td>
             <td>
@@ -113,36 +114,36 @@ if($result){
 <div class="breadcrumb">
     <a href="<?php
 
-    if (@$sport == 'musculation' || @$sport == 'step' || @$sport == 'cardio' || $sport == 'courscollectifs' || @$sport == 'biking' || @$sport == 'fitness'){
+    if ($sport == 'musculation' || $sport == 'step' || $sport == 'cardio' || $sport == 'courscollectifs' || $sport == 'biking' || $sport == 'fitness'){
         echo "activites_sportives.html";
     }else{echo "Les_sports_de_competitions.html";}
     ?>
 "><?php
 
-        if (@$sport == 'musculation' || @$sport == 'step' || @$sport == 'cardio' || @$sport == 'courscollectifs' || @$sport == 'biking' || @$sport == 'fitness'){
+        if ($sport == 'musculation' || $sport == 'step' || $sport == 'cardio' || $sport == 'courscollectifs' || $sport == 'biking' || $sport == 'fitness'){
             echo "activites sportives";
         }else{echo "Les sports de competition";}
-        ?></a> >  <?php echo "@$sport" ?>
+        ?></a> >  <?php echo "$sport" ?>
 </div>
 
 
 <div class="coach-info-container">
     <div class="coach-info">
         <div class="coach-photo">
-            <img src="<?php echo "@$photo" ?>" alt="Photo du coach">
+            <img src="<?php echo "$photo" ?>" alt="Photo du coach">
         </div>
         <div class="coach-details">
-            <p><span class="label"><?php echo "@$prenom  @$nom" ?></span></p>
-            <p>Coach - <?php echo "@$sport" ?></p>
-            <p>Tél : <?php echo "@$num" ?></p>
-            <p>Email : <?php echo "@$mail_coach" ?></p>
+            <p><span class="label"><?php echo "$prenom  $nom" ?></span></p>
+            <p>Coach - <?php echo "$sport" ?></p>
+            <p>Tél : <?php echo "$num" ?></p>
+            <p>Email : <?php echo "$mail_coach" ?></p>
         </div>
     </div>
 
     <div class="availability-table">
         <table class="availability">
             <tr>
-                <th></th> <!-- Cellule vide pour l'alignement -->
+                <th></th>
                 <th>Lundi</th>
                 <th>Mardi</th>
                 <th>Mercredi</th>
@@ -173,19 +174,21 @@ if($result){
 
 
 
-    <!-- Boutons -->
+
     <div class="button-container">
         <table class="t-RDV">
             <tr>
                 <td>
-                    <form action="prendre_RDV.php" method="post"> <button class="bouton" type="submit" name="mail_coach" value="<?php echo "@$mail_coach";?>">Prendre RDV</button></form>
+                    <form action="prendre_RDV.php" method="post"> <button class="bouton" type="submit" name="mail_coach" value="<?php echo "$mail_coach";?>">Prendre RDV</button></form>
 
                 </td>
                 <td>
-                    <form action="messages.php" method="post" > <button name="mail_coach" value="<?php echo "@$mail_coach";?>" class="bouton"> Chatroom </button> </form>
+                    <form action="messages.php" method="post" > <button name="mail_coach" value="<?php echo "$mail_coach";?>" class="bouton"> Chatroom </button> </form>
                 </td>
                 <td>
-                    <a href="SDC/coatch-basket.jpg" target="_blank"> <button class="bouton">CV</button> </a>
+                    <a href="cv-coach/cv-<?php echo $discipline; ?>.pdf" target="_blank">
+                        <button class="bouton">CV</button>
+                    </a>
                 </td>
             </tr>
         </table>
