@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="cv des coachs" />
+    <list default="true" id="0c640efc-b6a8-453a-9b8f-2d82c8220ab9" name="Changes" comment="nom de la page sport">
+      <change beforePath="$PROJECT_DIR$/Coaching.html" beforeDir="false" afterPath="$PROJECT_DIR$/Coaching.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Horaire.html" beforeDir="false" afterPath="$PROJECT_DIR$/Horaire.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nos_services.html" beforeDir="false" afterPath="$PROJECT_DIR$/Nos_services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Personnels.html" beforeDir="false" afterPath="$PROJECT_DIR$/Personnels.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RDV.php" beforeDir="false" afterPath="$PROJECT_DIR$/RDV.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tout_parcourir.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tout_parcourir.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conversations.php" beforeDir="false" afterPath="$PROJECT_DIR$/conversations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deconnexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/deconnexion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prendre_RDV.php" beforeDir="false" afterPath="$PROJECT_DIR$/prendre_RDV.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717362584176</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="nom de la page sport">
+      <option name="closed" value="true" />
+      <created>1717362678500</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1717362678500</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +199,7 @@
     <MESSAGE value="modif sur paiment/coaching" />
     <MESSAGE value="blindage si coach supprimer" />
     <MESSAGE value="cv des coachs" />
-    <option name="LAST_COMMIT_MESSAGE" value="cv des coachs" />
+    <MESSAGE value="nom de la page sport" />
+    <option name="LAST_COMMIT_MESSAGE" value="nom de la page sport" />
   </component>
 </project>

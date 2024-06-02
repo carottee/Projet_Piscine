@@ -22,7 +22,7 @@ $mail_env = $user['mail'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatroom</title>
+    <title>Conversation</title>
     <link href="styles.css" rel="stylesheet" type="text/css"/>
 
 </head>
@@ -36,9 +36,9 @@ $mail_env = $user['mail'];
 </div>
 
 <div id="navigation">
-    <table class="t-nav"> <!--tableau onglets + cf CSS .t-nav-->
-        <tr> <!--nouvelle ligne-->
-            <td> <!--nouvelle colonne-->
+    <table class="t-nav">
+        <tr>
+            <td>
                 <a href="Accueil.html"><button class="bouton" id="accueil" type="button">  Accueil  </button></a>
             </td>
             <td>

@@ -23,7 +23,7 @@ $statut = $user['statut'];
 <html lang="en" xmlns:display="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Mes RDV</title>
+    <title>RDV</title>
     <link href="styles.css" rel="stylesheet" type="text/css"/>
     <script src="animations.js" type="text/javascript"></script>
 </head>

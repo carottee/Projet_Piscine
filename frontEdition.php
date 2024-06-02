@@ -38,7 +38,7 @@ if ($db_found) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Prendre RDV basket</title>
+    <title>Planning</title>
     <link href="styles.css" rel="stylesheet" type="text/css"/>
     <script>
         // Fonction pour modifier la valeur des cases à cocher avant la soumission du formulaire
